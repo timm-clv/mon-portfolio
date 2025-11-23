@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timm Claverie</title>
+    
+
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="panels.css">
+    <style>
+        .spinner { overflow: visible; }
+    </style>
+    <link rel="icon" type="image/png" href="ref/TC.png">
+</head>
+<body>
+
+    <div class="grid-line-vertical left"></div>
+    <div class="grid-line-vertical right"></div>
+
+    <div class="loader">
+        <div class="text-container">
+            <h1 class="loader-text">Hi, it's <span class="highlight-name">Timm.</span></h1>
+            <p class="loader-subtext">My website is under construction.</p>
+            
+            <div class="loader-buttons-container">
+                
+                <a href="https://www.linkedin.com/in/timm-claverie-47538a385" target="_blank" class="btn-icon btn-linkedin" aria-label="LinkedIn Profile">
+                    <svg class="btn-linkedin-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667h-3.554v-11.59h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.424zM2.482 7.296h3.554v11.59H2.482V7.296zM4.254 5.64c-.966 0-1.757-.79-1.757-1.764s.79-1.764 1.757-1.764 1.757.79 1.757 1.764-.79 1.764-1.757 1.764z"/>
+                    </svg>
+                </a>
+                    
+                <div class="btn-row">
+                        <a href="/path/to/your/resume.pdf" target="_blank" class="btn-tube btn-resume">
+                            <span class="btn-icon-emoji">📄</span>
+                            My Resume
+                        </a>
+
+                        <a href="#contact" class="btn-tube btn-contact">
+                            <span class="btn-icon-emoji">✉️</span>
+                            My contact
+                        </a>
+                </div>
+            </div>
+ 
+        </div>
+        
+        <div class="animation-container">
+            <div class="spinner-wrapper">
+                <svg class="spinner" viewBox="0 0 100 100">
+                    <defs>
+                        <filter id="neon">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"></feGaussianBlur>
+                            <feMerge>
+                                <feMergeNode in="blur"></feMergeNode>
+                                <feMergeNode in="SourceGraphic"></feMergeNode>
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    <circle class="path" cx="50" cy="50" r="48" fill="none" stroke="#E13C4C" stroke-width="0.5" stroke-dasharray="2 3" filter="url(#neon)"/>
+                    
+                    <path class="segment" d="M 50, 5 A 45,45 0 0,1 81.8,18.2" fill="none" stroke="#FF0000" stroke-width="1" filter="url(#neon)"/>
+                    <path class="segment" d="M 81.8,18.2 A 45,45 0 0,1 95,50" fill="none" stroke="#FFA500" stroke-width="1" filter="url(#neon)"/>
+                    <path class="segment" d="M 95, 50 A 45,45 0 0,1 81.8,81.8" fill="none" stroke="#008000" stroke-width="1" filter="url(#neon)"/>
+                    <path class="segment" d="M 81.8,81.8 A 45,45 0 0,1 50,95" fill="none" stroke="#0000FF" stroke-width="1" filter="url(#neon)"/>
+                    <path class="segment" d="M 50, 95 A 45,45 0 0,1 18.2,81.8" fill="none" stroke="white" stroke-width="1" filter="url(#neon)"/>
+                    <path class="segment" d="M 18.2,81.8 A 45,45 0 0,1 5,50" fill="none" stroke="#00FFFF" stroke-width="1" filter="url(#neon)"/>
+                    <path class="segment" d="M 5, 50 A 45,45 0 0,1 18.2,18.2" fill="none" stroke="#800080" stroke-width="1" filter="url(#neon)"/>
+                    <path class="segment" d="M 18.2,18.2 A 45,45 0 0,1 50,5" fill="none" stroke="#00FF00" stroke-width="1" filter="url(#neon)"/>
+                    
+                    <g class="inner-bars" stroke="#E13C4C" stroke-width="0.1" filter="url(#neon)">
+                    </g>
+                </svg>
+
+                <div class="central-disk"></div>
+                
+                <div class="dot-grid-container">
+                    </div>
+
+                <div class="scope-container">
+                    <svg class="line-grid" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    </svg>
+                    <svg class="dot-curve" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <path id="dot-path" d="M 0,50 L 100,50"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        </div>
+            <a href="#zone-1" class="btn-tube btn-contact btn-next-loader">
+                <span class="btn-icon-emoji">➡️</span>
+                Next
+            </a>
+        </div>
+
+    </div>
+
+    <nav id="main-nav" class="main-nav">
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#internship">Internship</a></li>
+            <li><a href="#certs">Certifications</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#domains">Domains</a></li>
+            <li><a href="#references">References</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <svg style="display:none;">
+        <defs>
+            <filter id="neon-dots"> <feGaussianBlur in="SourceGraphic" stdDeviation="1" result="blur"></feGaussianBlur>
+                <feMerge>
+                    <feMergeNode in="blur"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+            </filter>
+        </defs>
+    </svg>
+
+    <video id="bg-video-z1" loop muted playsinline>
+        <source src="ref/vid1.mp4" type="video/mp4">*
+    </video>
+
+    
+    <canvas id="scene-3d"></canvas>
+
+    <section class="content" id="zone-1">
+    </section>
+
+
+
+    <section class="content" style="min-height: 50vh;">
+        
+    </section>
+
+
+    <div class="grid-divider">
+    <div class="grid-cross left">+</div>
+    <div class="grid-line-horizontal"></div>
+    <h2 class="grid-title" id="about-title">
+        <span class="gold-square"></span>ABOUT ME
+    </h2>
+    <div class="grid-line-horizontal"></div>
+    <div class="grid-cross right">+</div>
+    </div>  
+
+    <section class="content" id="about" style="padding: 6.5rem 0;">
+        
+        <div class="about-me-container">
+            <div class="panel-2d about-me-panel">
+
+                <div class="about-me-image">
+                    <div class="neon-circle-image">
+                        <img src="ref/p3.jpg" alt="Photo de Timm Claverie">
+                    </div>
+                </div>
+
+            
+                <!-- <div class="panel-2d-header">
+                    About Me
+                </div> -->
+                <div class="panel-2d-body">
+                    
+                    <p>
+                        I'm <span class="text-red">Timm Claverie</span>, a fourth-year engineering student at SeaTech, part of the French INP (Institut National Polytechnique) network. 
+                        I specialise in <span class="text-red">Mechatronic, Robotics</span> and autonomous <span class="text-red">embedded systems</span>.
+                    </p>
+                    
+                    <p>
+                        I work on projects that combine <span class="text-red">software development, artificial intelligence, embedded programming, debugging, and simulation</span>, aiming to build intelligent and reliable systems.
+                    </p>
+
+                    <p>
+                        <span class="text-red">Hard-working, dedicated and adaptable</span>, I seek to deepen my knowledge, contribute to innovative projects and make a <span class="text-red">long-term commitment</span>.
+                    </p>
+                </div>
+            </div> 
+        </div> 
+    </section>
+
+
+
+    
+
+
+
+
+
+    
+
+    <div class="grid-divider">
+    <div class="grid-cross left">+</div>
+    <div class="grid-line-horizontal"></div>
+    <h2 class="grid-title">
+        <span class="gold-square"></span>PROJECTS
+    </h2>
+    <div class="grid-line-horizontal"></div>
+    <div class="grid-cross right">+</div>
+    </div>  
+
+
+    <section class="content" id="projects" style="padding: 0; width: 100%;">
+    
+    <div class="projects-layout-wrapper">
+        
+        <div class="cyber-scroller-mask">
+            <div class="cyber-scroller" id="project-scroller">
+                
+                <div class="hud-card active" data-type="image" data-src="ref/image1.jpg" data-title="Embedded Systems : Mobile Robot Control" data-desc="C programming for an autonomous mobile robot : <br>motor control, analogue-to-digital conversions, infrared telemetry, time stamping and state machine">
+                     <div class="hud-card-glitch"></div>
+                     <div class="hud-card-content"><span class="hud-id">01</span><span class="hud-label">EMBEDDED</span></div>
+                </div>
+                <div class="hud-card" data-type="video" data-src="ref/vid1.mp4" data-title="RoboCup : NN Spline Trajectory Planner" data-desc="Optimisation of robot trajectories using a neural network for calculating Bézier curves in Python.">
+                     <div class="hud-card-glitch"></div>
+                     <div class="hud-card-content"><span class="hud-id">02</span><span class="hud-label">ROBOCUP</span></div>
+                </div>
+                <div class="hud-card" data-type="image" data-src="ref/csgroup.png" data-title="Optimisation of Maritime Surveillance" data-desc="Group project combining AI image processing and data management. <br> My role: designing a data table in PostgreSQL and a Human-Machine Interface (HMI)." data-link="ref/report/CS_Group.pdf"> 
+                     <div class="hud-card-glitch"></div>
+                     <div class="hud-card-content"><span class="hud-id">03</span><span class="hud-label">CS GROUP</span></div>
+                </div>
+                
+                <div class="hud-card" data-type="video" data-src="ref/turtle.mp4" data-title="ROS Programming : Autonomous Turtlebot" data-desc="Autonomous navigation and obstacle avoidance under ROS 1 : <br> event handling, Python code, LiDAR sensor integration.">
+                     <div class="hud-card-glitch"></div>
+                     <div class="hud-card-content"><span class="hud-id">04</span><span class="hud-label">ROS</span></div>
+                </div>
+                <div class="hud-card" data-type="image" data-src="ref/creditcards.jpg" data-title="Machine Learning : Fraud detection" data-desc="Analysis of the dataset containing credit card transactions. <br> Evaluation methods and model explainability.">
+                     <div class="hud-card-glitch"></div>
+                     <div class="hud-card-content"><span class="hud-id">05</span><span class="hud-label">MACHINE LEARNING</span></div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="projects-controls">
+            <a href="all-projects.html" class="btn-tube btn-view-all">
+                📂 See All My Projects
+            </a>
+        </div>
+
+    </div>
+
+    <div class="tactical-screen-wrapper" id="tactical-wrapper">
+        <div class="screen-bracket top-left"></div>
+        <div class="screen-bracket top-right"></div>
+        <div class="screen-bracket bottom-left"></div>
+        <div class="screen-bracket bottom-right"></div>
+        <canvas id="tactical-map-canvas"></canvas>
+        <div id="tactical-content-layer" style="display: none;">
+            <div class="screen-overlay-ui">
+                <h3 id="screen-title">SYSTEM_CORE_V1</h3>
+                <p id="screen-desc">INITIALIZING...</p>
+                <a href="#" id="screen-link" class="btn-tube btn-project-link" target="_blank">
+                    ACCESS_REPORT
+                </a>
+
+            </div>
+            <div class="screen-media-container">
+                <img id="screen-img" src="ref/image1.jpg" alt="Project View">
+                <video id="screen-video" loop muted playsinline><source src="" type="video/mp4"></video>
+                <div class="scanlines"></div>
+            </div>
+        </div>
+    </div>  
+
+    </section>
+
+
+
+
+
+
+
+
+
+    <div class="grid-divider">
+    <div class="grid-cross left">+</div>
+    <div class="grid-line-horizontal"></div>
+    <h2 class="grid-title">
+        <span class="gold-square"></span>INTERNSHIP
+    </h2>
+    <div class="grid-line-horizontal"></div>
+    <div class="grid-cross right">+</div>
+    </div> 
+
+    <section class="content" id="internship" style="padding: 0;">
+    
+    <div class="mission-files-container">
+
+        <div class="mission-file active-file">
+            
+            <div class="file-visual">
+                <div class="img-frame">
+                    <img src="ref/cepa.png" alt="Mission Image"> <div class="img-overlay"></div>
+                </div>
+            </div>
+
+            <div class="file-data">
+                <div class="file-header">
+                    <span class="file-id">CEPA/10S // 2025</span>
+                    <div class="file-status status-success">COMPLETED</div>
+                </div>
+                
+                <h3 class="file-title">Defense Sector R&D</h3>
+                
+                <p class="file-desc">
+                    During this internship at the <strong>naval air base</strong> in Hyères, the centre entrusted me with the task of developing an <strong>innovative module</strong> for the <strong>French Navy</strong>. My objective was to design a <strong>testing infrastructure</strong>.
+                    <br><br>
+                    This design allowed me to develop my knowledge of <strong>3D modelling</strong> and combine the expertise of machinists and engineers in multidisciplinary fields. This experience was decisive, consolidating my focus on <strong>defence systems engineering</strong> and <strong>military aeronautics</strong>.
+                </p>
+
+                <!-- <button class="cyber-btn-expand" data-target="mission-1">
+                    <span class="btn-text">REPORT</span>
+                </button>
+
+                <div id="mission-1" class="log-hidden-panel restricted">
+                    <div class="access-denied-box">
+                        The content is not freely accessible.
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="mission-file hazard-locked">
+            
+            <div class="hazard-tape"></div>
+
+            <div class="file-visual">
+                <div class="img-frame">
+                    <!-- <img src="ref/p3.jpg" alt="Locked">  -->
+                </div>
+            </div>
+
+            <div class="file-data">
+                <div class="file-header">
+                    <span class="file-id">CRTA // 2026</span>
+                    <div class="file-status status-warning">COMING_SOON</div>
+                </div>
+                
+                <h3 class="file-title">CRTA Internship</h3>
+                
+                <p class="file-desc">
+                    . . . . . . . . . . 
+                </p>
+            </div>
+        </div>
+
+        <div class="mission-file hazard-locked">
+            
+            <div class="hazard-tape"></div>
+
+            <div class="file-visual">
+                <div class="img-frame">
+                    <!-- <img src="ref/image1.jpg" alt="Locked"> -->
+                </div>
+            </div>
+
+            <div class="file-data">
+                <div class="file-header">
+                    <span class="file-id"> ...  // 2027</span>
+                    <div class="file-status status-warning">LOCKED</div>
+                </div>
+                
+                <h3 class="file-title">Final Year Internship</h3>
+                
+                <p class="file-desc">
+                     . . . . . . . . . . 
+                </p>
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="grid-divider">
+    <div class="grid-cross left">+</div>
+    <div class="grid-line-horizontal"></div>
+    <h2 class="grid-title">
+        <span class="gold-square"></span>CERTIFICATIONS
+    </h2>
+    <div class="grid-line-horizontal"></div>
+    <div class="grid-cross right">+</div>
+    </div> 
+
+
+    <section class="content" id="certs" style="padding: 1rem 0;">
+    
+    <div class="cert-node-container horizontal-layout">
+        
+        <div class="cert-terminal-head">
+            <div class="terminal-header-line">
+                <span class="term-icon">◈</span>
+                <span class="term-id">__01__</span>
+                <div class="term-status">CLOSED</div>
+            </div>
+            
+            <h3 class="term-title">MACHINE LEARNING WITH PYTHON</h3>
+            
+            <div class="term-body-text">
+                <p>
+                    Training courses taken on Kaggle. Introduction to data evaluation, pipeline mastery, model explainability. 
+                    <br>
+                    Application to a dataset for detecting fraudulent credit card transactions.
+                </p>
+                <p class="term-small">
+                    <a href="page_suivante.html" class="encryption-link" target="_blank">
+                        [ CREDIT_CARD_TRANSACTIONS ]
+                    </a><br>
+                    // LAST_UPDATE: 15-11-2025
+                </p>
+            </div>
+
+            <button class="cert-trigger-btn" id="cert-trigger">
+                <span class="btn-brackets">[</span>
+                <span class="btn-text">CERTIFICATES_LIST</span>
+                <span class="btn-brackets">]</span>
+                <div class="btn-scan-line"></div>
+            </button>
+        </div>
+
+        <div class="cert-links-wrapper" id="cert-links">
+            <div class="connector-line-horizontal"></div>
+            
+            <div class="links-inner-group">
+                <a href="https://lnkd.in/dHaE9KXe" target="_blank" class="cert-link-node">
+                    <div class="node-decor">01</div>
+                    <div class="node-content">
+                        <span class="node-title">Intro to Machine Learning</span>
+                        <span class="node-meta">#21-09-2025</span>
+                    </div>
+                    <div class="node-arrow">➔</div>
+                </a>
+
+                <a href=" https://lnkd.in/dSeE2xqt" target="_blank" class="cert-link-node">
+                    <div class="node-decor">02</div>
+                    <div class="node-content">
+                        <span class="node-title">Intermediate Machine Learning</span>
+                        <span class="node-meta">#09-10-2025</span>
+                    </div>
+                    <div class="node-arrow">➔</div>
+                </a>
+
+                <a href="https://lnkd.in/dhWn3wfp" target="_blank" class="cert-link-node">
+                    <div class="node-decor">03</div>
+                    <div class="node-content">
+                        <span class="node-title">Machine Learning Explainability</span>
+                        <span class="node-meta">27-10-2025</span>
+                    </div>
+                    <div class="node-arrow">➔</div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="grid-divider">
+    <div class="grid-cross left">+</div>
+    <div class="grid-line-horizontal"></div>
+    <h2 class="grid-title">
+        <span class="gold-square"></span>SKILLS
+    </h2>
+    <div class="grid-line-horizontal"></div>
+    <div class="grid-cross right">+</div>
+    </div> 
+
+
+<section class="content" id="skills" style="padding: 4rem 0;">
+    
+    <div class="neural-container">
+        
+        <h3 class="grid-section-title text-cyan">>> ENGINEERING_PROTOCOLS</h3>
+        <div class="neural-grid">
+
+            <div class="neural-node" data-type="tech">
+                <div class="node-header">
+                    <span class="node-title">EMBEDDED SYSTEMS</span>
+                    <span class="node-id">0xA1</span>
+                </div>
+                <div class="node-body">
+                    <p class="node-tags">Real-Time OS // Microcontrollers // Firmware // I2C/SPI</p>
+                </div>
+                <div class="node-footer">
+                    <div class="status-led"></div>
+                    <span class="status-text">SYSTEM_ONLINE</span>
+                </div>
+            </div>
+
+            <div class="neural-node" data-type="tech">
+                <div class="node-header">
+                    <span class="node-title">ROBOTICS</span>
+                    <span class="node-id">0xB2</span>
+                </div>
+                <div class="node-body">
+                    <p class="node-tags">Kinematics // Path Planning // Sensors Fusion // Actuators</p>
+                </div>
+                <div class="node-footer">
+                    <div class="status-led"></div>
+                    <span class="status-text">ACTIVE_CONTROL</span>
+                </div>
+            </div>
+
+            <div class="neural-node" data-type="tech">
+                <div class="node-header">
+                    <span class="node-title">AI & VISION</span>
+                    <span class="node-id">0xC3</span>
+                </div>
+                <div class="node-body">
+                    <p class="node-tags">Object Detection // Neural Networks // Image Processing // PyTorch</p>
+                </div>
+                <div class="node-footer">
+                    <div class="status-led"></div>
+                    <span class="status-text">PROCESSING</span>
+                </div>
+            </div>
+            
+            <div class="neural-node" data-type="tech">
+                <div class="node-header">
+                    <span class="node-title">SIMULATION</span>
+                    <span class="node-id">0xD4</span>
+                </div>
+                <div class="node-body">
+                    <p class="node-tags">Digital Twin // Physics Engine // Gazebo // MatLab</p>
+                </div>
+                <div class="node-footer">
+                    <div class="status-led"></div>
+                    <span class="status-text">VIRTUALIZED</span>
+                </div>
+            </div>
+
+        </div>
+
+        <h3 class="grid-section-title text-gold" style="margin-top: 4rem;">>> CORE_HEURISTICS</h3>
+        <div class="neural-grid">
+
+            <div class="neural-node" data-type="soft">
+                <div class="node-header">
+                    <span class="node-title">PROBLEM SOLVING</span>
+                    <span class="node-id">CORE_1</span>
+                </div>
+                <div class="node-body">
+                    <p class="node-tags">Critical Thinking // Debugging // Strategy // Analytical</p>
+                </div>
+                <div class="node-footer">
+                    <div class="status-led color-gold"></div>
+                    <span class="status-text">OPTIMIZED</span>
+                </div>
+            </div>
+
+            <div class="neural-node" data-type="soft">
+                <div class="node-header">
+                    <span class="node-title">TEAM SYNERGY</span>
+                    <span class="node-id">CORE_2</span>
+                </div>
+                <div class="node-body">
+                    <p class="node-tags">Communication // Agile Method // Leadership // Adaptability</p>
+                </div>
+                <div class="node-footer">
+                    <div class="status-led color-gold"></div>
+                    <span class="status-text">LINKED</span>
+                </div>
+            </div>
+
+            <div class="neural-node" data-type="soft">
+                <div class="node-header">
+                    <span class="node-title">PROJECT MGMT</span>
+                    <span class="node-id">CORE_3</span>
+                </div>
+                <div class="node-body">
+                    <p class="node-tags">Time Management // Resource Planning // Delivery // QA</p>
+                </div>
+                <div class="node-footer">
+                    <div class="status-led color-gold"></div>
+                    <span class="status-text">DEPLOYED</span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="grid-divider">
+    <div class="grid-cross left">+</div>
+    <div class="grid-line-horizontal"></div>
+    <h2 class="grid-title">
+        <span class="gold-square"></span>TOOLS
+    </h2>
+    <div class="grid-line-horizontal"></div>
+    <div class="grid-cross right">+</div>
+    </div> 
+
+    <section class="content" id="tools">
+        <div class="skills-grid-container">
+        
+        <div class="skill-card" 
+             data-title="PYTHON" 
+             data-desc="Data analysis, scripting automated tasks, and building neural networks with PyTorch/TensorFlow." 
+             data-project="Fraud Detection System" 
+             data-link="https://github.com/ton-repo/fraud-detection">
+            
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/Python.png" alt="Python"> 
+            </div>
+            <h3 class="skill-title">PYTHON</h3>
+            <p class="skill-desc-text">Data analysis & Neural Networks</p>
+        </div>
+
+        <div class="skill-card" 
+             data-title="C++ / EMBEDDED" 
+             data-desc="Real-time constraints, memory management, and low-level hardware control for robotics." 
+             data-project="Autonomous Turtlebot" 
+             data-link="#projects">
+             
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/Cpp.png" alt="C++">
+            </div>
+            <h3 class="skill-title">C++ / EMBEDDED</h3>
+            <p class="skill-desc-text">Real-time constraints & Robotics</p>
+        </div>
+
+        <div class="skill-card" 
+             data-title="ROS1" 
+             data-desc="Robot Operating System middleware. Node communication, navigation stack, and Gazebo simulation." 
+             data-project="RoboCup Challenge" 
+             data-link="#projects">
+             
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/ros.png" alt="ROS">
+            </div>
+            <h3 class="skill-title">ROS1</h3>
+            <p class="skill-desc-text">Middleware & Navigation Stack</p>
+        </div>
+
+        <div class="skill-card" 
+             data-title="GAZEBO" 
+             data-desc="3D Robotics simulator. Physics engine integration and environment modeling." 
+             data-project="TurtleBot" 
+             data-link="#projects">
+             
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/gazebo.png" alt="Gazebo">
+            </div>
+            <h3 class="skill-title">Gazebo</h3>
+            <p class="skill-desc-text">Physics engine & Simulation</p>
+        </div>
+
+        <div class="skill-card" 
+             data-title="MATLAB" 
+             data-desc="Numerical computing environment. Algorithm development and data analysis." 
+             data-project="Simulator" 
+             data-link="#projects">
+             
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/matlab.png" alt="Matlab">
+            </div>
+            <h3 class="skill-title">Matlab</h3>
+            <p class="skill-desc-text">Numerical computing</p>
+        </div>
+
+        <div class="skill-card" 
+             data-title="SIMULINK" 
+             data-desc="Block diagram environment for multidomain simulation and Model-Based Design." 
+             data-project="" 
+             data-link="#projects">
+             
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/simulink.png" alt="Simulink">
+            </div>
+            <h3 class="skill-title">Simulink</h3>
+            <p class="skill-desc-text">Model-Based Design</p>
+        </div>
+
+        <div class="skill-card" 
+             data-title="JAVA" 
+             data-desc="Object-oriented programming. Application development and algorithmic structures." 
+             data-project="" 
+             data-link="#projects">
+             
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/java.png" alt="Java">
+            </div>
+            <h3 class="skill-title">Java</h3>
+            <p class="skill-desc-text">OOP & Algorithms</p>
+        </div>
+
+        <div class="skill-card" 
+             data-title="SOLIDWORKS" 
+             data-desc="Computer-aided design (CAD) and computer-aided engineering (CAE)." 
+             data-project="" 
+             data-link="#projects">
+             
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/solidworks.png" alt="SolidWorks">
+            </div>
+            <h3 class="skill-title">SolidWorks</h3>
+            <p class="skill-desc-text">CAD & Engineering</p>
+        </div>
+
+        <div class="skill-card" 
+             data-title="EXCEL" 
+             data-desc="Spreadsheet management, VBA macros and data visualization." 
+             data-project="" 
+             data-link="#projects">
+             
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/excel.png" alt="Excel">
+            </div>
+            <h3 class="skill-title">Excel</h3>
+            <p class="skill-desc-text">Data Viz & VBA</p>
+        </div>
+
+        <div class="skill-card" 
+             data-title="LATEX" 
+             data-desc="High-quality typesetting system for scientific documentation." 
+             data-project="" 
+             data-link="#projects">
+             
+            <div class="scan-beam"></div>
+            <div class="skill-icon-wrapper">
+                <img src="ref/latex.png" alt="LaTeX">
+            </div>
+            <h3 class="skill-title">LaTeX</h3>
+            <p class="skill-desc-text">Scientific Documentation</p>
+        </div>
+
+        </div>
+    </section>
+
+    <div id="skill-modal-overlay" class="skill-modal-overlay">
+        <div class="skill-modal-card">
+            
+            <div class="corner-bracket top-left"></div>
+            <div class="corner-bracket top-right"></div>
+            <div class="corner-bracket bottom-left"></div>
+            <div class="corner-bracket bottom-right"></div>
+            
+            <button class="skill-modal-close" id="close-skill-modal">X</button>
+
+            <div class="skill-modal-content">
+                <div class="modal-left">
+                    <div class="modal-img-frame">
+                        <img id="modal-img" src="" alt="Skill Icon">
+                        <div class="scan-line"></div>
+                    </div>
+                </div>
+
+                <div class="modal-right">
+                    <h3 id="modal-title" class="modal-title">TITLE</h3>
+                    <p id="modal-desc" class="modal-desc">Description text goes here...</p>
+                    
+                    <div class="modal-footer">
+                        <span class="linked-label">LINKED PROJECT //</span>
+                        <a id="modal-link" href="#" target="_blank" class="linked-link">PROJECT_NAME</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="grid-divider">
+    <div class="grid-cross left">+</div>
+    <div class="grid-line-horizontal"></div>
+    <h2 class="grid-title">
+        <span class="gold-square"></span>DOMAINS
+    </h2>
+    <div class="grid-line-horizontal"></div>
+    <div class="grid-cross right">+</div>
+    </div> 
+
+
+<section class="content" id="domains">
+    
+    <div class="domains-grid-container">
+        
+        <div class="domain-card">
+            <div class="scan-beam-gold"></div>
+            <div class="domain-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <circle cx="12" cy="10" r="3" />
+                </svg>
+            </div>
+            <h3 class="domain-title">DEFENSE & SECURITY</h3>
+            <p class="domain-desc">
+                Development of ruggedized systems, secure communications, and surveillance infrastructure for critical zones.
+            </p>
+        </div>
+
+        <div class="domain-card">
+            <div class="scan-beam-gold"></div>
+            <div class="domain-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M2 12h20"/>
+                    <path d="M12 2l3 10-3 10-3-10 3-10z"/>
+                    <path d="M5 12l7-7 7 7"/>
+                </svg>
+            </div>
+            <h3 class="domain-title">AEROSPACE & UAV</h3>
+            <p class="domain-desc">
+                Flight dynamics, autonomous drone navigation, and embedded flight control units (FCU).
+            </p>
+        </div>
+
+        <div class="domain-card">
+            <div class="scan-beam-gold"></div>
+            <div class="domain-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="2" y="6" width="20" height="8" rx="2" />
+                    <circle cx="7" cy="17" r="3" />
+                    <circle cx="17" cy="17" r="3" />
+                    <path d="M7 14v3 M17 14v3" />
+                </svg>
+            </div>
+            <h3 class="domain-title">AUTONOMOUS ROBOTICS</h3>
+            <p class="domain-desc">
+                Path planning, obstacle avoidance (SLAM), and kinematics for UGVs and mobile platforms.
+            </p>
+        </div>
+
+        <div class="domain-card">
+            <div class="scan-beam-gold"></div>
+            <div class="domain-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                    <line x1="12" y1="2" x2="12" y2="4"/>
+                    <line x1="12" y1="20" x2="12" y2="22"/>
+                </svg>
+            </div>
+            <h3 class="domain-title">SMART SENSING</h3>
+            <p class="domain-desc">
+                Computer vision pipelines, sensor fusion (LiDAR/Camera), and image processing for quality control.
+            </p>
+        </div>
+
+        <div class="domain-card">
+            <div class="scan-beam-gold"></div>
+            <div class="domain-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    <path d="M2 12h20 M12 2v20" transform="rotate(45 12 12)"/>
+                </svg>
+            </div>
+            <h3 class="domain-title">R&D & PROTOTYPING</h3>
+            <p class="domain-desc">
+                Feasibility studies, rapid prototyping, and experimental system design for innovation labs.
+            </p>
+        </div>
+
+        <div class="domain-card">
+            <div class="scan-beam-gold"></div>
+            <div class="domain-icon-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M2 12h20" />
+                    <path d="M12 4v16 M8 16l4 4 4-4" />
+                    <path d="M2 16c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" />
+                </svg>
+            </div>
+            <h3 class="domain-title">MARINE SYSTEMS</h3>
+            <p class="domain-desc">
+                Embedded solutions for underwater vehicles (ROV/AUV) and maritime surveillance platforms.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="grid-divider">
+    <div class="grid-cross left">+</div>
+    <div class="grid-line-horizontal"></div>
+    <h2 class="grid-title">
+        <span class="gold-square"></span>REFERENCES
+    </h2>
+    <div class="grid-line-horizontal"></div>
+    <div class="grid-cross right">+</div>
+    </div> 
+
+
+    <section class="content" id="references">
+    
+    <div class="ref-grid-container">
+        
+        <div class="ref-card">            
+            <div class="ref-body">
+                <div class="quote-mark">“</div>
+                <p class="ref-text">
+                    Timm demonstrated exceptional skills in embedded C programming. His ability to debug complex hardware interfaces saved us weeks of development time. A reliable engineer.
+                </p>
+            </div>
+
+            <div class="ref-footer">
+                <div class="ref-avatar-placeholder">JD</div> <div class="ref-info">
+                    <span class="ref-name">John Doe</span>
+                    <span class="ref-role">Senior Lead Dev @ Thales</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="ref-card">            
+            <div class="ref-body">
+                <div class="quote-mark">“</div>
+                <p class="ref-text">
+                    Autonomous navigation is a tough field, but Timm adapted quickly to ROS constraints. His work on the SLAM algorithm implementation was impressive for a student.
+                </p>
+            </div>
+
+            <div class="ref-footer">
+                <div class="ref-avatar-placeholder">AS</div>
+                <div class="ref-info">
+                    <span class="ref-name">Alice Smith</span>
+                    <span class="ref-role">R&D Manager @ Naval Group</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="ref-card">            
+            <div class="ref-body">
+                <div class="quote-mark">“</div>
+                <p class="ref-text">
+                    Proactive and curious. He doesn't just write code; he understands the physical system behind it. A true mechatronics engineer profile.
+                </p>
+            </div>
+
+            <div class="ref-footer">
+                <div class="ref-avatar-placeholder">MR</div>
+                <div class="ref-info">
+                    <span class="ref-name">Marc Rousseau</span>
+                    <span class="ref-role">Professor @ SeaTech</span>
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="grid-divider">
+    <div class="grid-cross left">+</div>
+    <div class="grid-line-horizontal"></div>
+    <h2 class="grid-title">
+        <span class="gold-square"></span>CONTACT ME
+    </h2>
+    <div class="grid-line-horizontal"></div>
+    <div class="grid-cross right">+</div>
+    </div> 
+
+
+<section class="content" id="contact">
+    
+    <div class="contact-terminal">
+        <div class="corner-bracket top-left"></div>
+        <div class="corner-bracket top-right"></div>
+        <div class="corner-bracket bottom-left"></div>
+        <div class="corner-bracket bottom-right"></div>
+
+
+        <div class="terminal-body">
+            <span class="status-dot"></span>
+            <h2 class="contact-title">READY TO COLLABORATE?</h2>
+            <p class="contact-desc">
+                Currently looking for a <strong>6-month internship</strong> starting in 2026.
+                <br>Open to opportunities in Embedded Systems, Robotics, and AI.
+            </p>
+
+            <!-- <a href="mailto:ton.email@example.com" class="btn-transmit">
+                <span class="btn-icon">✉</span>
+                <span class="btn-label">Email</span>
+                <div class="btn-glitch-effect"></div>
+            </a> -->
+
+            <div class="email-input-line">
+                <span class="prompt-char">></span>
+                <span class="neon-email-text">ton.email@example.com</span>
+                <span class="cursor-blink">_</span>
+            </div>
+        </div>
+
+        <div class="terminal-footer">
+            <div class="footer-grid">
+                
+                <a href="https://www.linkedin.com/in/timm-claverie-47538a385" target="_blank" class="footer-link">
+                    <span class="link-icon">LINKEDIN</span>
+                    <span class="link-arrow">➔</span>
+                </a>
+
+                <div class="footer-info">
+                    <span class="info-val">FRANCE, Toulon</span>
+                </div>
+
+                <a href="https://github.com/" target="_blank" class="footer-link">
+                    <span class="link-icon">My Resume</span>
+                    <span class="link-arrow">➔</span>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+
+    <script src="loader.js"></script>
+    <script src="main.js" defer></script>
+    <script type="module" src="scene3D.js"></script>
+    <script type="module">
+        import { initTacticalMap } from './tacticalMap.js';
+        
+        // On lance la map une fois le DOM prêt
+        document.addEventListener('DOMContentLoaded', () => {
+            // Petit délai pour être sûr que le layout est calculé
+            setTimeout(() => {
+                initTacticalMap();
+            }, 500);
+        });
+    </script>
+    
+
+</body>
+</html>

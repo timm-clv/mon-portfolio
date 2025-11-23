@@ -1,0 +1,814 @@
+/* À ajouter dans ton CSS pour les écrans < 768px */
+@media (max-width: 768px) {
+    /* 1. On cache les bordures décoratives latérales*/
+    .grid-line-horizontal, 
+    .grid-line-vertical, 
+    .grid-cross {
+        display: none; 
+    } 
+
+    /* 2. On s'assure que le corps prend toute la largeur sans scroll horizontal */
+    body, html {
+        overflow-x: hidden; /* Vital pour éviter le scroll latéral involontaire */
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    section.content {
+        /* !important est nécessaire ici pour écraser le style inline de ton HTML */
+        padding: 3rem 1rem !important; 
+        width: 100% !important;
+        min-height: auto !important; /* Évite les sections trop hautes */
+    }
+    
+}
+
+/* --- 1. GESTION DE L'ESPACE VIDE --- */
+
+/* On cible la section vide juste avant le titre "About Me" */
+/* Le sélecteur "+" signifie "la section qui vient juste après #zone-1" */
+#zone-1 + section {
+    min-height: 20vh !important; /* Sur PC : on réduit de 50% à 20% (environ 200px) */
+}
+
+@media (max-width: 768px) {
+    #zone-1 {
+        min-height: 28em !important; /* Sur Mobile : on réduit encore (environ 80px) */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fichier : responsive.css */
+
+@media (max-width: 768px) {
+
+    /* 1. REPOSITIONNEMENT DU TEXTE (Loader)  */
+    .loader .text-container {
+        opacity: 0;
+
+        /* 1. POSITIONNEMENT (Centré en haut) */
+        right: auto !important;
+        left: 50% !important;
+        top: 15% !important; /* Ajuste selon la hauteur souhaitée */
+        transform: translateX(-50%) !important;
+        
+        /* 2. STYLE "CARTE" (Fond flou) */
+        background: rgba(0, 0, 0, 0.6) !important; /* Fond noir à 60% d'opacité */
+        backdrop-filter: blur(8px) !important;      /* Le flou derrière */
+        -webkit-backdrop-filter: blur(8px) !important; /* Pour Safari/iPhone */
+        
+        border: 1px solid rgba(255, 255, 255, 0.1) !important; /* Bordure subtile */
+        border-radius: 20px !important; /* Coins bien arrondis */
+        padding: 25px 15px !important;  /* Espace interne */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important; /* Ombre pour détacher du fond */
+
+        /* 3. DIMENSIONS */
+        width: 85% !important; /* Prend 85% de la largeur du téléphone */
+        max-width: 400px !important;
+        text-align: center !important;
+        z-index: 300;
+    }
+
+    /* 2. AJUSTEMENT DE LA TAILLE DU TEXTE */
+    .loader-text {
+        width: 100% !important; /* Prend toute la largeur du conteneur */
+        font-size: 2rem !important; /* Un peu plus petit que sur PC */
+        text-align: center !important;
+        margin-bottom: 5px !important;
+    }
+
+    .loader-subtext {
+        width: 100% !important;
+        text-align: center !important;
+        min-height: auto !important; /* Évite les espaces vides trop grands */
+    }
+
+    /* 3. CENTRAGE DES BOUTONS */
+    .loader-buttons-container {
+        width: 100% !important;
+        text-align: center !important;
+        margin-top: 20px !important;
+        
+        /* Flexbox pour centrer le contenu */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .btn-row {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    /* 1. RÉGLAGE DE L'ESPACEMENT LATÉRAL (MARGES) */
+    :root {
+        /* C'est ICI que tu modifies l'écartement des lignes par rapport au bord */
+        /* 10px = près du bord, 30px = plus centré */
+        --grid-margin: 1px; 
+    }
+
+    /* 2. FORCER L'AFFICHAGE DES LIGNES ET CROIX
+    .grid-line-vertical, */
+    .grid-line-horizontal, 
+    .grid-cross {
+        display: block !important;
+    }
+
+
+    
+
+
+
+    /* 3. APPLIQUER LA NOUVELLE MARGE AUX LIGNES VERTICALES */
+    .grid-line-vertical.left, .grid-cross.left {
+        left: var(--grid-margin) !important;
+    }
+    .grid-line-vertical.right, .grid-cross.right {
+        right: var(--grid-margin) !important;
+    }
+
+    /* 4. CORRECTION DU TITRE POUR FAIRE REVENIR LES LIGNES HORIZONTALES */
+    .grid-divider {
+        display: flex !important; /* Active le mode Flex */
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    h2.grid-title {
+        /* CRUCIAL : On remet 'auto' pour qu'il ne prenne pas toute la place */
+        width: auto !important; 
+        
+        /* Empêche le titre d'être écrasé */
+        flex-shrink: 0 !important; 
+        
+        /* Ajoute un peu d'air autour du texte */
+        margin: 0 10px !important; 
+    }
+
+    .grid-line-horizontal {
+        /* Les lignes reprennent l'espace restant */
+        flex-grow: 1 !important; 
+        width: auto !important; 
+        display: block !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    /* 2. On s'assure que le conteneur principal permet le centrage */
+    .grid-divider {
+        display: flex !important;
+        justify-content: center !important; /* Centre horizontalement le bloc H2 */
+        width: 100% !important;
+        padding: 2rem 0 !important; /* Un peu d'espace pour respirer */
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    #main-nav {
+        display: none;
+        position: fixed;
+        bottom: 0; /* On le met en bas pour l'accessibilité au pouce */
+        top: auto;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.95); /* Fond sombre pour lisibilité */
+        z-index: 1000;
+        border-top: 2px solid #E13C4C; /* Ta couleur rouge thème */
+        padding: 10px 0;
+    }
+
+    #main-nav ul {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto; /* Permet le scroll horizontal */
+        white-space: nowrap; /* Empêche le retour à la ligne */
+        padding: 0 15px;
+        gap: 20px;
+        /* Cache la barre de scroll moche */
+        scrollbar-width: none; 
+    }
+    
+    #main-nav ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    #main-nav a {
+        font-size: 0.9rem;
+        padding: 10px;
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .projects-layout-wrapper {
+        width: 100vw; /* Largeur de l'écran */
+        overflow-x: hidden;
+    }
+    
+    /* Si le scroller est horizontal, on s'assure qu'il est scrollable au doigt */
+    .cyber-scroller {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * { outline: 1px solid red !important; }
+* { box-sizing: border-box; } */
+
+
+@media (max-width: 768px) {
+    /* --- ABOUT ME FIX --- */
+    .about-me-container {
+        width: 100% !important;
+        padding: 0 15px !important; /* Petite marge de sécurité sur les bords */
+        display: block !important; /* Casse le flex s'il y en a un */
+    }
+
+    .panel-2d.about-me-panel {
+        width: 100% !important; /* Force à prendre la largeur du parent, pas plus */
+        min-width: 0 !important; /* Annule toute restriction de taille minimum */
+        max-width: 100% !important;
+        
+        /* On passe le contenu interne en colonne (Image au-dessus, texte en dessous) */
+        display: flex !important;
+        flex-direction: column !important;
+        height: auto !important; /* Laisse le contenu définir la hauteur */
+        padding: 20px !important; /* Réduit le padding interne si nécessaire */
+    }
+
+    /* On s'assure que l'image à l'intérieur ne fait pas exploser le cadre */
+    .about-me-image, 
+    .neon-circle-image img {
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0 auto -30px auto; /* Centre l'image et ajoute une marge en bas */
+    }
+    .panel-2d-body p {
+        margin-top: 0 !important; /* Remonte le premier paragraphe du texte 
+        margin-bottom: 0 !important;*/
+    }
+
+
+
+    /* --- REFERENCES FIX --- */
+    .ref-grid-container {
+        /* 1. CRUCIAL : On annule le padding complexe du PC */
+        padding: 0 20px !important; /* Juste une petite marge équilibrée gauche/droite */
+        
+        /* 2. On force le conteneur à prendre toute la largeur */
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 !important; /* Supprime les marges externes */
+        
+        /* 3. On centre le contenu (les cartes) */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* Centre horizontalement les enfants */
+        
+        box-sizing: border-box !important;
+    }
+
+    .ref-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-bottom: 20px !important; /* Espace entre les cartes */
+        
+        /* Si le texte à l'intérieur est trop large */
+        word-wrap: break-word; 
+        overflow-wrap: break-word;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    /* 1. On définit la boîte principale */
+    .mission-file .file-visual {
+        height: 150px !important; /* Hauteur fixe obligatoire */
+        width: 100% !important;
+        position: relative !important; /* Sert de repère */
+    }
+
+
+
+    /* 3. On force l'image à remplir le cadre (Brutal Force) */
+    .mission-file .file-visual img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: contain !important; /* Remplissage intelligent */
+        position: absolute !important;
+        top: 0;
+        left: 0;
+    }
+
+    /* --- FIX SECTION PROJECTS (Cartes & Bouton trop gros) --- */
+    /* Réduction de la taille des cartes projets (HUD cards) */
+    .hud-card {
+        min-width: 150px !important; /* Plus petit que sur PC */
+        width: 150px !important;
+        height: 50px !important; /* Hauteur réduite 
+        margin-right: 5px !important;*/
+    }
+    
+    /* Ajustement du texte à l'intérieur des cartes */
+    .hud-card-content .hud-label {
+        font-size: 0.8rem !important; /* Texte plus petit */
+    }
+
+    /* Correction du bouton "See All Projects" aligné à droite */
+    .projects-controls {
+        position: relative !important;
+        width: 100% !important;
+        padding-right: 0x !important; 
+        
+        right: auto !important;
+        bottom: auto !important;
+        background: transparent !important;
+    }
+
+    .btn-tube.btn-view-all {
+        font-size: 0.6rem !important; /* Texte plus petit */
+        padding: 4px 7px !important; /* Bouton moins large */
+        width: auto !important; /* S'adapte au texte */
+        display: inline-block !important;
+    }
+
+    /* --- FIX SECTION ABOUT ME (Image mal calée dans le cercle) --- */
+    /* On force le conteneur à être un carré parfait */
+    .about-me-image .neon-circle-image {
+        width: 200px !important;  /* Taille fixe pour mobile */
+        height: 200px !important; /* MÊME valeur que width pour faire un rond */
+        border-radius: 50% !important;
+        overflow: hidden !important; /* Masque tout ce qui sort du rond */
+        margin: 0 auto 20px auto !important; /* Centre le tout */
+        
+        /* Flexbox pour centrer l'image dedans */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    /* On force l'image à remplir tout le rond sans laisser de noir */
+    .about-me-image .neon-circle-image img {
+        width: 100% !important;
+        height: 100% !important;
+        min-height: 100% !important; /* Sécurité anti-barre noire */
+        object-fit: cover !important; /* ZOOM dans l'image pour couvrir tout le cercle */
+        margin: 0 !important; /* Enlève les marges parasites */
+        border-radius: 0 !important; /* L'image est carrée, c'est le conteneur qui la coupe */
+    }
+}
+
+
+
+
+/* Fichier : responsive.css */
+
+@media (max-width: 768px) {
+
+    /* --- 1. RÉDUIRE L'ESPACEMENT AU-DESSUS --- */
+    .projects-layout-wrapper {
+        /* Réduit la marge du haut (C'était 3rem sur PC) */
+        margin-top: 0px !important; 
+        
+        /* Change la direction : tout s'empile verticalement */
+        flex-direction: column !important; 
+        
+        /* Enlève le padding gauche du PC */
+        padding-left: 0 !important; 
+        width: 100% !important;
+    }
+
+
+
+    /* Centre le contenu de la carte */
+    .hud-card-content {
+        flex-direction: row !important; /* ID à gauche, Titre à droite */
+        justify-content: flex-start !important;
+        padding: 0 20px !important;
+        gap: 15px;
+    }
+
+    /* --- 4. RÉDUIRE L'ESPACEMENT SOUS LA TACTICAL MAP --- */
+    .tactical-screen-wrapper {
+        /* Réduit la marge du bas (C'était 5rem sur PC) */
+        margin-bottom: 0px !important; 
+        
+        /* Ajustement de la hauteur de la map sur mobile (optionnel mais conseillé) */
+        height: 500px !important; 
+    }
+
+    /* Ajustement du bouton "See All" pour qu'il soit centré sous la liste */
+    .projects-controls {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 10px 0 !important;
+        order: 2; /* S'assure qu'il est après la liste */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    /* 1. Ajustement du conteneur de texte */
+    .mission-file .file-data {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding: 20px 15px !important; /* On réduit le padding (avant c'était 25px) */
+    }
+
+    /* 2. Correction du Titre qui dépasse */
+    .mission-file .file-title {
+        font-size: 1.4rem !important; /* On réduit la taille (1.8rem -> 1.4rem) */
+        line-height: 1.3 !important;
+        
+        /* Force le texte à passer à la ligne si le mot est trop long */
+        white-space: normal !important; 
+        word-wrap: break-word !important; 
+        overflow-wrap: break-word !important;
+    }
+
+    /* 3. Ajustement du paragraphe de description */
+    .mission-file .file-desc {
+        font-size: 0.9rem !important;
+        max-width: 100% !important; /* On utilise toute la largeur disponible */
+        
+        /* Force aussi le retour à la ligne */
+        white-space: normal !important;
+        word-wrap: break-word !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Fichier : responsive.css */
+
+@media (max-width: 768px) {
+
+    /* 1. On cible la grille NEURALE spécifique */
+    .neural-grid {
+        display: grid !important;
+        /* Force 2 colonnes de largeur égale */
+        grid-template-columns: 1fr 1fr !important; 
+        gap: 10px !important; /* Espacement réduit entre les cartes */
+        width: 100% !important;
+    }
+
+    /* 2. Ajustement de la carte (Node) pour l'espace réduit */
+    .neural-node {
+        width: auto !important; /* Laisse la grille gérer la largeur */
+        margin: 0 !important;
+        /* On réduit le padding interne pour gagner de la place */
+        padding: 15px 10px !important; 
+        min-height: 140px !important; /* Hauteur minimale pour l'uniformité */
+    }
+
+    /* 3. On réduit la taille du titre pour éviter qu'il ne casse */
+    .neural-node .node-title {
+        font-size: 0.85rem !important; 
+        white-space: normal !important; /* Permet le retour à la ligne si besoin */
+    }
+
+    /* 4. On cache ou réduit l'ID (ex: 0xA1) pour aérer */
+    .neural-node .node-id {
+        font-size: 0.7rem !important;
+    }
+
+    /* 5. Ajustement des tags (texte du corps) */
+    .neural-node .node-tags {
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+    }
+}
+
+
+
+
+
+
+
+
+/* Fichier : responsive.css */
+
+@media (max-width: 768px) {
+
+    /* 1. Configuration de la grille en 3 colonnes */
+.skills-grid-container {
+        padding: 0 5px !important; 
+        
+        /* 2. Centrage et Largeur */
+        margin: 0 auto !important; /* Centre le bloc */
+        width: 100% !important;    /* Prend toute la largeur */
+        box-sizing: border-box !important; /* Inclut le padding dans le calcul de largeur */
+        
+        /* 3. La Grille 3 colonnes */
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important; /* 3 colonnes égales */
+        gap: 15px !important; /* Espace très fin entre les cartes pour que ça rentre */
+    }
+
+    /* 2. Carte compacte */
+    .skill-card {
+        padding: 10px 5px !important; /* Padding interne minimal */
+        min-height: 110px !important; /* Hauteur harmonisée */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Réduction drastique de l'icône (Néon) */
+    .skill-icon-wrapper {
+        width: 40px !important;  /* Divisé par 2 par rapport au PC */
+        height: 40px !important;
+        margin-bottom: 8px !important;
+    }
+
+    /* 4. Titre en tout petit */
+    .skill-title {
+        font-size: 0.65rem !important; /* Très petit pour tenir sur une ligne */
+        margin: 0 !important;
+        word-wrap: break-word !important; /* Coupe si ça dépasse quand même */
+    }
+
+    /* 5. IMPORTANT : On cache la description sur mobile */
+    /* Avec 3 colonnes, il n'y a pas la place pour le texte descriptif */
+    .skill-desc-text {
+        display: none !important; 
+    }
+}
+
+
+
+/* Fichier : responsive.css */
+
+@media (max-width: 768px) {
+
+    .domains-grid-container {
+        /* 1. Configuration de la grille : 2 colonnes */
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* 2 colonnes égales */
+        gap: 15px !important; /* Espace raisonnable */
+        
+        /* 2. Correction du centrage (Annulation du padding PC) */
+        padding: 0 15px !important; /* Petite marge symétrique gauche/droite */
+        width: 100% !important;
+        margin: 0 auto !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. Ajustement des cartes pour le mobile */
+    .domain-card {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 10px 3px !important; /* Réduit le padding interne */
+        min-height: 200px !important; /* Hauteur harmonisée */
+        
+        /* S'assure que le flex interne est centré */
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    /* 4. Réduction de l'icône */
+    .domain-icon-wrapper {
+        width: 50px !important;
+        height: 50px !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* 5. Ajustement des textes */
+    .domain-title {
+        font-size: 0.9rem !important; /* Titre un peu plus petit */
+        margin-bottom: 10px !important;
+    }
+
+    .domain-desc {
+        font-size: 0.8rem !important; /* Description lisible mais compacte */
+        line-height: 1.4 !important;
+    }
+}
+
+
+
+
+
+
+
+
+/* Fichier : responsive.css */
+
+@media (max-width: 768px) {
+
+    /* 1. IMPORTANT : Autoriser le texte à aller à la ligne sur mobile */
+    .cert-links-wrapper,
+    .node-content {
+        white-space: normal !important; /* Écrase le nowrap du PC */
+    }
+
+    /* 2. Ajustement du conteneur du lien */
+    .cert-link-node {
+        padding: 8px 10px !important; /* Réduit le padding interne */
+        align-items: center !important;
+    }
+
+    /* 3. Réduction du Titre du certificat */
+    .node-title {
+        font-size: 0.8rem !important; /* Texte beaucoup plus petit (PC était ~1rem) */
+        line-height: 1.2 !important;  /* Espacement des lignes serré */
+        margin-bottom: 3px !important;
+    }
+
+    /* 4. Réduction de la date/meta */
+    .node-meta {
+        font-size: 0.7rem !important;
+    }
+
+    /* 5. Ajustement du numéro décoratif (01, 02...) */
+    .node-decor {
+        font-size: 1rem !important; /* Réduit la taille du numéro */
+        margin-right: 10px !important; /* Rapproche le numéro du texte */
+        padding-right: 8px !important;
+    }
+    
+    /* 6. Ajustement de la flèche */
+    .node-arrow {
+        font-size: 1rem !important;
+    }
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+
+    /* 1. On réduit l'espace interne de la section */
+    #internship {
+        padding-top: 10px !important; /* Réduit drastiquement (c'était 40px) */
+        padding-bottom: 10px !important;
+    }
+
+    /* 2. CRUCIAL : On écrase les énormes marges du conteneur (5rem sur PC) */
+    .mission-files-container {
+        margin-top: 20px !important;    /* Espace après le titre "INTERNSHIP" */
+        margin-bottom: 30px !important; /* Espace avant le titre "CERTIFICATIONS" */
+        
+        gap: 30px !important; /* Réduit aussi l'espace entre les dossiers eux-mêmes */
+    }
+}

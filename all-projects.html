@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects - Timm Claverie</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="panels.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="icon" type="image/png" href="ref/TC.png">
+</head>
+<body>
+
+    <div class="grid-line-vertical left"></div>
+    <div class="grid-line-vertical right"></div>
+
+    <!-- <nav class="top-nav">
+        <a href="index.html?skip=true#projects" class="btn-tube btn-back">
+            ⬅ Back to Home
+        </a>
+    </nav> -->
+
+    <header class="projects-header">
+        <h1 class="neon-gold-title">ALL MY PROJECTS</h1>
+        
+        <div class="filter-container">
+            <button class="btn-filter active" data-filter="all">All</button>
+            <button class="btn-filter" data-filter="robotics">Robotics</button>
+            <button class="btn-filter" data-filter="ai">AI & Data</button>
+            <button class="btn-filter" data-filter="embedded">Embedded</button>
+        </div>
+    </header>
+
+    <main class="projects-grid-container">
+        
+        <div class="project-card" data-category="robotics">
+            <div class="card-image">
+                <img src="ref/image1.jpg" alt="Projet 1">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">AUTONOMOUS DRONE</h3>
+                <p class="card-desc">Development of a flight controller for a quadcopter using C++ and STM32. Implementation of PID stabilization.</p>
+                <a href="#" class="btn-tube btn-card-action" target="_blank">VIEW SPECS</a>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="ai">
+            <div class="card-image">
+                <img src="ref/image1.jpg" alt="Projet 2">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">NEURAL NETWORK</h3>
+                <p class="card-desc">Creation of a convolutional neural network (CNN) for detecting manufacturing defects on assembly lines.</p>
+                <a href="#" class="btn-tube btn-card-action" target="_blank">GITHUB REPO</a>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="embedded">
+            <div class="card-image">
+                <img src="ref/image1.jpg" alt="Projet 3">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">SMART SENSOR</h3>
+                <p class="card-desc">Design of a low-power IoT sensor for maritime environment monitoring (Salinity, Temperature).</p>
+                <a href="#" class="btn-tube btn-card-action" target="_blank">READ REPORT</a>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="robotics">
+            <div class="card-image">
+                <img src="ref/image1.jpg" alt="Projet 4">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">ROBOT ARM 6-DOF</h3>
+                <p class="card-desc">Inverse kinematics programming for a 6-axis robotic arm used in pick-and-place operations.</p>
+                <a href="#" class="btn-tube btn-card-action" target="_blank">VIDEO DEMO</a>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="ai">
+            <div class="card-image">
+                <img src="ref/image1.jpg" alt="Projet 5">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">PREDICTIVE MAINT.</h3>
+                <p class="card-desc">Data analysis project to predict engine failures based on vibration sensor data.</p>
+                <a href="#" class="btn-tube btn-card-action" target="_blank">CASE STUDY</a>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="embedded">
+            <div class="card-image">
+                <img src="ref/image1.jpg" alt="Projet 6">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">FPGA VISION</h3>
+                <p class="card-desc">Real-time edge detection implemented on an FPGA board using VHDL.</p>
+                <a href="#" class="btn-tube btn-card-action" target="_blank">CODE SOURCE</a>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="robotics">
+            <div class="card-image">
+                <img src="ref/image1.jpg" alt="Projet 7">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">ROS2 NAVIGATION</h3>
+                <p class="card-desc">Implementation of SLAM and autonomous navigation stack on a mobile robot (TurtleBot).</p>
+                <a href="#" class="btn-tube btn-card-action" target="_blank">DOCS</a>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="projects-footer">
+        <span class="copyright">© 2025 Timm CLAVERIE–</span>
+        <a href="index.html" class="footer-link">Back to portfolio</a>
+    </footer>
+
+    <script src="projects.js"></script>
+</body>
+</html>

@@ -1,0 +1,1940 @@
+/* =================================== */
+/* STYLES POUR LES PANNEAUX 2D (Scroll) */
+/* (Fichier: panels.css)             */
+/* =================================== */
+
+/* Variables néon (si elles ne sont pas dans style.css) */
+:root {
+    --neon-red: #E13C4C;
+    --neon-red-glow: rgba(225, 60, 76, 0.7);
+    --neon-red-glow-light: rgba(225, 60, 76, 0.4);
+    --text-light: #fff;
+    --text-dark: #111;
+}
+
+
+
+/* =================================== */
+/* STYLES POUR IMAGES CIRCULAIRES NÉON */
+/* =================================== */
+
+.neon-circle-image-container {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux images de passer à la ligne */
+    justify-content: center; /* Centre les images horizontalement */
+    gap: 30px; /* Espace entre les images */
+    padding: 30px 0;
+    margin: 30px auto;
+    max-width: 1000px; /* Limite la largeur du conteneur */
+}
+
+.neon-circle-image {
+    width: 120px; /* Taille du cercle (diamètre) */
+    height: 120px;
+    border-radius: 50%; /* Rend l'élément circulaire */
+    
+    /* Positionnement relatif pour le pseudo-élément (bordure intérieure) */
+    position: relative;
+    overflow: hidden; /* Cache les parties de l'image qui dépassent */
+    
+    /* --- Bordure 1 (Extérieure) --- */
+    border: 2px solid var(--neon-red);
+    box-shadow: 0 0 10px var(--neon-red-glow), 
+                0 0 5px var(--neon-red-glow-light),
+                inset 0 0 5px var(--neon-red-glow-light);
+    
+    /* Centrage de l'image à l'intérieur du cercle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Transition pour l'effet de survol */
+    transition: all 0.3s ease-out;
+}
+
+/* --- Bordure 2 (Intérieure) --- */
+.neon-circle-image::before {
+    content: '';
+    position: absolute;
+    top: 5px; /* Espacement de 5px */
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px solid var(--neon-red-glow-light);
+    border-radius: 50%; /* Reste circulaire */
+    pointer-events: none;
+    z-index: 1; /* Pour être au-dessus de l'image si elle déborde */
+}
+
+/* L'image elle-même à l'intérieur du conteneur */
+.neon-circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Assure que l'image couvre tout le cercle */
+    border-radius: 50%; /* Pour les coins arrondis (si l'image n'est pas carrée) */
+    display: block; /* Supprime l'espace sous l'image */
+}
+
+/* --- Effet de survol (optionnel) --- */
+.neon-circle-image:hover {
+    transform: scale(1.1); /* Zoom au survol */
+    border-color: #ff5060;
+    box-shadow: 0 0 20px var(--neon-red-glow), 
+                0 0 10px var(--neon-red-glow-light);
+}
+
+/* Pour les images cliquables (si vous voulez ajouter un lien) */
+.neon-circle-image--clickable {
+    cursor: pointer;
+}
+
+/* =================================== */
+/* STYLES AJOUTÉS POUR "ABOUT ME"      */
+/* =================================== */
+
+/* REQ 5: Conteneur pour centrer le groupe (image + panneau) */
+.about-me-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    
+    /* (Nous utilisons var(--grid-margin) qui vaut 2rem + 1rem = 3rem) */
+    margin-left: calc(var(--grid-margin, 2rem)+1rem);
+    margin-right: calc(var(--grid-margin, 2rem)+1rem);
+}
+
+/* REQ 4: Dimensionnement de l'image de profil */
+.about-me-image .neon-circle-image {
+    width: 260px;    
+    height: 260px;
+    margin: 0;      /**/
+    border: none !important; /* On enlève la bordure solide */
+    /* Le padding définit l'épaisseur de la bordure */
+    padding: 3px; 
+    /* Double background : fond noir (content) + gradient (border) */
+    background: linear-gradient(#000, #000), 
+                linear-gradient(135deg, #E13C4C, #cda47d); 
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    
+    /* Ombre mélangée Rouge/Or */
+    box-shadow: -5px -5px 15px rgba(225, 60, 76, 0.4), 
+                 5px 5px 15px rgba(205, 164, 125, 0.4);
+}
+
+
+
+
+/* REQ 6: Effet néon plus puissant sur LE PANNEAU */
+.panel-2d.about-me-panel {
+    display: flex;
+    align-items: center; /* Centre verticalement l'image et le texte */
+    gap: 40px;           /* Espace entre l'image et le texte */ 
+
+    max-width: 1150px; 
+    width: 100%; /* S'assure qu'il remplit la max-width */
+    box-sizing: border-box;
+
+    padding: 2.5rem;
+    margin: 0; 
+    
+    border: none !important;
+    position: relative;
+    background: rgba(10, 10, 10, 0.9);
+    z-index: 1;
+    color: #b0b0b0;
+    border-radius: 50px; /* Doit correspondre au radius de ::after */
+}
+
+.panel-2d-body p {
+    margin-bottom: 1.5rem;
+}
+
+/* Amélioration lisibilité pour le panneau "About Me" */
+.panel-2d.about-me-panel .panel-2d-body {
+    flex: 1;
+    font-size: 1rem;      /* Augmente la taille (la base est 0.9rem) */
+    line-height: 1.7;   /* Augmente l'espace entre les lignes */
+}
+
+
+/* REQ 1: Titre "About Me" plus gros et plus néon */
+.about-me-panel .panel-2d-header {
+    /* Texte en gradient (background-clip sur texte) */
+    background: linear-gradient(90deg, #E13C4C, #cda47d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-bottom: 1px solid #cda47d; /* Ligne du bas en or */
+    text-shadow: none; /* Le gradient texte supporte mal le shadow standard */
+}
+
+/* Ciblage spécifique du titre "ABOUT ME" */
+#about-title {
+    font-size: 1.5rem;  /* Taille augmentée (la base est 1.1rem) */
+    color: #cda47d;  /* Le rend plus lumineux que le doré par défaut */
+    text-shadow: 0 0 8px rgba(205, 164, 125, 0.5); /* Lueur dorée */
+}
+
+
+
+/* REQ 3: Style pour le texte rouge simple (pas néon) */
+/* .text-red {
+    color: var(--neon-red);
+    font-weight: 600;
+} */
+
+.text-red {
+    color: #e0e0e0; /* Couleur blanche */
+    font-weight: 700; /* 700 est le "bold" standard */
+    /* text-shadow: none; */ /* Assurez-vous qu'il n'y a pas d'ombre */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================== */
+/* STYLE CYBERPUNK / HUD AVANCÉ        */
+/* =================================== */
+
+:root {
+    --hud-cyan: #00f3ff;
+    --hud-dark: rgba(10, 15, 20, 0.95);
+    --grid-margin: 2rem; /* Doit correspondre à ta variable existante */
+}
+
+/* --- 1. LE CONTENEUR DU BANDEAU --- */
+.cyber-scroller-container {
+    width: 100%;
+    padding: 20px 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 243, 255, 0.05), transparent);
+    margin-top: 3rem;
+    margin-bottom: 20px;
+}
+
+.cyber-scroller {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px var(--grid-margin); /* Alignement avec les lignes verticales */
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+.cyber-scroller::-webkit-scrollbar { display: none; }
+
+/* --- 2. LES CARTES (HUD CARDS) --- */
+.hud-card {
+    position: relative;
+    min-width: 180px;
+    height: 100px;
+    margin-top: 0rem;
+    background: var(--hud-dark);
+    border: 1px solid rgba(0, 243, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    /* Découpe les coins (Forme technique) */
+    clip-path: polygon(
+        10px 0, 100% 0, 
+        100% calc(100% - 10px), calc(100% - 10px) 100%, 
+        0 100%, 0 10px
+    );
+}
+
+.hud-card-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.hud-id {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: rgba(0, 243, 255, 0.5);
+    font-weight: bold;
+}
+
+.hud-label {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: #fff;
+    margin-top: 5px;
+}
+
+/* État Hover & Active */
+.hud-card:hover, .hud-card.active {
+    border-color: var(--hud-cyan);
+    background: rgba(0, 243, 255, 0.1);
+}
+
+.hud-card.active .hud-id {
+    color: #fff;
+    text-shadow: 0 0 8px var(--hud-cyan);
+}
+
+/* --- 3. L'ÉCRAN TACTIQUE (CALAGE PRÉCIS) --- */
+.tactical-screen-wrapper {
+    position: relative;
+    /* CALCUL MAGIQUE : Largeur totale - (Marge Gauche + Marge Droite) - (1px espacement * 2) */
+    width: calc(100% - (var(--grid-margin) * 2) - 10px);
+    
+    /* Centrage automatique */
+    margin: 0 auto; 
+    
+    /* Hauteur de l'écran */
+    height: 500px; 
+    margin-bottom: 5rem;
+    
+    background: #000;
+    border-top: 1px solid var(--hud-cyan);
+    border-bottom: 1px solid var(--hud-cyan);
+    overflow: hidden;
+    z-index: 5;
+    display: block;
+}
+
+#tactical-map-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Au fond */
+    opacity: 1;
+    transition: opacity 0.5s ease; /* Transition douce lors de l'activation d'un projet */
+}
+
+/* NOUVEAU : La couche de contenu Projet (couche supérieure) */
+#tactical-content-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10; /* Au-dessus de la 3D */
+    background: rgba(0,0,0,0.8); /* Fond semi-transparent pour lisibilité */
+}
+
+/* Classe utilitaire pour cacher la 3D quand un projet est actif */
+.tactical-screen-wrapper.active-mode #tactical-map-canvas {
+    opacity: 0.2; /* On le laisse deviner légèrement ou 0 pour cacher */
+}
+
+/* Les "Brackets" (Coins décoratifs) */
+.screen-bracket {
+    position: absolute;
+    width: 20px; height: 20px;
+    border: 2px solid var(--hud-cyan);
+    z-index: 10;
+    pointer-events: none;
+}
+.screen-bracket.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+.screen-bracket.top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+.screen-bracket.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+.screen-bracket.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+/* --- 4. CONTENU DE L'ÉCRAN --- */
+.screen-media-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Style pour les IMAGES (On garde le zoom pour remplir) */
+.screen-media-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    opacity: 0.8;
+}
+
+/* Style pour les VIDÉOS (On affiche TOUT le contenu) */
+.screen-media-container video {
+    width: 100%;
+    height: 100%;
+    /* C'est ici que la magie opère : 'contain' affiche toute la vidéo */
+    object-fit: cover; 
+    display: block;
+    opacity: 0.9; /* Un peu plus visible que les images */
+    background-color: #000; /* Ajoute des bandes noires si le ratio est différent */
+}
+
+/* Effet Scanlines (Lignes TV) */
+.scanlines {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+    background-size: 100% 4px;
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Overlay Texte (Titre + Desc) */
+.screen-overlay-ui {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-left: 3px solid var(--hud-cyan);
+    backdrop-filter: blur(4px);
+}
+
+.screen-overlay-ui h3 {
+    margin: 0;
+    color: var(--hud-cyan);
+    font-family: monospace;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.screen-overlay-ui p {
+    margin: 5px 0 0 0;
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+/* Animation de glitch au changement */
+.glitch-anim {
+    animation: screenGlitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes screenGlitch {
+    0% { transform: translate(0); opacity: 1; filter: brightness(1); }
+    20% { transform: translate(-2px, 2px); opacity: 0.8; filter: brightness(2) hue-rotate(90deg); }
+    40% { transform: translate(2px, -2px); opacity: 0.9; }
+    60% { transform: translate(0); opacity: 0.1; }
+    100% { transform: translate(0); opacity: 1; filter: brightness(1); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================== */
+/* STYLES "MISSION FILES" (LARGE HUD)  */
+/* =================================== */
+
+.mission-files-container {
+    width: 95%;
+    max-width: 1100px; /* Beaucoup plus large */
+    margin: 5rem auto 5rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Espace entre les dossiers */
+}
+
+/* --- STRUCTURE GÉNÉRALE D'UN FICHIER --- */
+.mission-file {
+    display: flex;
+    background: rgba(10, 15, 20, 0.8);
+    border: 1px solid #333;
+    position: relative;
+    overflow: hidden;
+    
+    /* Coupe technique des coins */
+    clip-path: polygon(
+        20px 0, 100% 0, 
+        100% calc(100% - 20px), calc(100% - 20px) 100%, 
+        0 100%, 0 20px
+    );
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Responsive : Sur mobile, on empile */
+@media (max-width: 768px) {
+    .mission-file { flex-direction: column; }
+}
+
+.file-visual {
+    flex: 0 0 300px; /* Largeur fixe pour l'image */
+    position: relative;
+    border-right: 1px solid rgba(0, 243, 255, 0.1);
+}
+.mission-file:hover .file-visual {
+    border-right-color: var(--hud-cyan);
+}
+
+.img-frame {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    position: relative;
+}
+
+.img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+.mission-file:hover .img-frame img { opacity: 1; }
+
+/* Effet de grille sur l'image */
+.img-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+        linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+    pointer-events: none;
+}
+
+.file-data {
+    flex: 1; /* Prend le reste de la place */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.file-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+.file-id {
+    font-family: monospace;
+    color: #666;
+    letter-spacing: 2px;
+}
+
+.file-status {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.status-success { background: rgba(0, 243, 255, 0.2); color: var(--hud-cyan); }
+.status-warning { background: rgba(253, 184, 19, 0.2); color: #fdb813; }
+
+.file-title {
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px rgba(0, 243, 255, 0.3);
+}
+
+.file-desc {
+    color: #e5e5e5;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 90%;
+}
+
+/* --- STYLES SPÉCIFIQUES : ACTIVE FILE --- */
+.active-file:hover {
+    border-color: var(--hud-cyan);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+}
+
+/* --- STYLES SPÉCIFIQUES : HAZARD LOCKED (STAGES 2 & 3) --- */
+.hazard-locked {
+    border-color: #554400; /* Jaune foncé sale */
+    opacity: 0.7;
+    /* Effet grisâtre */
+    filter: grayscale(0.8);
+}
+
+/* BANDE JAUNE ET NOIR (Caution Tape) */
+.hazard-tape {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; /* Laisse cliquer à travers si besoin */
+    z-index: 10;
+    
+    /* Le motif hachuré */
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(253, 184, 19, 0.15), /* Jaune transparent */
+        rgba(253, 184, 19, 0.15) 10px,
+        rgba(0, 0, 0, 0.1) 10px,
+        rgba(0, 0, 0, 0.1) 20px
+    );
+    
+    /* Bordure jaune clignotante */
+    border: 1px dashed #fdb813;
+    box-shadow: inset 0 0 50px rgba(0,0,0,0.8);
+}
+
+/* Bannière "UNDER CONSTRUCTION" au milieu */
+.hazard-locked::after {
+    content: " FUTURE_INTERNSHIP ";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
+    
+    background: #fdb813;
+    color: #000;
+    font-weight: 900;
+    font-family: monospace;
+    padding: 5px 30px;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    border: 2px solid #000;
+    box-shadow: 5px 5px 0px #000;
+    white-space: nowrap;
+    z-index: 20;
+}
+
+.hazard-locked:hover {
+    filter: grayscale(0.6); /* La couleur revient un peu au survol */
+    opacity: 1;
+}
+
+/* --- RÉUTILISATION BOUTONS ET PANNEAUX CACHÉS --- */
+/* (On garde les classes .cyber-btn-expand et .log-hidden-panel de l'étape précédente) */
+/* Assure-toi d'avoir copié le CSS du bouton et du panneau caché de la réponse précédente */
+
+/* --- LE BOUTON D'EXTENSION --- */
+.cyber-btn-expand {
+    background: transparent;
+    border: 1px solid var(--hud-cyan);
+    color: var(--hud-cyan);
+    padding: 8px 20px;
+    font-family: monospace;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    
+    /* Coin coupé */
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 90% 100%, 0 100%);
+}
+
+.cyber-btn-expand:hover {
+    background: rgba(0, 243, 255, 0.1);
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+}
+
+/* --- LE PANNEAU CACHÉ (ACCORDÉON) --- */
+.log-hidden-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, margin-top 0.3s ease;
+    margin-top: 0;
+    border-left: 2px solid var(--hud-cyan);
+    background: rgba(0, 10, 10, 0.5);
+}
+
+/* Quand c'est ouvert (ajouté par JS) */
+.log-hidden-panel.open {
+    margin-top: 15px;
+    /* On mettra une max-height large en JS ou ici */
+    max-height: 200px; 
+}
+
+/* --- STYLE SPÉCIFIQUE : RESTRICTED (MILITAIRE) --- */
+.log-hidden-panel.restricted {
+    border-color: var(--neon-red);
+}
+
+.access-denied-box {
+    padding: 15px;
+    color: var(--neon-red);
+    font-family: monospace;
+    font-weight: bold;
+    background: rgba(225, 60, 76, 0.1);
+    border: 1px dashed var(--neon-red);
+}
+
+/* --- STYLE SPÉCIFIQUE : DOWNLOAD LINKS --- */
+.log-download-link {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    font-family: monospace;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.2s;
+}
+
+.log-download-link:hover {
+    background: rgba(0, 243, 255, 0.1);
+    color: var(--hud-cyan);
+    padding-left: 25px; /* Petit glissement vers la droite */
+}
+
+.log-download-link:last-child {
+    border-bottom: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Layout Projets --- */
+.projects-layout-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 3rem;
+    margin-bottom: 20px;
+    padding-left: var(--grid-margin); /* Alignement grille gauche */
+}
+
+/* Zone Scroller (75%) avec Masque */
+.cyber-scroller-mask {
+    flex: 0 0 75%; /* Prend 75% de la largeur */
+    width: 75%;
+    overflow: hidden;
+    /* Masque dégradé : Visible à gauche, transparent à droite */
+    -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
+}
+
+.cyber-scroller {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 10px; /* Espace pour scrollbar invisible */
+    padding-right: 50px; /* Marge interne pour l'effet de masque */
+    scrollbar-width: none; /* Firefox */
+}
+
+/* Zone Contrôles (Reste) */
+.projects-controls {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-around; /* Espacement des boutons */
+    padding-right: var(--grid-margin);
+}
+
+
+/* Bouton View All (Style Gradient Rouge->Or) */
+/* --- NOUVEAU STYLE : Bouton View All (Cyber Tech) --- */
+.btn-view-all {
+    /* Fond sombre semi-transparent */
+    background: rgba(0, 243, 255, 0.05);
+    
+    /* Bordure Cyan Néon */
+    border: 1px solid var(--hud-cyan);
+    color: var(--hud-cyan);
+    
+    /* Typographie technique */
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    
+    /* Espacement */
+    padding: 8px 20px;
+    border-radius: 2px; /* Coins légèrement carrés pour le look tech */
+    
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    /* Lueur initiale discrète */
+    box-shadow: 0 0 10px rgba(0, 243, 255, 0.1),
+                inset 0 0 10px rgba(0, 243, 255, 0.05);
+    
+    /* S'assure qu'il est cliquable */
+    cursor: pointer;
+    text-decoration: none; /* Enlève le soulignement si c'est un lien <a> */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Effet de balayage (Scanline) au survol */
+.btn-view-all::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.4), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s ease;
+}
+
+/* État Survol (Hover) */
+.btn-view-all:hover {
+    background: rgba(0, 243, 255, 0.15);
+    color: #fff; /* Le texte devient blanc */
+    box-shadow: 0 0 20px var(--hud-cyan), 
+                inset 0 0 15px rgba(0, 243, 255, 0.2);
+    text-shadow: 0 0 5px var(--hud-cyan);
+    transform: translateY(-2px);
+}
+
+.btn-view-all:hover::before {
+    left: 150%; /* L'effet de scan traverse le bouton */
+}
+
+
+
+/* --- Bouton Lien Projet (Style "Fantôme" Gradient) --- */
+.btn-project-link {
+    margin-top: 15px; /* Espace avec le texte */
+    display: inline-block; /* Important pour que le margin fonctionne */
+    
+    /* 1. Fond transparent par défaut */
+    background: transparent;
+    color: #fff;
+    
+    /* 2. Création de la bordure gradient */
+    /* On utilise une astuce : un fond noir (pour l'intérieur) + le gradient */
+    position: relative;
+    z-index: 1;
+    border: 2px solid transparent; /* La vraie bordure est transparente */
+    border-radius: 50px;
+    background-image: linear-gradient(#000, #000), 
+                      linear-gradient(135deg, #E13C4C, #cda47d);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    
+    /* Style du texte */
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: monospace;
+    letter-spacing: 1px;
+    
+    transition: all 0.4s ease;
+    box-shadow: 0 0 10px rgba(225, 60, 76, 0.2);
+}
+
+/* --- État Survol (Hover) --- */
+.btn-project-link:hover {
+    /* On remplace le fond noir par le gradient complet */
+    background-image: linear-gradient(135deg, #E13C4C, #cda47d), 
+                      linear-gradient(135deg, #E13C4C, #cda47d);
+    color: #fff;
+    box-shadow: 0 0 20px rgba(205, 164, 125, 0.6);
+    transform: translateY(-2px); /* Petit effet de levitation */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================== */
+/* NOUVEAU STYLE SKILLS (RECTANGLES)   */
+/* =================================== */
+
+.skills-grid-container {
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 10px;
+}
+
+.skill-card {
+    /* Forme et Fond */
+    background-color: #111; /* Fond très sombre comme sur l'image */
+    border-radius: 15px;
+    width: auto;
+    height: 70%;
+    padding: 30px 20px;
+    
+    /* Positionnement */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Important pour couper le faisceau qui dépasse */
+    
+    /* Pas de bordure colorée, juste une subtile délimitation */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                background-color 0.3s;
+}
+
+/* -- 1. L'EFFET DE GROSSISSEMENT AU SURVOL -- */
+.skill-card:hover {
+    transform: scale(1.05); /* Zoom léger */
+    background-color: #161616; /* Légèrement plus clair */
+    z-index: 10;
+}
+
+/* -- 2. L'EFFET NÉON DERRIÈRE LE LOGO -- */
+.skill-icon-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Le rond lumineux diffus DERRIÈRE le logo */
+    background: radial-gradient(circle, rgba(0, 243, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.skill-icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    /* Ombre portée colorée sur l'image elle-même pour renforcer le néon */
+    filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.3));
+    transition: filter 0.3s;
+}
+
+.skill-card:hover .skill-icon-wrapper img {
+    /* Le néon s'intensifie au survol */
+    filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.6));
+}
+
+
+/* -- 3. TEXTES -- */
+.skill-title {
+    font-family: sans-serif; /* Police propre comme sur l'image */
+    color: #00f3ff; /* Cyan néon */
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.skill-desc-text {
+    color: #ccc; /* Gris clair */
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+
+/* -- 4. ANIMATION DU FAISCEAU (SCAN) -- */
+.scan-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ne gêne pas le clic */
+    z-index: 1;
+    
+    /* Création du dégradé (Transparent -> Bleu -> Transparent) */
+    background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        rgba(0, 243, 255, 0.1) 50%, 
+        transparent 100%
+    );
+    
+    /* Transformation pour incliner le faisceau */
+    transform: skewX(-20deg) translateX(-150%);
+    
+    /* L'animation tourne en boucle */
+    animation: scanAnimation 4s infinite ease-in-out;
+}
+
+/* Décalage de l'animation pour chaque carte pour éviter qu'elles scannent toutes en même temps */
+.skill-card:nth-child(2) .scan-beam { animation-delay: 1s; }
+.skill-card:nth-child(3) .scan-beam { animation-delay: 2s; }
+.skill-card:nth-child(4) .scan-beam { animation-delay: 3s; }
+
+@keyframes scanAnimation {
+    0% {
+        transform: skewX(-20deg) translateX(-150%);
+    }
+    100% {
+        transform: skewX(-20deg) translateX(200%);
+    }
+}
+
+/* --- RESPONSIVE : Adaptation pour écrans plus petits --- */
+@media (max-width: 1200px) {
+    .skills-grid-container {
+        grid-template-columns: repeat(3, 1fr); /* 3 colonnes sur écrans moyens */
+    }
+}
+
+@media (max-width: 900px) {
+    .skills-grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablettes */
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-grid-container {
+        grid-template-columns: 1fr; /* 1 colonne sur mobile */
+    }
+}
+
+/* =================================== */
+/* SKILL MODAL (DATA CARD)             */
+/* =================================== */
+
+/* Fond sombre qui couvre tout l'écran */
+.skill-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 5, 10, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    
+    /* Flex pour centrer la carte */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Caché par défaut */
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.skill-modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* La Carte elle-même */
+.skill-modal-card {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(10, 15, 20, 0.95);
+    border: 1px solid #333;
+    padding: 30px;
+    position: relative;
+    
+    /* Effet d'apparition (Scale) */
+    transform: scale(0.9);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.skill-modal-overlay.active .skill-modal-card {
+    transform: scale(1);
+    border-color: var(--hud-cyan, #00f3ff);
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.15);
+}
+
+/* Contenu Interne (Layout) */
+.skill-modal-content {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+/* Responsive Mobile : Empiler verticalement */
+@media (max-width: 600px) {
+    .skill-modal-content { flex-direction: column; align-items: center; text-align: center; }
+    .modal-footer { justify-content: center; }
+}
+
+/* Image miniature dans la modale */
+.modal-left { flex: 0 0 80px; }
+.modal-img-frame {
+    width: 80px; height: 80px;
+    border: 1px solid var(--hud-cyan, #00f3ff);
+    padding: 10px;
+    position: relative;
+    background: rgba(0, 243, 255, 0.05);
+}
+.modal-img-frame img { width: 100%; height: 100%; object-fit: contain; }
+
+/* Textes */
+.modal-right { flex: 1; }
+
+.modal-title {
+    margin: 0 0 10px 0;
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.modal-desc {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Footer (Linked Project) */
+.modal-footer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+}
+
+.linked-label {
+    color: var(--neon-red, #E13C4C); /* Utilise ton rouge */
+    font-weight: bold;
+}
+
+.linked-link {
+    color: var(--hud-cyan, #00f3ff);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--hud-cyan, #00f3ff);
+    transition: all 0.3s;
+}
+
+.linked-link:hover {
+    background: var(--hud-cyan, #00f3ff);
+    color: #000;
+}
+
+/* Bouton Fermer */
+.skill-modal-close {
+    position: absolute;
+    top: 10px; right: 10px;
+    background: transparent;
+    border: none;
+    color: #555;
+    font-family: monospace;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+.skill-modal-close:hover { color: var(--neon-red, #E13C4C); }
+
+/* Coins Décoratifs (optionnel, pour le style HUD) */
+.corner-bracket {
+    position: absolute; width: 10px; height: 10px;
+    border: 2px solid var(--hud-cyan, #00f3ff);
+    pointer-events: none; opacity: 0.5;
+}
+.corner-bracket.top-left { top: -1px; left: -1px; border-bottom: none; border-right: none; }
+.corner-bracket.top-right { top: -1px; right: -1px; border-bottom: none; border-left: none; }
+.corner-bracket.bottom-left { bottom: -1px; left: -1px; border-top: none; border-right: none; }
+.corner-bracket.bottom-right { bottom: -1px; right: -1px; border-top: none; border-left: none; }
+
+
+
+
+
+
+
+
+/* =================================== */
+/* STYLE SKILLS : NEURAL GRID (NO BARS) */
+/* =================================== */
+
+.neural-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-section-title {
+    font-family: monospace;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 10px;
+    letter-spacing: 2px;
+}
+.text-cyan { color: var(--hud-cyan); }
+.text-gold { color: #cda47d; }
+
+/* GRILLE */
+.neural-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+/* --- LA CARTE (NODE) --- */
+.neural-node {
+    background-color: #050505; /* Fond NOIR panneau */
+    border: 1px solid #1a1a1a;
+    padding: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 140px;
+    
+    /* Coins coupés */
+    clip-path: polygon(
+        15px 0, 100% 0, 
+        100% calc(100% - 15px), calc(100% - 15px) 100%, 
+        0 100%, 0 15px
+    );
+    
+    transition: all 0.3s ease;
+}
+
+/* Hover Effects */
+.neural-node:hover {
+    transform: translateY(-5px);
+    background-color: #0a0a0a;
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.neural-node[data-type="tech"]:hover { border-top: 2px solid var(--hud-cyan); }
+.neural-node[data-type="soft"]:hover { border-top: 2px solid #cda47d; }
+
+/* --- HEADER --- */
+.node-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 10px;
+}
+
+.node-title {
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.node-id {
+    font-family: monospace;
+    color: #444;
+    font-size: 0.8rem;
+}
+.neural-node:hover .node-id { color: #fff; }
+
+/* --- BODY (TAGS) --- */
+.node-body {
+    margin-bottom: 20px;
+}
+
+.node-tags {
+    color: #888;
+    font-family: monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 0;
+}
+.neural-node:hover .node-tags { color: #ccc; }
+
+/* --- FOOTER (STATUS) --- */
+.node-footer {
+    display: flex;
+    align-items: center;
+    font-family: monospace;
+    font-size: 0.75rem;
+    margin-top: auto; /* Pousse vers le bas */
+}
+
+.status-led {
+    width: 6px;
+    height: 6px;
+    background-color: var(--hud-cyan);
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 5px var(--hud-cyan);
+    animation: pulseLed 2s infinite;
+}
+
+.status-led.color-gold {
+    background-color: #cda47d;
+    box-shadow: 0 0 5px #cda47d;
+}
+
+.status-text {
+    color: var(--hud-cyan);
+    letter-spacing: 1px;
+}
+.neural-node[data-type="soft"] .status-text { color: #cda47d; }
+
+@keyframes pulseLed {
+    0% { opacity: 0.4; }
+    50% { opacity: 1; }
+    100% { opacity: 0.4; }
+}
+
+/* Petit détail décoratif : Scanline au survol */
+.neural-node::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 2px;
+    background: rgba(255,255,255,0.1);
+    opacity: 0;
+    pointer-events: none;
+}
+.neural-node:hover::after {
+    animation: scanDown 1s linear infinite;
+    opacity: 1;
+}
+
+@keyframes scanDown {
+    0% { top: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================== */
+/* STYLE DOMAINS (3 PER ROW, GOLD)     */
+/* =================================== */
+
+.domains-grid-container {
+    display: grid; 
+    /* REQ : 3 par ligne sur grand écran */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px calc(var(--grid-margin) + 1rem);
+}
+
+.domain-card {
+    /* Même base que skill-card */
+    background-color: #080808; /* Fond un peu plus sombre */
+    border-radius: 10px; /* Coins moins ronds, plus "bloc" */
+    padding: 35px 25px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    
+    /* Bordure Dorée très subtile */
+    border: 1px solid rgba(205, 164, 125, 0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    
+    /* REQ : Non cliquable */
+    cursor: default; 
+    transition: transform 0.3s ease, background-color 0.3s;
+}
+
+.domain-card:hover {
+    transform: translateY(-5px); /* Léger mouvement vertical */
+    background-color: #0e0e0e;
+    border-color: rgba(205, 164, 125, 0.3);
+}
+
+/* --- ICÔNE FILAIRE (Blueprint Style) --- */
+.domain-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #cda47d; /* Couleur Or */
+    
+    /* Cercle technique fin */
+    border: 1px dashed rgba(205, 164, 125, 0.3);
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Style des SVG */
+.domain-icon-wrapper svg {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 2px rgba(205, 164, 125, 0.5)); /* Légère lueur */
+}
+
+.domain-card:hover .domain-icon-wrapper {
+    background: rgba(205, 164, 125, 0.05);
+    border-style: solid;
+    border-color: #cda47d;
+    box-shadow: 0 0 15px rgba(205, 164, 125, 0.2);
+    transform: scale(1.1);
+}
+
+/* --- TITRES ET TEXTES --- */
+.domain-title {
+    font-family: monospace; /* Police technique */
+    color: #cda47d; /* Or */
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0 0 15px 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.domain-desc {
+    color: #aaa;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- ANIMATION SCAN (GOLD VERSION) --- */
+.scan-beam-gold {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    
+    /* Gradient OR */
+    background: linear-gradient(
+        90deg, 
+        transparent 0%, 
+        rgba(205, 164, 125, 0.08) 50%, 
+        transparent 100%
+    );
+    
+    transform: skewX(-20deg) translateX(-150%);
+    animation: scanAnimation 5s infinite ease-in-out; /* Un peu plus lent que les Tools */
+}
+
+/* Décalage animation */
+.domain-card:nth-child(2) .scan-beam-gold { animation-delay: 1.5s; }
+.domain-card:nth-child(3) .scan-beam-gold { animation-delay: 3s; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1000px) {
+    .domains-grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes tablette */
+    }
+}
+
+@media (max-width: 650px) {
+    .domains-grid-container {
+        grid-template-columns: 1fr; /* 1 colonne mobile */
+    }
+}
+
+
+
+
+/* =================================== */
+/* STYLE REFERENCES (COMM-LOGS)        */
+/* =================================== */
+
+.ref-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive auto */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    justify-content: center; /* Centre les éléments au milieu de la grille s'ils ne la remplissent pas */
+    /* REQ : Marge de sécurité de 1rem par rapport aux lignes verticales */
+    padding: 20px calc(var(--grid-margin) + 1rem);
+}
+
+.ref-card {
+    background: rgba(10, 12, 16, 0.95); /* Très sombre */
+    border: 1px solid #222;
+    border-left: 2px solid var(--hud-cyan); /* Accent Cyan discret */
+    padding: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    
+    /* Coupe technique en bas à droite */
+    clip-path: polygon(
+        0 0, 100% 0, 
+        100% calc(100% - 20px), calc(100% - 20px) 100%, 
+        0 100%, 0 20px
+    );
+}
+
+.ref-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--hud-cyan);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    background: #0f1318;
+}
+
+/* --- HEADER (ID + SIGNAL) --- */
+.ref-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 10px;
+}
+
+.ref-id {
+    font-family: monospace;
+    color: #555;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.signal-bars {
+    display: flex;
+    gap: 3px;
+}
+
+.bar {
+    width: 4px;
+    height: 10px;
+    background: #333;
+    transform: skewX(-20deg);
+}
+.bar.full { background: var(--hud-cyan); box-shadow: 0 0 5px var(--hud-cyan); }
+.bar.half { background: #555; }
+
+/* --- BODY (CITATION) --- */
+.ref-body {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.quote-mark {
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    font-family: serif; /* Police serif pour une belle guillemet */
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.05); /* Très subtil en fond */
+    pointer-events: none;
+}
+
+.ref-text {
+    color: #ccc;
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+/* --- FOOTER (AUTEUR) --- */
+.ref-footer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Avatar générique (Initiales) */
+.ref-avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 243, 255, 0.1);
+    color: var(--hud-cyan);
+    border: 1px solid var(--hud-cyan);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.ref-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.ref-name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.ref-role {
+    color: #777;
+    font-size: 0.75rem;
+    font-family: monospace;
+}
+
+.ref-card:hover .ref-role {
+    color: var(--hud-cyan); /* Le rôle s'allume au survol */
+}
+
+
+
+
+/* =================================== */
+/* STYLE CONTACT (TERMINAL)            */
+/* =================================== */
+
+.contact-terminal {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    background: rgba(5, 8, 10, 0.9); /* Fond très sombre */
+    border: 1px solid rgba(0, 243, 255, 0.2); /* Bordure subtile */
+    padding: 40px;
+    margin: 0 auto;
+    text-align: center;
+    
+    /* Effet de lueur externe */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+/* --- HEADER (STATUS) --- */
+.terminal-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 15px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--hud-cyan); /* Cyan */
+    border-radius: 50%;
+    margin-right: 10px;
+    box-shadow: 0 0 8px var(--hud-cyan);
+    animation: pulseLed 2s infinite;
+}
+
+.status-text {
+    font-family: monospace;
+    color: var(--hud-cyan);
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+}
+
+/* --- BODY (TEXTE + BOUTON) --- */
+.contact-title {
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-desc {
+    color: #aaa;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-desc strong {
+    color: #fff;
+}
+
+/* BOUTON TRANSMIT (Gros bouton central) */
+.btn-transmit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 40px;
+    background: transparent;
+    border: 1px solid var(--hud-cyan);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-label {
+    font-family: monospace;
+    color: var(--hud-cyan);
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 2;
+    transition: color 0.3s;
+}
+
+.btn-icon {
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: var(--hud-cyan);
+    z-index: 2;
+    transition: color 0.3s;
+}
+
+/* Effet de remplissage au survol */
+.btn-transmit::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 0%; height: 100%;
+    background: var(--hud-cyan);
+    transition: width 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 1;
+}
+
+.btn-transmit:hover::before {
+    width: 100%;
+}
+
+.btn-transmit:hover .btn-label,
+.btn-transmit:hover .btn-icon {
+    color: #000; /* Le texte devient noir sur fond cyan */
+}
+
+.btn-transmit:hover {
+    box-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+}
+
+/* --- FOOTER (RESEAUX) --- */
+.terminal-footer {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px dashed #333;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-link, .footer-info {
+    font-family: monospace;
+    font-size: 0.9rem;
+    
+    /* CHANGEMENT ICI : On remplace le gris (#777) par le Cyan */
+    color: var(--hud-cyan); 
+    
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s;
+    
+    /* AJOUT : Petite lueur pour l'effet néon */
+    text-shadow: 0 0 5px rgba(0, 243, 255, 0.3);
+}
+
+/* Au survol, on passe en blanc brillant */
+.footer-link:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--hud-cyan);
+}
+
+/* La flèche suit le mouvement */
+.link-arrow {
+    margin-left: 5px;
+    color: #fff; /* La flèche passe en blanc pour contraster */
+    opacity: 0;
+    transform: translateX(-5px);
+    transition: all 0.3s;
+}
+
+.footer-link:hover .link-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--hud-cyan); /* Elle devient cyan au survol */
+}
+
+/* Le label "LOCATION //" reste cyan aussi */
+.info-label {
+    color: var(--hud-cyan);
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+/* La valeur "FRANCE, Toulon" peut rester un peu plus blanche pour la lisibilité */
+.info-val {
+    color: #eee;
+}
+
+/* Coins décoratifs (Réutilisation possible de ta classe existante) */
+/* Si tu les as déjà définis ailleurs, tu n'as pas besoin de les remettre ici,
+   sinon voici le code de rappel : */
+.corner-bracket {
+    position: absolute; width: 15px; height: 15px;
+    border: 2px solid var(--hud-cyan);
+    pointer-events: none;
+}
+.corner-bracket.top-left { top: -1px; left: -1px; border-bottom: none; border-right: none; }
+.corner-bracket.top-right { top: -1px; right: -1px; border-bottom: none; border-left: none; }
+.corner-bracket.bottom-left { bottom: -1px; left: -1px; border-top: none; border-right: none; }
+.corner-bracket.bottom-right { bottom: -1px; right: -1px; border-top: none; border-left: none; }
+
+/* Responsive */
+@media (max-width: 600px) {
+    .footer-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .contact-terminal {
+        padding: 25px;
+        width: 85%;
+    }
+}
+
+
+
+
+
+
+
+/* =================================== */
+/* STYLE CONTACT : TEXTE NÉON (COPY)   */
+/* =================================== */
+
+.email-input-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0;
+    font-family: monospace;
+    font-size: 1.5rem;
+}
+
+.prompt-char {
+    color: #555;
+    font-weight: bold;
+    user-select: none; /* Empêche de sélectionner le ">" par erreur */
+}
+
+/* Le texte Email (Non cliquable, mais sélectionnable) */
+.neon-email-text {
+    color: var(--hud-cyan);
+    font-weight: bold;
+    letter-spacing: 1px;
+    position: relative;
+    
+    /* UX : Changement de curseur et sélection facile */
+    cursor: text; 
+    -webkit-user-select: all;  /* Chrome/Safari */
+    user-select: all;          /* Standard : sélectionne tout au clic */
+    
+    transition: all 0.3s ease;
+    
+    /* Lueur néon statique */
+    text-shadow: 
+        0 0 5px rgba(0, 243, 255, 0.5),
+        0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+/* Effet au survol (Juste esthétique) */
+.neon-email-text:hover {
+    color: #fff;
+    /* On garde une lueur, mais on évite de trop bouger le texte pour faciliter la sélection */
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px var(--hud-cyan),
+        0 0 20px var(--hud-cyan);
+}
+
+.cursor-blink {
+    color: var(--hud-cyan);
+    animation: blink 1s step-end infinite;
+    user-select: none; /* Empêche de sélectionner le curseur */
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+    .email-input-line {
+        font-size: 1rem;
+        flex-wrap: wrap;
+    }
+}
