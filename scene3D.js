@@ -95,6 +95,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 // renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 const pixelRatio = window.innerWidth < 768 ? 1 : Math.min(window.devicePixelRatio, 2);
 renderer.setPixelRatio(pixelRatio);
+const isMobile = window.innerWidth < 768;
+renderer.antialias = !isMobile;
 
 // --- Rendu 2 : CSS3D (Pour le HUD HTML) ---
 let cssRenderer;

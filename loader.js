@@ -19,11 +19,13 @@ function generateInnerBars() {
     const innerBarsGroup = svg.querySelector('.inner-bars');
     if (!innerBarsGroup) return;
 
+    const isMobile = window.innerWidth < 768;
     const centerX = 50;
     const centerY = 50;
     const outerRadius = 42; 
     const innerRadius = 40; 
-    const numBars = 150;
+    // const numBars = 150;
+    const numBars = isMobile ? 60 : 150;
     const angleIncrement = 360 / numBars;
 
     for (let i = 0; i < numBars; i++) {

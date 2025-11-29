@@ -388,7 +388,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             });
         }, { 
-            threshold: 0.1 // Se déclenche quand il ne reste que 10% de la vidéo visible
+            threshold: 0 // Se déclenche quand il ne reste que 10% de la vidéo visible
         });
 
         videoObserver.observe(zone1);

@@ -12,7 +12,7 @@ export function initTacticalMap() {
     // 1. Configuration de la scène
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0x000508); 
-    scene.fog = new THREE.FogExp2(0x000508, 0.02); 
+    scene.fog = new THREE.FogExp2(0x000508, 0.015); 
 
     const container = canvas.parentElement;
     const width = container.clientWidth;
@@ -56,7 +56,21 @@ export function initTacticalMap() {
 
 
     // 2. Création des points (Grille)
-    const particlesCount = 6000; // Nombre de points
+    // const particlesCount = 6000;  Nombre de points
+
+    const isMobile = window.innerWidth < 768;
+    
+    // Rédure drastiquement les points sur mobile (1500 vs 6000)
+    // On réduit aussi la zone de grille pour garder la densité visuelle
+    const particlesCount = isMobile ? 1500 : 6000; 
+    const widthGrid = isMobile ? 40 : 80; 
+    const depthGrid = isMobile ? 40 : 80;
+    const spacing = 1.5;
+
+
+
+
+
     const geometry = new THREE.BufferGeometry();
     const positions = [];
     const colors = [];
@@ -65,9 +79,9 @@ export function initTacticalMap() {
     const colorBlue = new THREE.Color('#00f3ff'); // Cyan
     const colorGold = new THREE.Color('#cda47d'); // Or
 
-    const widthGrid = 80;
-    const depthGrid = 80;
-    const spacing = 1.5;
+    // const widthGrid = 80;
+    // const depthGrid = 80;
+    // const spacing = 1.5;
 
     let i = 0;
     for (let x = -widthGrid / 2; x < widthGrid / 2; x++) {
@@ -125,10 +139,42 @@ export function initTacticalMap() {
     const pointsMesh = new THREE.Points(geometry, material);
     scene.add(pointsMesh);
 
+
+
+
+    // OPTIMISATION : Pause si hors écran
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                // Hors écran : on stop la boucle (en pratique on peut utiliser un flag)
+                canvas.classList.add('paused');
+            } else {
+                // À l'écran : on reprend
+                canvas.classList.remove('paused');
+            }
+        });
+    }, { threshold: 0 });
+    
+    observer.observe(canvas);
+
+
+
+
+
     // 3. Animation
     const clock = new THREE.Clock();
 
     function animate() {
+
+        if (canvas.classList.contains('paused')) {
+             requestAnimationFrame(animate); // On boucle à vide mais sans calcul lourd
+             return; 
+        }
+
+
+        if (canvas.style.display === 'none') return;
+
+
         requestAnimationFrame(animate);
         
         const time = clock.getElapsedTime();
@@ -136,7 +182,7 @@ export function initTacticalMap() {
         const count = positionsAttribute.count;
 
         // Animation de la "Mer" uniquement
-        for (let i = 0; i < count; i++) {
+        for (let i = 0; i < count; i+=3) {
             const x = positionsAttribute.getX(i);
             const z = positionsAttribute.getZ(i);
             const yBase = originalY[i]; // Hauteur originale
@@ -166,4 +212,12 @@ export function initTacticalMap() {
         camera.updateProjectionMatrix();
         renderer.setSize(newWidth, newHeight);
     });
+
+
+
+
+
+
+
+    
 }
