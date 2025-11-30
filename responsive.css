@@ -133,7 +133,15 @@
 
 
 
+/* Fichier : responsive.css */
 
+@media (max-width: 768px) {
+    .interactive-hint {
+        font-size: 0.7rem !important;
+        margin-bottom: 15px !important;
+        margin-top: 0 !important;
+    }
+}
 
 
 

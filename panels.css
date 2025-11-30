@@ -913,6 +913,46 @@
 /* NOUVEAU STYLE SKILLS (RECTANGLES)   */
 /* =================================== */
 
+
+.interactive-hint {
+    width: 100%;
+    text-align: center;
+    font-family: monospace;
+    font-size: 0.8rem;
+    color: var(--hud-cyan); /* Utilise ta variable cyan (#00f3ff) */
+    margin-bottom: 20px;     /* Espace avant les cartes */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.8;
+    
+    /* Pour que ça ne colle pas trop en haut */
+    margin-top: -1rem; 
+    position: relative;
+    z-index: 10;
+}
+
+/* Petite animation de respiration pour attirer l'œil */
+.interactive-hint {
+    animation: textPulse 3s infinite ease-in-out;
+}
+
+@keyframes textPulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; text-shadow: 0 0 8px var(--hud-cyan); }
+}
+
+/* Faire clignoter les chevrons > et < plus vite */
+.blink-arrow {
+    display: inline-block;
+    animation: fastBlink 1s infinite step-end;
+}
+
+@keyframes fastBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
 .skills-grid-container {
     display: grid; 
     grid-template-columns: repeat(4, 1fr);

@@ -111,11 +111,14 @@ const renderer = new THREE.WebGLRenderer({
     alpha: true,
     antialias: false, // DÉSACTIVÉ pour tous (gain majeur de FPS)
     powerPreference: "high-performance",
-    precision: "mediump" // Force une précision moyenne (suffisant et plus rapide)
+    precision: "mediump"  
 });
 
 // Forcer le ratio de pixels à 1 maximum (évite le calcul x2 sur les écrans Retina/4K)
-renderer.setPixelRatio(1.3);
+const isMobileOrTablet = window.innerWidth < 800;
+const targetRatio = isMobileOrTablet ? 2 : 5;
+
+ renderer.setPixelRatio(targetRatio);
 
 
 
@@ -136,7 +139,8 @@ cssContainer.style.pointerEvents = 'none'; // Laisse passer les clics
 document.body.appendChild(cssContainer);
 cssScene = new THREE.Scene();
 cssRenderer = new CSS3DRenderer();
-cssRenderer.setSize(window.innerWidth, window.innerHeight);
+// cssRenderer.setSize(window.innerWidth, window.innerHeight);
+cssRenderer.setSize(document.documentElement.clientWidth, window.innerHeight);
 cssContainer.appendChild(cssRenderer.domElement);
 // --- FIN ---
 
