@@ -92,37 +92,11 @@ const renderer = new THREE.WebGLRenderer({
     antialias: true
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
-
-const pixelRatio = window.innerWidth < 768 ? 1 : Math.min(window.devicePixelRatio, 1.5);
+// renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+const pixelRatio = window.innerWidth < 768 ? 1 : Math.min(window.devicePixelRatio, 2);
 renderer.setPixelRatio(pixelRatio);
 const isMobile = window.innerWidth < 768;
 renderer.antialias = !isMobile;
-
-
-// /* ========================================= */
-// /* OPTIMISATION 1 : QUALITÉ DU RENDU         */
-// /* ========================================= */
-
-// // Détection mobile un peu plus large (tablettes incluses)
-
-
-// const renderer = new THREE.WebGLRenderer({
-//     canvas: canvas,
-//     alpha: true,
-//     antialias: false, // DÉSACTIVÉ pour tous (gain majeur de FPS)
-//     powerPreference: "high-performance",
-//     precision: "mediump"  
-// });
-
-// // Forcer le ratio de pixels à 1 maximum (évite le calcul x2 sur les écrans Retina/4K)
-// const isMobileOrTablet = window.innerWidth < 800;
-// const targetRatio = isMobileOrTablet ? 2 : 5;
-
-//  renderer.setPixelRatio(targetRatio);
-
-
-
-
 
 // --- Rendu 2 : CSS3D (Pour le HUD HTML) ---
 let cssRenderer;
@@ -140,7 +114,6 @@ document.body.appendChild(cssContainer);
 cssScene = new THREE.Scene();
 cssRenderer = new CSS3DRenderer();
 cssRenderer.setSize(window.innerWidth, window.innerHeight);
-// cssRenderer.setSize(document.documentElement.clientWidth, window.innerHeight);
 cssContainer.appendChild(cssRenderer.domElement);
 // --- FIN ---
 
@@ -196,28 +169,15 @@ loader.load(
 
                 pieceMobile.add(hudObject);
                 
-                javelinModel.updateMatrixWorld(true);
-
-                // 5. Gérer la visibilité du spinner
+                // Force l'affichage si on était en mode "Skip"
                 const spinnerWrapper = hudElement.querySelector('.spinner-wrapper');
                 if (spinnerWrapper) {
-                    hudNeedsReset = true;
+                    spinnerWrapper.style.opacity = '1';
+                    spinnerWrapper.style.filter = 'none';
+                    spinnerWrapper.style.clipPath = 'none';
                 }
-            } else if (hudObject) {
-                console.log("HUD déjà attaché, update ignoré.");
-            } else {
-                console.warn("Impossible d'attacher le HUD : Pièce ou Élément manquant.");
             }
-            //     // Force l'affichage si on était en mode "Skip"
-            //     const spinnerWrapper = hudElement.querySelector('.spinner-wrapper');
-            //     if (spinnerWrapper) {
-            //         spinnerWrapper.style.opacity = '1';
-            //         spinnerWrapper.style.filter = 'none';
-            //         spinnerWrapper.style.clipPath = 'none';
-            //     }
-            // }
         };
-        
 
         // --- GESTION DU SKIP INTRO (SI LE MODÈLE ARRIVE APRÈS LE LOADER) ---
         if (window.skipIntroAnimation) {
@@ -233,38 +193,38 @@ loader.load(
         }
 
         // --- ECOUTEUR D'ÉVÉNEMENT (SI LE MODÈLE ARRIVE AVANT LE LOADER) ---
-        // document.addEventListener('loaderFinished', () => {
-        //     // Si on skip, on gère juste le HUD et la caméra instantanée
-        //     if (window.skipIntroAnimation) {
-        //         camera.position.z = 77;
-        //         attachHUD();
-        //         onScroll();
-        //     } else {
-        //         // Animation d'intro normale (Zoom 1000 -> 77)
-        //         isIntroAnimationPlaying = true;
-        //         attachHUD(); // On attache le HUD avant l'anim
+        document.addEventListener('loaderFinished', () => {
+            // Si on skip, on gère juste le HUD et la caméra instantanée
+            if (window.skipIntroAnimation) {
+                camera.position.z = 77;
+                attachHUD();
+                onScroll();
+            } else {
+                // Animation d'intro normale (Zoom 1000 -> 77)
+                isIntroAnimationPlaying = true;
+                attachHUD(); // On attache le HUD avant l'anim
                 
-        //         let cameraProxy = { z: 1000, hoverWeight: 0 };
-        //         camera.position.z = 1000;
+                let cameraProxy = { z: 1000, hoverWeight: 0 };
+                camera.position.z = 1000;
                 
-        //         // ... (Ton code anime.js existant pour l'intro) ...
-        //         anime({
-        //             targets: cameraProxy, 
-        //             z: 77,
-        //             duration: 6000,
-        //             easing: 'easeInOutCubic',
-        //             // ... (reste des propriétés update/complete) ...
-        //             update: function() {
-        //                 camera.position.z = cameraProxy.z;
-        //                 // ...
-        //             },
-        //             complete: function() {
-        //                 isIntroAnimationPlaying = false;
-        //                 // ...
-        //             }
-        //         });
-        //     }
-        // });
+                // ... (Ton code anime.js existant pour l'intro) ...
+                anime({
+                    targets: cameraProxy, 
+                    z: 77,
+                    duration: 6000,
+                    easing: 'easeInOutCubic',
+                    // ... (reste des propriétés update/complete) ...
+                    update: function() {
+                        camera.position.z = cameraProxy.z;
+                        // ...
+                    },
+                    complete: function() {
+                        isIntroAnimationPlaying = false;
+                        // ...
+                    }
+                });
+            }
+        });
 
 
 
@@ -275,7 +235,6 @@ loader.load(
         // ---  ÉCOUTER LE SIGNAL DU LOADER ---
         document.addEventListener('loaderFinished', () => {
             console.log("Signal 'loaderFinished' reçu. Attachement du HUD au modèle.");
-            attachHUD();
             isIntroAnimationPlaying = true; // Verrouille le scroll
 
             // 1. Définir l'état de départ
@@ -354,39 +313,39 @@ loader.load(
             
             } // --- FIN DU 'else' ---
 
-        // const nomDeLaPiece = 'camera_jnt56_56';
-        // const pieceMobile = javelinModel.getObjectByName(nomDeLaPiece);
-        // const hudElement = document.querySelector('.animation-container');
+        const nomDeLaPiece = 'camera_jnt56_56';
+        const pieceMobile = javelinModel.getObjectByName(nomDeLaPiece);
+        const hudElement = document.querySelector('.animation-container');
 
-        // if (pieceMobile && hudElement) {
-        //         hudElement.style.position = 'absolute';
-        //         hudElement.style.top = '0px';      
-        //         hudElement.style.left = '0px';     
-        //         hudElement.style.transform = 'none'; 
+        if (pieceMobile && hudElement) {
+                hudElement.style.position = 'absolute';
+                hudElement.style.top = '0px';      
+                hudElement.style.left = '0px';     
+                hudElement.style.transform = 'none'; 
 
-        //         hudObject = new CSS3DObject(hudElement);
+                hudObject = new CSS3DObject(hudElement);
 
-        //         hudObject.position.set(0, 0, 1.14);
-        //         hudObject.rotation.x = 0;
+                hudObject.position.set(0, 0, 1.14);
+                hudObject.rotation.x = 0;
                 
-        //         const scale = 0.001; 
-        //         hudObject.scale.set(scale, scale, scale);
+                const scale = 0.001; 
+                hudObject.scale.set(scale, scale, scale);
 
-        //         pieceMobile.add(hudObject);
+                pieceMobile.add(hudObject);
 
-        //         const spinnerWrapper = hudElement.querySelector('.spinner-wrapper');
-        //         if (spinnerWrapper) {
-        //             // console.log("Réinitialisation du style (POST-ATTACH).");
-        //             // spinnerWrapper.style.opacity = '1';
-        //             // spinnerWrapper.style.filter = 'none';
-        //             // spinnerWrapper.style.clipPath = 'none';
-        //             hudNeedsReset = true;
-        //             console.log("HUD attaché. Levée du drapeau pour la réinitialisation des styles.");
-        //         }
+                const spinnerWrapper = hudElement.querySelector('.spinner-wrapper');
+                if (spinnerWrapper) {
+                    // console.log("Réinitialisation du style (POST-ATTACH).");
+                    // spinnerWrapper.style.opacity = '1';
+                    // spinnerWrapper.style.filter = 'none';
+                    // spinnerWrapper.style.clipPath = 'none';
+                    hudNeedsReset = true;
+                    console.log("HUD attaché. Levée du drapeau pour la réinitialisation des styles.");
+                }
                 
-        //     } else {
-        //         console.error("Impossible d'attacher le HUD. Pièce mobile ou élément introuvable.");
-        //     }
+            } else {
+                console.error("Impossible d'attacher le HUD. Pièce mobile ou élément introuvable.");
+            }
         });
 
         // --- BLOC ANIMATION MIXER ---
@@ -486,7 +445,6 @@ function updateModelOnScroll(scrollPercent) {
             }
         }
 
-        javelinModel.visible = true;
         camera.position.z = zoomInitial + (zoomStep * etape1_Percent);
         javelinModel.position.y = positionY_Initial;
         javelinModel.rotation.x = rotationX_Initial;
@@ -496,8 +454,7 @@ function updateModelOnScroll(scrollPercent) {
 
         
     } else if (scrollPercent <= seuil_Etape2_fin) {
-        // --- ÉTAPE 2 :  (Z2 -> Z3) ---
-        javelinModel.visible = true;
+        // --- ÉTAPE 2 : DÉPLACEMENT Y (Z2 -> Z3) ---
         const etape2_Percent = (scrollPercent - seuil_Etape1_fin) / (seuil_Etape2_fin - seuil_Etape1_fin);
         camera.position.z = (zoomInitial + zoomStep) + (zoomStep * etape2_Percent);
         javelinModel.position.y = positionY_Initial;
@@ -509,8 +466,7 @@ function updateModelOnScroll(scrollPercent) {
 
 
     } else if (scrollPercent <= seuil_Etape3_fin) {
-        // --- ÉTAPE 3 :  (Z3 -> Z4) ---
-        javelinModel.visible = true;
+        // --- ÉTAPE 3 : ROTATION X (Z3 -> Z4) ---
         const etape3_Percent = (scrollPercent - seuil_Etape2_fin) / (seuil_Etape3_fin - seuil_Etape2_fin);
         camera.position.z = (zoomInitial + zoomStep * 2) + (zoomStep * etape3_Percent);
         javelinModel.position.y = positionY_Initial;
@@ -522,8 +478,7 @@ function updateModelOnScroll(scrollPercent) {
 
         
     } else if (scrollPercent <= seuil_Etape4_fin) {
-        // --- ÉTAPE 4 :  (Z4 -> Z5) ---
-        javelinModel.visible = true;
+        // --- ÉTAPE 4 : ANIMATION "HOVER" (Z4 -> Z5) ---
         const etape4_Percent = (scrollPercent - seuil_Etape3_fin) / (seuil_Etape4_fin - seuil_Etape3_fin);
         camera.position.z = zoomFinal;
         javelinModel.position.y = positionY_Initial + (positionY_Final - positionY_Initial) * etape4_Percent;
@@ -535,26 +490,26 @@ function updateModelOnScroll(scrollPercent) {
 
 
     } else if (scrollPercent <= seuil_Etape5_fin) {
-        // --- ÉTAPE 5 :  (Z5 -> Z6) ---
-        javelinModel.visible = false;
+        // --- ÉTAPE 5 : ANIMATION "HOVER" (Z5 -> Z6) ---
         const etape5_Percent = (scrollPercent - seuil_Etape4_fin) / (seuil_Etape5_fin - seuil_Etape4_fin);        
         camera.position.z = zoomFinal;
-        javelinModel.position.y = 300
-        javelinModel.rotation.x = rotationX_Initial;
-        javelinModel.rotation.y = rotationY_Initial;
+        javelinModel.position.y = positionY_Final;
+        javelinModel.rotation.x = rotationX_Initial + (rotationX_Final/2 - rotationX_Initial) * etape5_Percent;
+        javelinModel.rotation.y = rotationY_Initial + (rotationY_Final/2 - rotationY_Initial) * etape5_Percent;
         hoverAction.weight = 0;
         exposedAction.weight = 0;
         loaderText.style.display = 'none';
 
 
     } else if (scrollPercent <= seuil_Etape6_fin){
-        // --- ÉTAPE 6 : (Z6 -> Z7) ---
-        javelinModel.visible = false;
+        // --- ÉTAPE 6 : ANIMATION "EXPOSED VIEW" (Z6 -> Z7) ---
         const etape6_Percent = (scrollPercent - seuil_Etape5_fin) / (seuil_Etape6_fin - seuil_Etape5_fin);
         camera.position.z = zoomFinal;
-        javelinModel.position.y = 300;
-        javelinModel.rotation.x = rotationX_Initial;
-        javelinModel.rotation.y = rotationY_Initial;
+        javelinModel.position.y = positionY_Final;
+        javelinModel.rotation.x = rotationX_Initial + (rotationX_Final - rotationX_Initial) * etape6_Percent;
+        javelinModel.rotation.y = rotationY_Initial + (rotationY_Final - rotationY_Initial) * etape6_Percent;
+        // javelinModel.rotation.x = rotationX_Final;
+        // javelinModel.rotation.y = rotationY_Final;
         hoverAction.weight = 0;
         exposedAction.weight = 0;
         loaderText.style.display = 'none';
@@ -562,36 +517,31 @@ function updateModelOnScroll(scrollPercent) {
 
     } else if (scrollPercent <= seuil_Etape7_fin){
         // --- ÉTAPE 7 : ... (Z7 -> Z8) ---
-        javelinModel.visible = false;
         const etape7_Percent = (scrollPercent - seuil_Etape6_fin) / (seuil_Etape7_fin - seuil_Etape6_fin);
         camera.position.z = zoomFinal;
-        javelinModel.position.y = 300;
         javelinModel.rotation.x = rotationX_Final;
         javelinModel.rotation.y = rotationY_Final;
-        hoverAction.weight = 0;
+        hoverAction.weight = etape7_Percent;
         exposedAction.weight = 0;
         loaderText.style.display = 'none';
 
 
     }else if(scrollPercent <= seuil_Etape8_fin){
         // --- ÉTAPE 8 : ... (Z8 -> Z9) ---
-        javelinModel.visible = false;
         const etape8_Percent = (scrollPercent - seuil_Etape7_fin) / (seuil_Etape8_fin - seuil_Etape7_fin);
         camera.position.z = zoomFinal;
-        javelinModel.position.y = 300;
+        javelinModel.position.y = positionY_Final;
         javelinModel.rotation.x = rotationX_Final;
         javelinModel.rotation.y = rotationY_Final;
-        hoverAction.weight = 0;
+        hoverAction.weight = 1-etape8_Percent;
         exposedAction.weight = 0;
         loaderText.style.display = 'none';
 
 
     }else if(scrollPercent <= seuil_Etape9_fin){
         // --- ÉTAPE 9 : ... (Z9 -> Z10) ---
-        javelinModel.visible = true;
         const etape9_Percent = (scrollPercent - seuil_Etape8_fin) / (seuil_Etape9_fin - seuil_Etape8_fin);
         hoverAction.weight = 0;
-        camera.position.z = zoomFinal;
         javelinModel.position.y = positionY_Final;
         exposedAction.weight = etape9_Percent;
         loaderText.style.display = 'none';
@@ -599,10 +549,8 @@ function updateModelOnScroll(scrollPercent) {
 
     }else if(scrollPercent <= seuil_Etape10_fin){
         // --- ÉTAPE 10 : ... (Z10 -> Z11) ---
-        javelinModel.visible = true;
         const etape10_Percent = (scrollPercent - seuil_Etape9_fin) / (seuil_Etape10_fin - seuil_Etape9_fin);
         hoverAction.weight = 0;
-        camera.position.z = zoomFinal;
         javelinModel.position.y = positionY_Final;
         exposedAction.weight = 1-etape10_Percent;
         loaderText.style.display = 'none';
@@ -610,7 +558,6 @@ function updateModelOnScroll(scrollPercent) {
 
     }else if(scrollPercent <= seuil_Etape11_fin){
         // --- ÉTAPE 11 : ... (Z11 -> Z12) ---
-        javelinModel.visible = true;
         const etape11_Percent = (scrollPercent - seuil_Etape10_fin) / (seuil_Etape11_fin - seuil_Etape10_fin);
         hoverAction.weight = 0;
         exposedAction.weight = 0;
@@ -652,14 +599,6 @@ function onScroll() {
     }
 }
 window.addEventListener('scroll', onScroll);
-// FORCE LE DRONE À RÉAPPARAÎTRE APRÈS LA TÉLÉPORTATION
-window.addEventListener('scroll', () => {
-    if (window.scrollY < 10 && javelinModel) {
-        javelinModel.visible = true;
-        // On force la mise à jour visuelle pour éviter le clignotement
-        updateModelOnScroll(0);
-    }
-});
 // --- FIN OPTIMISATION SCROLL ---
 
 
@@ -721,19 +660,11 @@ window.addEventListener('resize', () => {
     
     // Définit un nouveau timeout
     resizeTimeout = setTimeout(() => {
-        // const width = window.innerWidth;
-        // const height = window.innerHeight;
-        // renderer.setSize(width, height);
-
-        const width = document.documentElement.clientWidth;
+        const width = window.innerWidth;
         const height = window.innerHeight;
 
-        const isMobileNow = width < 800;
-        const newRatio = isMobileNow ? 2 : 5;
-
-        // Mise à jour WebGL
+        // Rendu 1 (WebGL)
         renderer.setSize(width, height);
-        renderer.setPixelRatio(newRatio);
         
         // Rendu 2 (CSS)
         if (cssRenderer) {
