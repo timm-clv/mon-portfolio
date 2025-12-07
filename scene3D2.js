@@ -503,6 +503,8 @@ function updateModelOnScroll(scrollPercent) {
     if (!javelinModel || !mixer || !hoverAction || !exposedAction) {
         return;
     }
+    javelinModel.position.x = 0;
+
     
     if (scrollPercent <= seuil_Etape1_fin) {
         // --- ÉTAPE 1 : ZOOM (Z1 -> Z2) ---
@@ -769,7 +771,7 @@ window.addEventListener('resize', () => {
         const width = document.documentElement.clientWidth;
         const height = window.innerHeight;
 
-        const isMobileNow = width < 800;
+        const isMobileNow = width < 1200;
         const newRatio = isMobileNow ? 2 : 5;
 
         // Mise à jour WebGL
