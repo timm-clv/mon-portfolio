@@ -1117,3 +1117,42 @@ Ne s'applique qu'à la zone 1 et à la zone 2.
     font-size: 1.2rem;
     color: #E13C4C;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================================== */
+/* NAVIGATION ACTIVE STATE (SCROLL SPY) */
+/* =================================== */
+
+/* L'état actif (quand on est dans la section) */
+.main-nav li a.active-link {
+    color: #E13C4C; /* Ton rouge thème */
+    text-shadow: 0 0 10px rgba(225, 60, 76, 0.8), 
+                 0 0 20px rgba(225, 60, 76, 0.4);
+    
+    /* Petite ligne en dessous */
+    border-bottom: 2px solid #E13C4C;
+    padding-bottom: 4px;
+    
+    /* Animation douce */
+    transition: all 0.3s ease;
+}
+
+/* Petite animation pulsante pour le lien actif */
+.main-nav li a.active-link {
+    animation: navPulse 2s infinite alternate;
+}
+
+@keyframes navPulse {
+    from { text-shadow: 0 0 10px rgba(225, 60, 76, 0.6); }
+    to { text-shadow: 0 0 18px rgba(225, 60, 76, 1); }
+}
