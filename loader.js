@@ -333,6 +333,82 @@ document.addEventListener("DOMContentLoaded", function() {
     //generateInnerBars();
 
 
+
+
+
+
+
+
+
+
+
+
+    /* ================================================= */
+    /* PATCH : GESTION DES BOUTONS INTRO (Contact & CV)  */
+    /* ================================================= */
+    
+    // On sélectionne les boutons dans le loader (sauf le Next qui est déjà géré)
+    const introButtons = document.querySelectorAll('.loader .btn-contact, .loader .btn-resume');
+
+    introButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const targetUrl = btn.getAttribute('href');
+            // Vérifie si c'est un lien externe (comme le CV en PDF)
+            const isExternal = btn.target === '_blank'; 
+
+            // CAS 1 : C'est un lien interne (ex: #contact)
+            if (!isExternal && targetUrl && targetUrl.startsWith('#')) {
+                e.preventDefault(); // On empêche le saut brutal
+                
+                // 1. On lance la fermeture du loader (comme le bouton Next)
+                // Note: On appelle la fonction sans 'e' pour ne pas qu'elle fasse son propre preventDefault
+                triggerInstantTransition(); 
+
+                // 2. On scroll manuellement vers la section après un petit délai
+                // (Le temps que le loader commence à disparaître)
+                setTimeout(() => {
+                    const targetSection = document.querySelector(targetUrl);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+            
+            // CAS 2 : C'est le CV (PDF) ou un lien externe
+            else {
+                // On laisse le lien s'ouvrir dans un nouvel onglet (comportement par défaut)
+                // MAIS on ferme le loader sur la page actuelle pour que l'utilisateur 
+                // puisse naviguer quand il reviendra sur l'onglet.
+                triggerInstantTransition();
+            }
+        });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // --- CORRECTION RADICALE : NETTOYAGE CSS FORCÉ ---
     const nextButton = document.querySelector('.btn-next-loader');
     
