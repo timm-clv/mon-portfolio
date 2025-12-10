@@ -57,8 +57,17 @@ MODIFIÉ : Il est maintenant en 'row' (ligne) et non 'column'
     /* Centre verticalement le conteneur */
     transform: translateY(-50%);
     /* Optionnel : Aligne le texte à droite pour un look plus propre */
-    text-align: right; 
+    /* text-align: right;  */
+    display: flex;
+    flex-direction: column; /* Empile les éléments verticalement */
+    align-items: flex-end;  /* Aligne tout le bloc vers la droite (côté animation) */
+    text-align: right;      /* Sécurité */
 }
+.text-container br {
+    display: none;
+}
+
+
 
 /* NOUVEAU : Conteneur pour l'animation à droite */
 .animation-container {
@@ -144,7 +153,8 @@ Il est plus grand et a un effet de reflet (radial-gradient)
     opacity: 0; /* Invisible au début */
 
     /* AJOUT : Aligne ce bloc comme le sous-titre */
-    display: inline-block;
+    /* display: inline-block; */
+    display: block;
     width: 256px;       /* Même largeur que .loader-subtext */
     text-align: left;   /* Même alignement que .loader-subtext */
     
@@ -166,7 +176,8 @@ Il est plus grand et a un effet de reflet (radial-gradient)
     min-height: 2.08rem; /* 1.2rem * 2 lignes + marge */
     line-height: 1.04rem; /* Léger ajustement pour l'espacement */
     
-    display: inline-block; 
+    /* display: inline-block;  */
+    display: block;
     
     /* SUPPRIMÉ : Permet au texte d'aller à la ligne */
     /* white-space: nowrap; */
@@ -858,6 +869,7 @@ Ne s'applique qu'à la zone 1 et à la zone 2.
     display: flex;
     align-items: center; /* Centre le connecteur verticalement */
 
+    justify-content: center;
     /* Animation sur la Largeur (Width) et non la hauteur */
     max-width: 0; 
     opacity: 0;
@@ -925,6 +937,7 @@ Ne s'applique qu'à la zone 1 et à la zone 2.
         flex-direction: column;
         align-items: center;
         margin: 0 auto;
+        justify-content: center;
     }
     .cert-terminal-head { flex: auto; width: 90%; }
     .cert-links-wrapper { flex-direction: column; max-width: 90%; max-height: 0; transition: max-height 0.5s; }
