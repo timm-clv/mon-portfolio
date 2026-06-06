@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://timm-clv.github.io/mon-portfolio/sitemap.xml
