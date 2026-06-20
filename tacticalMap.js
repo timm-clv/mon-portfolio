@@ -1,1 +1,172 @@
-function _0x56d3(_0x14cec8,_0x4450ac){_0x14cec8=_0x14cec8-0x98;const _0x5876ff=_0x5876();let _0x56d38=_0x5876ff[_0x14cec8];return _0x56d38;}(function(_0x20de68,_0x93fec6){const _0x47867b=_0x56d3,_0x3efbbb=_0x20de68();while(!![]){try{const _0x49e82a=-parseInt(_0x47867b(0xcb))/0x1*(parseInt(_0x47867b(0xc9))/0x2)+-parseInt(_0x47867b(0xac))/0x3+-parseInt(_0x47867b(0xb4))/0x4+parseInt(_0x47867b(0xa4))/0x5*(parseInt(_0x47867b(0xa3))/0x6)+-parseInt(_0x47867b(0xb9))/0x7+parseInt(_0x47867b(0xbc))/0x8+parseInt(_0x47867b(0xcf))/0x9;if(_0x49e82a===_0x93fec6)break;else _0x3efbbb['push'](_0x3efbbb['shift']());}catch(_0xe7b82){_0x3efbbb['push'](_0x3efbbb['shift']());}}}(_0x5876,0xa7271));import*as _0x4f3fd9 from'three';function _0x5876(){const _0x4d1c6f=['none','20364021qZCgGJ','clientWidth','set','getZ','#cda47d','TacticalMap:\x20Contexte\x20WebGL\x20perdu.\x20Arrêt\x20de\x20l\x27animation.','render','Clock','getElementById','push','add','abs','remove','classList','isIntersecting','834bBfMnF','3085VTtnGi','display','Points','position','getElapsedTime','webglcontextlost','innerWidth','lookAt','277938AdcmEg','aspect','cos','style','setSize','sin','fog','resize','4343980KLIFuZ','Scene','needsUpdate','clientHeight','updateProjectionMatrix','6274254igCupn','random','default','3713896eyxmfT','Float32BufferAttribute','background','#00f3ff','color','FogExp2','paused','log','Color','BufferGeometry','setAttribute','rotation','devicePixelRatio','35366xQLXwW','addEventListener','3LoiThy','setPixelRatio','observe'];_0x5876=function(){return _0x4d1c6f;};return _0x5876();}export function initTacticalMap(){const _0x1037c0=_0x56d3,_0x5ce1b1=document[_0x1037c0(0x9c)]('tactical-map-canvas');if(!_0x5ce1b1)return;const _0x5103a8=new _0x4f3fd9[(_0x1037c0(0xb5))]();_0x5103a8[_0x1037c0(0xbe)]=new _0x4f3fd9['Color'](0x508),_0x5103a8[_0x1037c0(0xb2)]=new _0x4f3fd9[(_0x1037c0(0xc1))](0x508,0.015);const _0x5943b8=_0x5ce1b1['parentElement'],_0x4a1e5b=_0x5943b8[_0x1037c0(0xd0)],_0x37b5ae=_0x5943b8[_0x1037c0(0xb7)],_0x1eb22b=new _0x4f3fd9['PerspectiveCamera'](0x3c,_0x4a1e5b/_0x37b5ae,0.1,0x3e8);_0x1eb22b[_0x1037c0(0xa7)][_0x1037c0(0xd1)](0x0,0xa,0x28),_0x1eb22b[_0x1037c0(0xab)](0x0,0x0,0x0);let _0x5340ee;try{_0x5340ee=new _0x4f3fd9['WebGLRenderer']({'canvas':_0x5ce1b1,'alpha':!![],'antialias':!![],'powerPreference':_0x1037c0(0xbb),'failIfMajorPerformanceCaveat':!![]});}catch(_0x431c6b){console['error']('Erreur\x20fatale\x20WebGL\x20(Tactical\x20Map)\x20:',_0x431c6b),_0x5ce1b1[_0x1037c0(0xaf)][_0x1037c0(0xa5)]=_0x1037c0(0xce);return;}_0x5340ee[_0x1037c0(0xb0)](_0x4a1e5b,_0x37b5ae),_0x5340ee[_0x1037c0(0xcc)](Math['min'](window[_0x1037c0(0xc8)],0x2)),_0x5ce1b1[_0x1037c0(0xca)](_0x1037c0(0xa9),function(_0x3f289c){const _0x44bc7e=_0x1037c0;_0x3f289c['preventDefault'](),console[_0x44bc7e(0xc3)](_0x44bc7e(0x99));},![]);const _0x983884=window[_0x1037c0(0xaa)]<0x300,_0xfa650c=_0x983884?0x5dc:0x1770,_0x308c49=_0x983884?0x28:0x50,_0x39aea3=_0x983884?0x28:0x50,_0x385a10=1.5,_0x53c341=new _0x4f3fd9[(_0x1037c0(0xc5))](),_0x4343bf=[],_0x3f12ea=[],_0x4189c1=[],_0x489df5=new _0x4f3fd9[(_0x1037c0(0xc4))](_0x1037c0(0xbf)),_0xffb949=new _0x4f3fd9[(_0x1037c0(0xc4))](_0x1037c0(0x98));let _0x2fd1a5=0x0;for(let _0x536cae=-_0x308c49/0x2;_0x536cae<_0x308c49/0x2;_0x536cae++){for(let _0x14647e=-_0x39aea3/0x2;_0x14647e<_0x39aea3/0x2;_0x14647e++){if(Math[_0x1037c0(0xba)]()>0.8)continue;const _0x5e7268=_0x536cae*_0x385a10,_0x38a17e=_0x14647e*_0x385a10;let _0x2f0b83=0x0,_0x55b6ec=![];if(_0x38a17e<-0xa){const _0x259817=Math[_0x1037c0(0xb1)](_0x5e7268*0.1)*Math[_0x1037c0(0xae)](_0x38a17e*0.1)*0x4+Math[_0x1037c0(0xb1)](_0x5e7268*0.3)*Math[_0x1037c0(0xb1)](_0x38a17e*0.3)*0x2,_0x1bed73=Math[_0x1037c0(0x9f)](_0x38a17e+0xa)/0x3;_0x259817>0x0&&(_0x2f0b83=_0x259817*_0x1bed73*0.5,_0x55b6ec=!![]);}_0x4343bf[_0x1037c0(0x9d)](_0x5e7268,_0x2f0b83,_0x38a17e),_0x4189c1[_0x1037c0(0x9d)](_0x2f0b83),_0x55b6ec||_0x2f0b83>0x2?_0x3f12ea[_0x1037c0(0x9d)](_0xffb949['r'],_0xffb949['g'],_0xffb949['b']):_0x3f12ea[_0x1037c0(0x9d)](_0x489df5['r'],_0x489df5['g'],_0x489df5['b']);}}_0x53c341[_0x1037c0(0xc6)](_0x1037c0(0xa7),new _0x4f3fd9[(_0x1037c0(0xbd))](_0x4343bf,0x3)),_0x53c341[_0x1037c0(0xc6)](_0x1037c0(0xc0),new _0x4f3fd9[(_0x1037c0(0xbd))](_0x3f12ea,0x3));const _0x337aa0=new _0x4f3fd9['PointsMaterial']({'size':0.3,'vertexColors':!![],'transparent':!![],'opacity':0.8,'sizeAttenuation':!![]}),_0x605408=new _0x4f3fd9[(_0x1037c0(0xa6))](_0x53c341,_0x337aa0);_0x5103a8[_0x1037c0(0x9e)](_0x605408);const _0x44d146=new IntersectionObserver(_0xb4df3e=>{_0xb4df3e['forEach'](_0x5a27e6=>{const _0x156df0=_0x56d3;!_0x5a27e6[_0x156df0(0xa2)]?_0x5ce1b1['classList'][_0x156df0(0x9e)]('paused'):_0x5ce1b1[_0x156df0(0xa1)][_0x156df0(0xa0)](_0x156df0(0xc2));});},{'threshold':0x0});_0x44d146[_0x1037c0(0xcd)](_0x5ce1b1);const _0x20e43a=new _0x4f3fd9[(_0x1037c0(0x9b))]();function _0x366871(){const _0x5a2b37=_0x1037c0;if(_0x5ce1b1[_0x5a2b37(0xa1)]['contains'](_0x5a2b37(0xc2))){requestAnimationFrame(_0x366871);return;}if(_0x5ce1b1[_0x5a2b37(0xaf)][_0x5a2b37(0xa5)]===_0x5a2b37(0xce))return;requestAnimationFrame(_0x366871);const _0x204012=_0x20e43a[_0x5a2b37(0xa8)](),_0x506e1e=_0x53c341['attributes'][_0x5a2b37(0xa7)],_0x584a4e=_0x506e1e['count'];for(let _0x13a860=0x0;_0x13a860<_0x584a4e;_0x13a860+=0x3){const _0x155931=_0x506e1e['getX'](_0x13a860),_0x3fd386=_0x506e1e[_0x5a2b37(0xd2)](_0x13a860),_0x611edb=_0x4189c1[_0x13a860];if(_0x611edb<0x2&&_0x3fd386>-0xa){const _0x13f9df=Math[_0x5a2b37(0xb1)](_0x155931*0.3+_0x204012)*Math[_0x5a2b37(0xae)](_0x3fd386*0.2+_0x204012)*0.5;_0x506e1e['setY'](_0x13a860,_0x611edb+_0x13f9df);}}_0x506e1e[_0x5a2b37(0xb6)]=!![],_0x605408[_0x5a2b37(0xc7)]['y']=Math[_0x5a2b37(0xb1)](_0x204012*0.1)*0.05,_0x5340ee[_0x5a2b37(0x9a)](_0x5103a8,_0x1eb22b);}_0x366871(),window['addEventListener'](_0x1037c0(0xb3),()=>{const _0x167fc7=_0x1037c0,_0x46fcb2=_0x5943b8[_0x167fc7(0xd0)],_0x3cb6df=_0x5943b8[_0x167fc7(0xb7)];_0x1eb22b[_0x167fc7(0xad)]=_0x46fcb2/_0x3cb6df,_0x1eb22b[_0x167fc7(0xb8)](),_0x5340ee[_0x167fc7(0xb0)](_0x46fcb2,_0x3cb6df);});}
+// tacticalMap.js - Mise à jour : Collines, Drone Shahed et Viseur fixe
+
+import * as THREE from 'three';
+
+export function initTacticalMap() {
+    const canvas = document.getElementById('tactical-map-canvas');
+    if (!canvas) return;
+
+    // 1. Initialisation de la scène
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color('#0a0a0c'); 
+    scene.fog = new THREE.FogExp2('#0a0a0c', 0.015);
+
+    const container = canvas.parentElement;
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    
+    // Caméra placée plus haut pour voir la vallée
+    const camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
+    camera.position.set(0, 35, 50); 
+    camera.lookAt(0, 0, 0);
+
+    let renderer;
+    try {
+        renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            alpha: true,
+            antialias: true,
+            powerPreference: 'high-performance'
+        });
+    } catch (e) {
+        console.error('Erreur WebGL :', e);
+        canvas.style.display = 'none';
+        return;
+    }
+    renderer.setSize(width, height);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // 2. Création du terrain (Plusieurs collines)
+    const terrainGeometry = new THREE.BufferGeometry();
+    const positions = [];
+    const colors = [];
+    const colorValley = new THREE.Color('#cda47d'); 
+    const colorPeak = new THREE.Color('#8b4513');   
+
+    const gridX = 150;
+    const gridZ = 150;
+    const step = 1.5;
+
+    for (let i = -gridX / 2; i < gridX / 2; i++) {
+        for (let j = -gridZ / 2; j < gridZ / 2; j++) {
+            if (Math.random() > 0.6) continue; // Points clairsemés
+
+            const x = i * step;
+            const z = j * step;
+            
+            // Équation pour créer plusieurs petites collines et ondulations
+            const heightVal = Math.sin(x * 0.2) * Math.cos(z * 0.2) * 5 + Math.sin(x * 0.05) * 8;
+
+            positions.push(x, heightVal, z);
+
+            const mixedColor = colorValley.clone().lerp(colorPeak, (heightVal + 8) / 20);
+            colors.push(mixedColor.r, mixedColor.g, mixedColor.b);
+        }
+    }
+
+    terrainGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+    terrainGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+    const terrainMaterial = new THREE.PointsMaterial({
+        size: 0.25,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.6
+    });
+    const terrain = new THREE.Points(terrainGeometry, terrainMaterial);
+    scene.add(terrain);
+
+    // 3. Création du Drone
+    const droneTarget = new THREE.Group();
+    scene.add(droneTarget);
+
+    // Forme d'aile delta (type Shahed)
+    const droneGeo = new THREE.ConeGeometry(0.8, 1.6, 3);
+    droneGeo.rotateX(Math.PI / 2); // On le pointe vers l'avant
+    droneGeo.scale(1, 0.15, 1);    // On l'aplatit fortement pour faire une aile
+    const droneMat = new THREE.MeshBasicMaterial({ color: 0xaaaaaa, wireframe: true });
+    const droneMesh = new THREE.Mesh(droneGeo, droneMat);
+    droneTarget.add(droneMesh);
+
+    // 4. Création du Viseur (Encadrement)
+    // Séparé du drone pour qu'il reste toujours face à la caméra
+    const reticleGroup = new THREE.Group();
+    scene.add(reticleGroup); 
+
+    const reticleMat = new THREE.LineBasicMaterial({ color: 0xff0000, linewidth: 2 });
+    const s = 1.5; // Taille de l'encadrement
+    const l = 0.6; // Longueur des bords
+
+    // Fonction pour dessiner de vrais coins " [ ] "
+    function createCorner(x, y, scaleX, scaleY) {
+        const pts = [
+            new THREE.Vector3(x + (l * scaleX), y, 0),
+            new THREE.Vector3(x, y, 0),
+            new THREE.Vector3(x, y + (l * scaleY), 0)
+        ];
+        return new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), reticleMat);
+    }
+
+    reticleGroup.add(createCorner(-s, s, 1, -1));  // Haut-Gauche
+    reticleGroup.add(createCorner(s, s, -1, -1));  // Haut-Droite
+    reticleGroup.add(createCorner(-s, -s, 1, 1));  // Bas-Gauche
+    reticleGroup.add(createCorner(s, -s, -1, 1));  // Bas-Droite
+
+    // 5. Boucle d'Animation
+    const clock = new THREE.Clock();
+
+    function animate() {
+        if (canvas.classList.contains('paused') || canvas.style.display === 'none') {
+            requestAnimationFrame(animate);
+            return;
+        }
+        requestAnimationFrame(animate);
+
+        const t = clock.getElapsedTime();
+
+        // Mouvement du drone (Surface plus large)
+        droneTarget.position.x = Math.sin(t * 0.2) * 45;
+        droneTarget.position.z = Math.cos(t * 0.25) * 35;
+        
+        // Calcul du relief sous le drone pour voler en rase-motte (4 unités au-dessus du sol)
+        const groundY = Math.sin(droneTarget.position.x * 0.2) * Math.cos(droneTarget.position.z * 0.2) * 5 + Math.sin(droneTarget.position.x * 0.05) * 8;
+        droneTarget.position.y = groundY + 1.2;
+
+        // Le drone regarde dans la direction où il avance
+        const dx = Math.cos(t * 0.2) * 45 * 0.2;
+        const dz = -Math.sin(t * 0.25) * 35 * 0.25;
+        // On le laisse bien horizontal en gardant son Y actuel pour le lookAt
+        droneMesh.lookAt(droneTarget.position.x + dx, droneTarget.position.y, droneTarget.position.z + dz);
+
+        // Le viseur suit la position du drone mais regarde TOUJOURS la caméra
+        reticleGroup.position.copy(droneTarget.position);
+        reticleGroup.quaternion.copy(camera.quaternion);
+
+        // Clignotement de l'encadrement : 80% rouge (verrouillé), 20% blanc (recherche)
+        const isLocked = (t % 2) < 1.7; // Sur un cycle de 2s, vrai pendant 1.7s
+        reticleMat.color.setHex(isLocked ? 0xff0000 : 0xffffff);
+
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // 6. Gestion du redimensionnement et optimisation
+    window.addEventListener('resize', () => {
+        const w = container.clientWidth;
+        const h = container.clientHeight;
+        camera.aspect = w / h;
+        camera.updateProjectionMatrix();
+        renderer.setSize(w, h);
+    });
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                canvas.classList.add('paused');
+            } else {
+                canvas.classList.remove('paused');
+            }
+        });
+    });
+    observer.observe(canvas);
+}
