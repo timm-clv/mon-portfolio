@@ -1,32 +1,102 @@
 // main.js - désobfusqué
 
-document.addEventListener('DOMContentLoaded',function() {
- function _0x4c014c() {
- console.log('Démarrage du préchargement des vidéos tactiques...');
- const _0x56b32f=document.querySelectorAll('.hud-card[data-type="video"]'),_0xaa8f83=window.innerWidth<0x300;
- _0x56b32f.forEach(_0x1b485a=> {
- _0x5400f9=_0x1b485a.dataset.src;
- _0x5400f9&&fetch(_0x5400f9).then(_0x5c5214=>_0x5c5214.blob()).then(_0x656e9d=> {
- _0x36b038=URL.createObjectURL(_0x656e9d);
- _0x1b485a.dataset.src=_0x36b038,console.log('Vidéo préchargée en mémoire : '+_0x5400f9);
- 
- }).catch(_0x9a8147=>console.error('Erreur préchargement vidéo',_0x9a8147));
- 
- });
- 
- }
- _0x4c014c();
- const _0x419608=document.querySelectorAll('.panel-2d--clickable'),_0x282064=document.querySelectorAll('.neon-circle-image--clickable'),_0x177404=[..._0x419608,..._0x282064];
- _0x177404.forEach(_0x5c78b9=> {
- _0x5c78b9.addEventListener('click',()=> {
- _0x273173=_0x5c78b9.dataset.href;
- _0x273173&&(console.log('Ouverture de : '+_0x273173),window.open(_0x273173,'_blank'));
- 
- });
- 
- });
- 
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // =========================================================
+    // 1. NOUVEAU SYSTÈME OPTIMISÉ DE CHARGEMENT DES VIDÉOS
+    // =========================================================
+    const videoCards = document.querySelectorAll('.hud-card[data-type="video"]');
+    const screenVideo = document.querySelector('#screen-video source');
+    const videoElement = document.getElementById('screen-video');
+    
+    const videoCache = {}; 
+
+    async function loadVideoBlob(src) {
+        if (videoCache[src]) return videoCache[src]; 
+        try {
+            const response = await fetch(src);
+            const blob = await response.blob();
+            const blobUrl = URL.createObjectURL(blob);
+            videoCache[src] = blobUrl;
+            return blobUrl;
+        } catch (error) {
+            console.error("Erreur de chargement vidéo:", error);
+            return src; 
+        }
+    }
+
+    // Préchargement de la vidéo active uniquement
+    const activeCard = document.querySelector('.hud-card.active[data-type="video"]');
+    if (activeCard) {
+        loadVideoBlob(activeCard.dataset.src).then(blobUrl => {
+            if (screenVideo && videoElement) {
+                screenVideo.src = blobUrl;
+                videoElement.load();
+            }
+        });
+    }
+
+    // Chargement au clic (Lazy-loading)
+    videoCards.forEach(card => {
+        card.addEventListener('click', async () => {
+            const blobUrl = await loadVideoBlob(card.dataset.src);
+            if (screenVideo && videoElement) {
+                screenVideo.src = blobUrl;
+                videoElement.load();
+                videoElement.play();
+            }
+        });
+    });
+
+    // Préchargement fantôme après 20s
+    setTimeout(() => {
+        console.log(">> 20s écoulées : Lancement du préchargement des vidéos en arrière-plan.");
+        videoCards.forEach(card => {
+            if (!videoCache[card.dataset.src]) {
+                loadVideoBlob(card.dataset.src);
+            }
+        });
+    }, 20000);
+
+    // =========================================================
+    // 2. CONSERVATION DE TES LIENS CLIQUABLES (Panels & Images)
+    // =========================================================
+    const _0x419608 = document.querySelectorAll('.panel-2d--clickable');
+    const _0x282064 = document.querySelectorAll('.neon-circle-image--clickable');
+    const _0x177404 = [..._0x419608, ..._0x282064];
+    
+    _0x177404.forEach(_0x5c78b9 => {
+        _0x5c78b9.addEventListener('click', () => {
+            const _0x273173 = _0x5c78b9.dataset.href;
+            if (_0x273173) {
+                console.log('Ouverture de : ' + _0x273173);
+                window.open(_0x273173, '_blank');
+            }
+        });
+    });
+
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const originalVideo = document.getElementById('bg-video-z1');
+    const loopBuffer = document.getElementById('loop-buffer');
+    
+    if (originalVideo && loopBuffer) {
+        // 1. On clone l'élément vidéo existant (et ses enfants <source>)
+        const clonedVideo = originalVideo.cloneNode(true);
+        
+        // 2. On retire l'ID (un ID doit être unique) et on ajoute ta classe CSS
+        clonedVideo.removeAttribute('id');
+        clonedVideo.classList.add('clone-video');
+        
+        // 3. On force l'autoplay sur ce clone
+        clonedVideo.autoplay = true; 
+        
+        // 4. On l'insère au tout début de la section loop-buffer
+        loopBuffer.insertBefore(clonedVideo, loopBuffer.firstChild);
+    }
+});
+
 const hudCards=document.querySelectorAll('.hud-card'),screenWrapper=document.getElementById('tactical-wrapper'),contentLayer=document.getElementById('tactical-content-layer'),screenImg=document.getElementById('screen-img'),screenVideo=document.getElementById('screen-video'),screenTitle=document.getElementById('screen-title'),screenDesc=document.getElementById('screen-desc'),screenLink=document.getElementById('screen-link');
 function _0x568b(_0x5ae782,_0xe46b28) {
  _0x5ae782=_0x5ae782-0x117;
