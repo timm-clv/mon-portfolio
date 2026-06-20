@@ -21,6 +21,24 @@
     <link rel="stylesheet" href="panels.css">
     <style>
         .spinner { overflow: visible; }
+        /* Style du dégradé vidéo */
+        .video-gradient-overlay {
+            position: absolute;
+            bottom: 0; /* On ancre le dégradé en bas de la vidéo */
+            left: 0;
+            width: 100%;
+            height: 100vh; /* Définit la distance totale du dégradé (80% de l'écran) */
+            
+            /* Dégradé ultra fluide : commence à 0% et finit à 100% de la hauteur de cette div */
+            background: linear-gradient(to bottom, rgba(10, 15, 20, 0) 0%, rgba(10, 15, 20, 1) 100%);
+            
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #bg-video-z1, .video-gradient-overlay { 
+            transform: scale(1.4);
+        }
     </style>
     <link rel="icon" type="image/png" href="ref/TC.png">
 
@@ -162,8 +180,9 @@
 
     <video id="bg-video-z1" loop muted playsinline preload="auto">
         <source src="ref/vid1.mp4" type="video/mp4">
-        <!-- <source src="ref/image1.jpg" type="image/jpg"> -->
     </video>
+    
+    <div class="video-gradient-overlay"></div>
 
     
     <canvas id="scene-3d"></canvas>
