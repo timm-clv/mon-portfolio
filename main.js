@@ -48,15 +48,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Préchargement fantôme après 20s
+    // Préchargement fantôme après 10s
     setTimeout(() => {
-        console.log(">> 20s écoulées : Lancement du préchargement des vidéos en arrière-plan.");
+        console.log(">> 10s écoulées : Lancement du préchargement des vidéos en arrière-plan.");
         videoCards.forEach(card => {
             if (!videoCache[card.dataset.src]) {
                 loadVideoBlob(card.dataset.src);
             }
         });
-    }, 20000);
+    }, 10000);
 
     // =========================================================
     // 2. CONSERVATION DE TES LIENS CLIQUABLES (Panels & Images)
@@ -276,23 +276,23 @@ navLinks.forEach(_0x3c5db2=> {
  });
  
  }
+
+
+ 
+
  const _0x1733ea=document.getElementById('loop-buffer');
  if(_0x1733ea) {
  const _0xbaf2e5=new IntersectionObserver(_0x11afc1=> {
  _0x11afc1.forEach(_0x57d69e=> {
  _0x57d69e.isIntersecting&&_0x57d69e.intersectionRatio>0.5&&(console.log('Boucle atteinte : Téléportation vers le haut !'),document.documentElement.style.scrollSnapType='none',window.scrollTo(0x0,0x0),setTimeout(()=> {
- document.documentElement.style.scrollSnapType='y mandatory';
- 
- },0x32));
- 
+ document.documentElement.style.scrollSnapType='y mandatory'; },0x32));
  });
- 
- }, {
- 'threshold':0.6
- });
- _0xbaf2e5.observe(_0x1733ea);
- 
- }
+ }, { 'threshold':0.6 });
+ _0xbaf2e5.observe(_0x1733ea); }
+
+
+
+
  const _0x2744bc=document.querySelectorAll('section'),_0x3c4701=document.querySelectorAll('#main-nav ul li a'),_0x19dd83= {
  'root':null,'rootMargin':'0px','threshold':0.3
  },_0x1a6246=new IntersectionObserver(_0x48ad1d=> {
@@ -339,5 +339,24 @@ navLinks.forEach(_0x3c5db2=> {
  }
  
  });
+
+const footer = document.querySelector('.cinematic-footer');
+let footerLocked = false;
+
+const footerObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5 && !footerLocked) {
+            footerLocked = true;
+            document.documentElement.style.overflow = 'hidden';
+            setTimeout(() => {
+                document.documentElement.style.overflow = '';
+            }, 500);
+        } else if (!entry.isIntersecting) {
+            footerLocked = false; // on quitte le footer -> réarme le piège
+        }
+    });
+}, { threshold: 0.5 });
+
+footerObserver.observe(footer);
  
 });

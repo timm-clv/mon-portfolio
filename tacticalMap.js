@@ -68,10 +68,12 @@ export function initTacticalMap() {
     terrainGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
 
     const terrainMaterial = new THREE.PointsMaterial({
-        size: 0.25,
+        size: 0.3,
         vertexColors: true,
         transparent: true,
-        opacity: 0.6
+        opacity: 2,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false
     });
     const terrain = new THREE.Points(terrainGeometry, terrainMaterial);
     scene.add(terrain);
