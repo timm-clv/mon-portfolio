@@ -331,8 +331,6 @@ document.addEventListener('DOMContentLoaded',function() {
     'easing':'easeOutExpo'
   });
   _0x43807e.add( {
-    'targets':'.btn-next-loader','opacity':[0,1],'duration':0x1f4,'offset':'-=600'
-  }),_0x43807e.add( {
     'targets':'.inner-bars line','opacity':[0,1],'duration':0x190,'delay':anime.stagger(10),'offset':'-=600'
   }),_0x43807e.add( {
     'targets':'.segment','opacity':[0,1],'duration':0x1f4,'delay':()=>anime.random(0,0x320),'offset':'-=400','begin':triggerLocalFlash,'complete':triggerGlobalFade
@@ -346,7 +344,9 @@ document.addEventListener('DOMContentLoaded',function() {
     'targets':'.loader-subtext','opacity':[0,1],'translateY':[10,0],'duration':0x2bc,'offset':'-=500'
   }),_0x43807e.add( {
     'targets':'.loader-buttons-container','opacity':[0,1],'translateY':[10,0],'duration':0x2bc,'offset':'-=400'
-  }),_0x43807e.finished.then(()=> {
+  }),  _0x43807e.add( {
+    'targets':'.btn-next-loader','opacity':[0,1],'duration':0x1f4},7000),
+  _0x43807e.finished.then(()=> {
     anime( {
       'targets':'.spinner','rotate':0x168,'duration':0x4e20,'easing':'linear','loop':!![]
     }),anime( {
