@@ -177,143 +177,207 @@ expandButtons.forEach(_0x5386c2=> {
  });
  
 });
-const certTrigger=document.getElementById('cert-trigger'),certLinks=document.getElementById('cert-links'),certHead=document.querySelector('.cert-terminal-head'),statusText=document.querySelector('.term-status'),btnText=document.querySelector('.cert-trigger-btn .btn-text');
-certTrigger&&certLinks&&certTrigger.addEventListener('click',()=> {
- certLinks.classList.toggle('open'),certHead.classList.toggle('unlocked'),certLinks.classList.contains('open')?(statusText.innerText='OPENED',btnText.innerText='HIDE',certTrigger.style.borderColor='var(--neon-red)',certTrigger.style.color='var(--neon-red)'):(statusText.innerText='CLOSED',btnText.innerText='CERTIFICATES_LIST',certTrigger.style.borderColor='',certTrigger.style.color='');
- 
-});
-const navLinks=document.querySelectorAll('#main-nav a'),loaderElement=document.querySelector('.loader'),textContainer=document.querySelector('.text-container');
-navLinks.forEach(_0x3c5db2=> {
- _0x3c5db2.addEventListener('click',()=> {
- textContainer&&(textContainer.style.display='none',textContainer.style.opacity='0'),loaderElement&&(loaderElement.style.display='none'),document.body.style.overflow='auto';
- 
- });
- const _0x1a7d6d=document.querySelectorAll('.skill-card'),_0x28b399=document.getElementById('skill-modal-overlay'),_0x45ee4e=document.getElementById('close-skill-modal'),_0x9a575a=document.getElementById('modal-title'),_0x4baadb=document.getElementById('modal-desc'),_0x29a5ca=document.getElementById('modal-img'),_0x3585d6=document.getElementById('modal-link'),_0x18e910=document.querySelector('.modal-footer');
- function _0x5eab0e(_0x56fd93) {
- _0x5aa007=_0x56fd93.getAttribute('data-title'),_0x453a80=_0x56fd93.getAttribute('data-desc'),_0x3fe772=_0x56fd93.getAttribute('data-project'),_0x4418cd=_0x56fd93.getAttribute('data-link'),_0x4fa06c=_0x56fd93.querySelector('img'),_0x38b99a=_0x4fa06c?_0x4fa06c.src:'';
- if(_0x9a575a)_0x9a575a.innerText=_0x5aa007;
- if(_0x4baadb)_0x4baadb.innerHTML=_0x453a80;
- if(_0x29a5ca)_0x29a5ca.src=_0x38b99a;
- if(_0x3fe772&&_0x3fe772.trim()!=='') {
- _0x3585d6&&(_0x3585d6.innerText=_0x3fe772,_0x3585d6.href=_0x4418cd||'#',!_0x4418cd||_0x4418cd==='#'?(_0x3585d6.style.pointerEvents='none',_0x3585d6.style.opacity='0.5',_0x3585d6.style.textDecoration='none'):(_0x3585d6.style.pointerEvents='auto',_0x3585d6.style.opacity='1',_0x3585d6.style.textDecoration='underline'));
- if(_0x18e910)_0x18e910.style.display='flex';
- 
- }
- else {
- if(_0x18e910)_0x18e910.style.display='none';
- 
- }
- _0x28b399&&(_0x28b399.classList.add('active'),document.body.style.overflow='hidden');
- 
- }
- function _0x3af3e9() {
- _0x28b399&&(_0x28b399.classList.remove('active'),document.body.style.overflow='auto');
- 
- }
- _0x1a7d6d.forEach(_0x201272=> {
- _0x201272.addEventListener('click',()=>_0x5eab0e(_0x201272));
- 
- });
- _0x45ee4e&&_0x45ee4e.addEventListener('click',_0x3af3e9);
- _0x28b399&&_0x28b399.addEventListener('click',_0x5bbb58=> {
- _0x5bbb58.target===_0x28b399&&_0x3af3e9();
- 
- });
- document.addEventListener('keydown',_0x1d075a=> {
- _0x1d075a.key==='Escape'&&_0x28b399&&_0x28b399.classList.contains('active')&&_0x3af3e9();
- 
- });
- const _0x41eef9=document.querySelectorAll('.neural-node, '+'.mission-file, '+'.cert-node-container, '+'.skill-card, '+'.domain-card, '+'.ref-card, '+'.contact-terminal');
- if(_0x41eef9.length>0x0) {
- const _0x659fc0= {
- 'threshold':0.3
- },_0x37fda4=new IntersectionObserver((_0x178a36,_0x59fde1)=> {
- _0x178a36.forEach((_0x1ccf9f,_0x369dae)=> {
- _0x1ccf9f.isIntersecting&&(setTimeout(()=> {
- _0x1ccf9f.target.style.opacity='1',_0x1ccf9f.target.style.transform='translateY(0)';
- 
- },_0x369dae*0x96),_0x59fde1.unobserve(_0x1ccf9f.target));
- 
- });
- 
- },_0x659fc0);
- _0x41eef9.forEach(_0x323909=> {
- _0x323909.style.opacity='0',_0x323909.style.transform='translateY(30px)',_0x323909.style.transition='opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)',_0x37fda4.observe(_0x323909);
- 
- });
- 
- }
- const _0x2422d3=document.getElementById('bg-video-z1'),_0x17dfba=document.getElementById('zone-1');
- if(_0x2422d3&&_0x17dfba) {
- const _0x10298f=new IntersectionObserver(_0x25d656=> {
- _0x25d656.forEach(_0x9cb217=> {
- !_0x9cb217.isIntersecting?_0x2422d3.pause():_0x2422d3.play().catch(_0x24540e=>console.log('Lecture auto bloquée par le navigateur'));
- 
- });
- 
- }, {
- 'threshold':0x0
- });
- _0x10298f.observe(_0x17dfba);
- 
- }
- const _0x4d5e91=document.querySelector('.contact-terminal');
- if(_0x4d5e91) {
- const _0x567afa=0x5;
- _0x4d5e91.addEventListener('mousemove',_0x542198=> {
- _0x216c9d=_0x4d5e91.getBoundingClientRect(),_0x44bae7=_0x216c9d.width,_0x4a4219=_0x216c9d.height,_0xa5dca0=(_0x542198.clientX-_0x216c9d.left)/_0x44bae7-0.5,_0x5f860b=(_0x542198.clientY-_0x216c9d.top)/_0x4a4219-0.5,_0x19e085=_0xa5dca0*_0x567afa*0x2,_0x18fa9d=_0x5f860b*_0x567afa*-0x2;
- _0x4d5e91.style.transform='\x0a perspective(1000px) \x0a rotateX('+_0x18fa9d+'deg) \x0a rotateY('+_0x19e085+'deg) scale(1.02) ';
- 
- }),_0x4d5e91.addEventListener('mouseleave',()=> {
- _0x4d5e91.style.transform=' perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1) ';
- 
- }),_0x4d5e91.addEventListener('mouseenter',()=> {
- _0x4d5e91.style.transition='none';
- 
- }),_0x4d5e91.addEventListener('mouseleave',()=> {
- _0x4d5e91.style.transition='transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
- 
- });
- 
- }
+/* =====================================================================
+   BLOC REECRIT PROPREMENT (corrections de bugs)
+   - Avant : tout ce bloc etait imbrique dans navLinks.forEach(...) et
+     s'executait donc une fois PAR lien de navigation.
+   - Avant : le bouton des certificats lisait .term-status (commente
+     dans le HTML) -> erreur JS. Les certificats sont desormais sur
+     skills.html (voir skills.js).
+   - La modale des skills a quitte index.html (voir skills.html).
+   ===================================================================== */
 
+/* ---------- 1. Navigation : masque le loader au clic ---------- */
+(function () {
+    const navLinks = document.querySelectorAll('#main-nav a');
+    const loaderElement = document.querySelector('.loader');
+    const textContainer = document.querySelector('.text-container');
 
- 
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (textContainer) {
+                textContainer.style.display = 'none';
+                textContainer.style.opacity = '0';
+            }
+            if (loaderElement) loaderElement.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+    });
+})();
 
- const _0x1733ea=document.getElementById('loop-buffer');
- if(_0x1733ea) {
- const _0xbaf2e5=new IntersectionObserver(_0x11afc1=> {
- _0x11afc1.forEach(_0x57d69e=> {
- _0x57d69e.isIntersecting&&_0x57d69e.intersectionRatio>0.5&&(console.log('Boucle atteinte : Téléportation vers le haut !'),document.documentElement.style.scrollSnapType='none',window.scrollTo(0x0,0x0),setTimeout(()=> {
- document.documentElement.style.scrollSnapType='y mandatory'; },0x32));
- });
- }, { 'threshold':0.6 });
- _0xbaf2e5.observe(_0x1733ea); }
+/* ---------- 2. Apparition progressive des blocs ---------- */
+/* Classes concernees (les anciennes .neural-node, .skill-card,
+   .domain-card, .cert-node-container ne sont plus dans index.html). */
+(function () {
+    const targets = document.querySelectorAll(
+        '.mission-file, .edu-item, .edu-cta, .see-all-cta, .ref-card, .contact-terminal'
+    );
+    if (!targets.length) return;
 
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry, i) => {
+            if (!entry.isIntersecting) return;
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, i * 150);
+            obs.unobserve(entry.target);
+        });
+    }, { threshold: 0.3 });
 
+    targets.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+        observer.observe(el);
+    });
+})();
 
+/* ---------- 3. Video de fond : pause hors ecran ---------- */
+(function () {
+    const bgVideo = document.getElementById('bg-video-z1');
+    const zone1 = document.getElementById('zone-1');
+    if (!bgVideo || !zone1) return;
 
- const _0x2744bc=document.querySelectorAll('section'),_0x3c4701=document.querySelectorAll('#main-nav ul li a'),_0x19dd83= {
- 'root':null,'rootMargin':'0px','threshold':0.3
- },_0x1a6246=new IntersectionObserver(_0x48ad1d=> {
- _0x48ad1d.forEach(_0xfa17b=> {
- if(_0xfa17b.isIntersecting) {
- const _0x6e451a=_0xfa17b.target.getAttribute('id');
- _0x6e451a&&_0x3c4701.forEach(_0x3eb26f=> {
- _0x3eb26f.classList.remove('active-link'),_0x3eb26f.getAttribute('href')==='#'+_0x6e451a&&_0x3eb26f.classList.add('active-link');
- 
- });
- 
- }
- 
- });
- 
- },_0x19dd83);
- _0x2744bc.forEach(_0x6ca62c=> {
- _0x6ca62c.id&&_0x1a6246.observe(_0x6ca62c);
- 
- });
- const _0x2b13e7=['>> ACCESS_DENIED','>> ERROR','>> PLEASE STOP','>> STOP !','>> WHY DO YOU RIGHT CLICK ?','>> STOP RIGHT CLICKING !','>> WHY :( ?'];
+    new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) bgVideo.pause();
+            else bgVideo.play().catch(() => console.log('Lecture auto bloquee par le navigateur'));
+        });
+    }, { threshold: 0 }).observe(zone1);
+})();
+
+/* ---------- 4. Effet 3D sur le terminal de contact ---------- */
+(function () {
+    const terminal = document.querySelector('.contact-terminal');
+    if (!terminal) return;
+    const intensity = 5;
+
+    terminal.addEventListener('mousemove', e => {
+        const r = terminal.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - 0.5;
+        const py = (e.clientY - r.top) / r.height - 0.5;
+        terminal.style.transform =
+            'perspective(1000px) rotateX(' + (py * intensity * -2) + 'deg) rotateY(' + (px * intensity * 2) + 'deg) scale(1.02)';
+    });
+    terminal.addEventListener('mouseenter', () => { terminal.style.transition = 'none'; });
+    terminal.addEventListener('mouseleave', () => {
+        terminal.style.transition = 'transform 0.5s cubic-bezier(0.23, 1, 0.32, 1)';
+        terminal.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+})();
+
+/* ---------- 5. Boucle : retour en haut depuis le buffer ---------- */
+(function () {
+    const buffer = document.getElementById('loop-buffer');
+    if (!buffer) return;
+
+    new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                document.documentElement.style.scrollSnapType = 'none';
+                window.scrollTo(0, 0);
+                setTimeout(() => { document.documentElement.style.scrollSnapType = 'y mandatory'; }, 50);
+            }
+        });
+    }, { threshold: 0.6 }).observe(buffer);
+})();
+
+/* ---------- 6. Scroll-spy : lien actif dans la nav ---------- */
+(function () {
+    const links = document.querySelectorAll('#main-nav ul li a');
+    const sections = document.querySelectorAll('section[id]');
+    if (!links.length || !sections.length) return;
+
+    const spy = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.getAttribute('id');
+            links.forEach(a => {
+                a.classList.toggle('active-link', a.getAttribute('href') === '#' + id);
+            });
+        });
+    }, { root: null, rootMargin: '0px', threshold: 0.3 });
+
+    sections.forEach(sec => spy.observe(sec));
+})();
+
+/* ---------- 7. Projects : scroller (fleches, barre de progression, glisser) ---------- */
+(function () {
+    const scroller = document.getElementById('project-scroller');
+    const prev = document.getElementById('scroller-prev');
+    const next = document.getElementById('scroller-next');
+    const bar = document.getElementById('scroller-progress-bar');
+    if (!scroller) return;
+
+    function stepSize() {
+        const card = scroller.querySelector('.hud-card');
+        return card ? card.getBoundingClientRect().width + 15 : 200;
+    }
+
+    function update() {
+        const max = scroller.scrollWidth - scroller.clientWidth;
+        const ratio = max > 0 ? scroller.scrollLeft / max : 0;
+        if (prev) prev.disabled = scroller.scrollLeft <= 2;
+        if (next) next.disabled = scroller.scrollLeft >= max - 2;
+        if (bar && scroller.scrollWidth > 0) {
+            const w = Math.min(100, (scroller.clientWidth / scroller.scrollWidth) * 100);
+            bar.style.width = w + '%';
+            bar.style.transform = 'translateX(' + (ratio * ((100 - w) / w) * 100) + '%)';
+        }
+    }
+
+    function go(dir) {
+        scroller.scrollBy({ left: dir * stepSize() * 2, behavior: 'smooth' });
+        if (next) next.classList.add('used');
+    }
+
+    /* Largeur du bandeau (desktop) = 4 panels pleins + une zone de fondu.
+       Le bouton de défilement se place donc juste après le 4e panel. */
+    const stripMain = scroller.closest('.scroller-main');
+    function sizeStrip() {
+        if (!stripMain) return;
+        const card = scroller.querySelector('.hud-card');
+        if (!card || window.matchMedia('(max-width: 768px)').matches) {
+            stripMain.style.removeProperty('--strip-w');
+            stripMain.style.removeProperty('--fade-w');
+            return;
+        }
+        const cardW = card.getBoundingClientRect().width + 15;   // largeur + espace entre panels
+        const fadeW = Math.round(cardW * 0.9);
+        stripMain.style.setProperty('--fade-w', fadeW + 'px');
+        stripMain.style.setProperty('--strip-w', Math.round(18 + cardW * 4) + 'px');
+        update();
+    }
+    window.addEventListener('resize', sizeStrip);
+    window.addEventListener('load', sizeStrip);
+    sizeStrip();
+
+    if (prev) prev.addEventListener('click', () => go(-1));
+    if (next) next.addEventListener('click', () => go(1));
+    scroller.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+
+    /* Glisser a la souris (le clic sur une carte reste possible) */
+    let down = false, startX = 0, startLeft = 0, dragged = false;
+    scroller.addEventListener('mousedown', e => {
+        down = true; dragged = false;
+        startX = e.pageX; startLeft = scroller.scrollLeft;
+    });
+    window.addEventListener('mousemove', e => {
+        if (!down) return;
+        const dx = e.pageX - startX;
+        if (Math.abs(dx) > 5) dragged = true;
+        if (dragged) scroller.scrollLeft = startLeft - dx;
+    });
+    window.addEventListener('mouseup', () => { down = false; });
+    scroller.addEventListener('click', e => {
+        if (dragged) { e.stopPropagation(); e.preventDefault(); dragged = false; }
+    }, true);
+})();
+
+const _0x2b13e7=['>> ACCESS_DENIED','>> ERROR','>> PLEASE STOP','>> STOP !','>> WHY DO YOU RIGHT CLICK ?','>> STOP RIGHT CLICKING !','>> WHY :( ?'];
  let _0x5d225f=0x0;
  document.addEventListener('contextmenu',function(_0x55c54e) {
  _0x55c54e.preventDefault();
@@ -343,20 +407,25 @@ navLinks.forEach(_0x3c5db2=> {
 const footer = document.querySelector('.cinematic-footer');
 let footerLocked = false;
 
-const footerObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && entry.intersectionRatio > 0.5 && !footerLocked) {
-            footerLocked = true;
-            document.documentElement.style.overflow = 'hidden';
-            setTimeout(() => {
-                document.documentElement.style.overflow = '';
-            }, 500);
-        } else if (!entry.isIntersecting) {
-            footerLocked = false; // on quitte le footer -> réarme le piège
-        }
-    });
-}, { threshold: 0.5 });
+if (footer) {
+    const footerObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.5 && !footerLocked) {
+                footerLocked = true;
+                document.documentElement.style.overflow = 'hidden';
+                setTimeout(() => {
+                    document.documentElement.style.overflow = '';
+                }, 500);
+            } else if (!entry.isIntersecting) {
+                footerLocked = false; // on quitte le footer -> rearme le piege
+            }
+        });
+    }, { threshold: 0.5 });
 
-footerObserver.observe(footer);
- 
+    footerObserver.observe(footer);
+}
+
+/* Affiche les "+" fixes seulement après la fin du loader */
+document.addEventListener('loaderFinished', () => {
+    document.body.classList.add('loader-done');
 });

@@ -19,6 +19,9 @@
     <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="panels.css">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="grid-style.css">
+    <link rel="stylesheet" href="upgrades.css">
     <style>
         .spinner { overflow: visible; }
         /* Style du dégradé vidéo */
@@ -37,10 +40,6 @@
         }
     </style>
     <link rel="icon" type="image/png" href="ref/TC.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
 
     <link rel="canonical" href="https://timm-clv.github.io/">
     
@@ -153,15 +152,15 @@
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
-            <li><a href="#internship">Internship</a></li>
-            <li><a href="#certs">Certifications</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#tools">Tools</a></li>
-            <li><a href="#domains">Domains</a></li>
+            <li><a href="#internship">Internships</a></li>
+            <li><a href="#education">Education</a></li>
             <li><a href="#references">References</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
+
+    <div class="grid-cross left fixed-cross" aria-hidden="true">+</div>
+    <div class="grid-cross right fixed-cross" aria-hidden="true">+</div>
     
     <svg style="display:none;">
         <defs>
@@ -247,6 +246,8 @@
 
     
 
+    <div class="light-wrap">
+
     <div class="grid-divider">
     <div class="grid-cross left">+</div>
     <div class="grid-line-horizontal"></div>
@@ -263,13 +264,12 @@
 
     <section class="content" id="projects" style="padding: 0; width: 100%;">
 
-        <div class="interactive-hint" style="margin-top: 3rem; margin-bottom: -1rem;">
-            <span class="blink-arrow">></span> [ CLICK_AND_SCROLL_PANELS_TO_VIEW_DETAILS ] <span class="blink-arrow"><</span>
-        </div>
+        <p class="projects-hint">Swipe or use the arrows to browse the projects, then click a panel to open one.</p>
     
     <div class="projects-layout-wrapper">
-        
-        <div class="cyber-scroller-mask">
+
+        <div class="scroller-main">
+            <div class="cyber-scroller-mask">
             <div class="cyber-scroller" id="project-scroller">
                 <div class="hud-card active" data-type="video" data-src="ref/projet2Abis.mp4" data-title="3D Tracking System" data-desc="Replace a system consisting of 5 Qualisys cameras for the COSMER laboratory. Work on YOLO object recognition, a stereo vision system, calibration using ArUcos, and real-time 3D trajectory tracking and positioning." data-link="ref/report/Systeme_de_suivi_3D_pour_ROV_en_bassin.pdf">
                      <div class="hud-card-glitch"></div>
@@ -306,14 +306,22 @@
 
             </div>
         </div>
+            <div class="scroller-progress" aria-hidden="true"><div class="scroller-progress-bar" id="scroller-progress-bar"></div></div>
+        </div>
 
-        <div class="projects-controls">
-            <a href="all-projects.html" class="btn-tube btn-view-all">
-                📂 See All My Projects
-            </a>
+        <div class="scroller-nav">
+            <button type="button" class="scroller-arrow scroller-prev" id="scroller-prev" aria-label="Previous projects" disabled>&#10094;</button>
+            <button type="button" class="scroller-arrow scroller-next" id="scroller-next" aria-label="Next projects">&#10095;</button>
         </div>
 
     </div>
+
+    <div class="see-all-cta">
+        <a href="all-projects.html" class="btn-sober">
+            See all my projects <span class="btn-sober-arrow">&rarr;</span>
+        </a>
+    </div>
+
 
     <div class="tactical-screen-wrapper" id="tactical-wrapper">
         <div class="screen-bracket top-left"></div>
@@ -352,7 +360,7 @@
     <div class="grid-cross left">+</div>
     <div class="grid-line-horizontal"></div>
     <h2 class="grid-title">
-        <span class="gold-square"></span>INTERNSHIP
+        <span class="gold-square"></span>INTERNSHIPS
     </h2>
     <div class="grid-line-horizontal"></div>
     <div class="grid-cross right">+</div>
@@ -373,7 +381,6 @@
             <div class="file-data">
                 <div class="file-header">
                     <span class="file-id">CEPA/10S // 2025</span>
-                    <div class="file-status status-success">COMPLETED</div>
                 </div>
                 
                 <h3 class="file-title">Defense Sector R&D</h3>
@@ -407,7 +414,6 @@
             <div class="file-data">
                 <div class="file-header">
                     <span class="file-id">CRTA Zagreb // 2026</span>
-                    <div class="file-status status-success">COMPLETED</div>
                 </div>
                 
                 <h3 class="file-title">Robotic and Drone Sectors R&D</h3>
@@ -489,571 +495,40 @@
     <div class="grid-cross left">+</div>
     <div class="grid-line-horizontal"></div>
     <h2 class="grid-title">
-        <span class="gold-square"></span>CERTIFICATIONS
+        <span class="gold-square"></span>EDUCATION
     </h2>
     <div class="grid-line-horizontal"></div>
     <div class="grid-cross right">+</div>
-    </div> 
-
-
-    <section class="content" id="certs" style="padding: 1rem 0;">
-    
-    <div class="cert-node-container horizontal-layout">
-        
-        <div class="cert-terminal-head">
-            <div class="terminal-header-line">
-                <span class="term-icon">◈</span>
-                <span class="term-id">__01__</span>
-                <!-- <div class="term-status">CLOSED</div> -->
-            </div>
-            
-            <h3 class="term-title">MACHINE LEARNING WITH PYTHON</h3>
-            
-            <div class="term-body-text">
-                <p>
-                    Training courses taken on Kaggle. Introduction to data evaluation, pipeline mastery, model explainability. 
-                    <br>
-                    Application to a dataset for detecting fraudulent credit card transactions.
-                </p>
-                <p class="term-small">
-                    <!-- <a href="page_suivante.html" class="encryption-link" target="_blank">
-                        [ CREDIT_CARD_TRANSACTIONS ]
-                    </a><br> 
-                    // LAST_UPDATE: 15-11-2025-->
-                </p>
-            </div>
-
-            <button class="cert-trigger-btn" id="cert-trigger">
-                <span class="btn-brackets">[</span>
-                <span class="btn-text">CERTIFICATES_LIST</span>
-                <span class="btn-brackets">]</span>
-                <div class="btn-scan-line"></div>
-            </button>
-        </div>
-
-        <div class="cert-links-wrapper" id="cert-links">
-            <div class="connector-line-horizontal"></div>
-            
-            <div class="links-inner-group">
-                <a href="https://www.kaggle.com/learn/certification/timmclaverie/intro-to-machine-learning" target="_blank" class="cert-link-node">
-                    <div class="node-decor">01</div>
-                    <div class="node-content">
-                        <span class="node-title">Intro to Machine Learning</span>
-                        <span class="node-meta">#21-09-2025</span>
-                    </div>
-                    <div class="node-arrow">➔</div>
-                </a>
-
-                <a href="https://www.kaggle.com/learn/certification/timmclaverie/intermediate-machine-learning" target="_blank" class="cert-link-node">
-                    <div class="node-decor">02</div>
-                    <div class="node-content">
-                        <span class="node-title">Intermediate Machine Learning</span>
-                        <span class="node-meta">#09-10-2025</span>
-                    </div>
-                    <div class="node-arrow">➔</div>
-                </a>
-
-                <a href="https://www.kaggle.com/learn/certification/timmclaverie/machine-learning-explainability" target="_blank" class="cert-link-node">
-                    <div class="node-decor">03</div>
-                    <div class="node-content">
-                        <span class="node-title">Machine Learning Explainability</span>
-                        <span class="node-meta">27-10-2025</span>
-                    </div>
-                    <div class="node-arrow">➔</div>
-                </a>
-            </div>
-        </div>
-
     </div>
+
+    <section class="content edu-section" id="education">
+
+        <div class="edu-timeline">
+
+            <article class="edu-item">
+                <h3 class="edu-title">SeaTech Engineering School &amp; RISE Master <em class="edu-date">2024-2027</em></h3>
+                <span class="edu-place">La Garde</span>
+                <ul class="edu-list">
+                    <li>Systemics, electronics, land and marine robotics, embedded systems and AI, sensor fusion, control-command, project management.</li>
+                    <li>Minor in Security &amp; Defence: military conferences on technological innovation and geostrategy.</li>
+                    <li>Additional AI workshop course: machine learning.</li>
+                </ul>
+            </article>
+
+            <article class="edu-item">
+                <h3 class="edu-title">Intensive Mathematics Bachelor's Degree (2 years) <em class="edu-date">2022-2024</em></h3>
+                <span class="edu-place">La Garde</span>
+            </article>
+
+        </div>
+
+        <div class="edu-cta">
+            <a href="skills.html" class="btn-sober">
+                Certifications &middot; Skills &middot; Tools &middot; Domains <span class="btn-sober-arrow">&rarr;</span>
+            </a>
+        </div>
+
     </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="grid-divider">
-    <div class="grid-cross left">+</div>
-    <div class="grid-line-horizontal"></div>
-    <h2 class="grid-title">
-        <span class="gold-square"></span>SKILLS
-    </h2>
-    <div class="grid-line-horizontal"></div>
-    <div class="grid-cross right">+</div>
-    </div> 
-
-
-<section class="content" id="skills" style="padding: 4rem 0;">
-    
-    <div class="neural-container">
-        
-        <h3 class="grid-section-title text-cyan">>> TECHNICAL_COMPETENCIES</h3>
-        <div class="neural-grid">
-
-            <div class="neural-node" data-type="tech">
-                <div class="node-header">
-                    <span class="node-title">EMBEDDED SYSTEMS</span>
-                    <span class="node-id">HARD_1</span>
-                </div>
-                <div class="node-body">
-                    <p class="node-tags">Real-Time OperatingSystem // Microcontrollers // Electronic // Code Optimization</p>
-                </div>
-                <div class="node-footer">
-                    <div class="status-led"></div>
-                    <span class="status-text">Robotics Club, School Education</span>
-                </div>
-            </div>
-
-            <div class="neural-node" data-type="tech">
-                <div class="node-header">
-                    <span class="node-title">ROBOTICS</span>
-                    <span class="node-id">HARD_2</span>
-                </div>
-                <div class="node-body">
-                    <p class="node-tags">ROS System (topics, nodes) // Trajectory Planning  // LIDAR // DC Motor Control</p>
-                </div>
-                <div class="node-footer">
-                    <div class="status-led"></div>
-                    <span class="status-text">Robotics Club, School Education</span>
-                </div>
-            </div>
-
-            <div class="neural-node" data-type="tech">
-                <div class="node-header">
-                    <span class="node-title">AI</span>
-                    <span class="node-id">HARD_3</span>
-                </div>
-                <div class="node-body">
-                    <p class="node-tags">Object Detection // Neural Networks // PyTorch // Machine Learning</p>
-                </div>
-                <div class="node-footer">
-                    <div class="status-led"></div>
-                    <span class="status-text">Personal Project, Robotics Club, School Education</span>
-                </div>
-            </div>
-            
-            <div class="neural-node" data-type="tech">
-                <div class="node-header">
-                    <span class="node-title">SIMULATION</span>
-                    <span class="node-id">HARD_4</span>
-                </div>
-                <div class="node-body">
-                    <p class="node-tags">Gazebo // MatLab // Python</p>
-                </div>
-                <div class="node-footer">
-                    <div class="status-led"></div>
-                    <span class="status-text">Personal Project, School Education</span>
-                </div>
-            </div>
-
-        </div>
-
-        <h3 class="grid-section-title text-gold" style="margin-top: 4rem;">>> SOFT_SKILLS</h3>
-        <div class="neural-grid">
-
-            <div class="neural-node" data-type="soft">
-                <div class="node-header">
-                    <span class="node-title">PROBLEM SOLVING</span>
-                    <span class="node-id">SOFT_1</span>
-                </div>
-                <div class="node-body">
-                    <p class="node-tags">Debugging // Critical Thinking // Strategy // Analytical</p>
-                </div>
-                <div class="node-footer">
-                    <div class="status-led color-gold"></div>
-                    <span class="status-text">All Projects</span>
-                </div>
-            </div>
-
-            <div class="neural-node" data-type="soft">
-                <div class="node-header">
-                    <span class="node-title">TEAM SYNERGY</span>
-                    <span class="node-id">SOFT_2</span>
-                </div>
-                <div class="node-body">
-                    <p class="node-tags">Communication // Good humour // Dedication // Adaptability</p>
-                </div>
-                <div class="node-footer">
-                    <div class="status-led color-gold"></div>
-                    <span class="status-text">School Group projects</span>
-                </div>
-            </div>
-
-            <div class="neural-node" data-type="soft">
-                <div class="node-header">
-                    <span class="node-title">PROJECT MGMT</span>
-                    <span class="node-id">SOFT_3</span>
-                </div>
-                <div class="node-body">
-                    <p class="node-tags">Autonomy // Time Management // Resource Planning </p>
-                </div>
-                <div class="node-footer">
-                    <div class="status-led color-gold"></div>
-                    <span class="status-text">Internship Experiences</span>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="grid-divider">
-    <div class="grid-cross left">+</div>
-    <div class="grid-line-horizontal"></div>
-    <h2 class="grid-title">
-        <span class="gold-square"></span>TOOLS
-    </h2>
-    <div class="grid-line-horizontal"></div>
-    <div class="grid-cross right">+</div>
-    </div> 
-
-    <section class="content" id="tools">
-        <div class="interactive-hint">
-            <span class="blink-arrow">></span> [ CLICK_PANELS_TO_VIEW_DETAILS ] <span class="blink-arrow"><</span>
-        </div>
-
-        <div class="skills-grid-container">
-        
-        <div class="skill-card" 
-             data-title="PYTHON" 
-             data-desc="Data analysis, trajectory construction, and building neural networks with PyTorch/TensorFlow." 
-             data-project="Spline Trajectory, Fraud Detection System" 
-             data-link="all-projects.html">
-            
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/Python.png" alt="Python"> 
-            </div>
-            <h3 class="skill-title">PYTHON</h3>
-            <p class="skill-desc-text">Data analysis & Neural Networks</p>
-        </div>
-
-        <div class="skill-card" 
-             data-title="C++ / EMBEDDED" 
-             data-desc="Memory management, hardware control for robotics, initial involvement in a school project for an automated water heating system." 
-             data-project="Mobile Robot Control" 
-             data-link="all-projects.html">
-             
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/Cpp.png" alt="C++">
-            </div>
-            <h3 class="skill-title">C++ / EMBEDDED</h3>
-            <p class="skill-desc-text">Real-time constraints & Robotics</p>
-        </div>
-
-        <div class="skill-card" 
-             data-title="ROS1" 
-             data-desc="Robot Operating System middleware. Node communication, navigation stack, and Gazebo simulation, LIDAR, Bumper." 
-             data-project="TurtleBot" 
-             data-link="all-projects.html">
-             
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/ros.png" alt="ROS">
-            </div>
-            <h3 class="skill-title">ROS1</h3>
-            <p class="skill-desc-text">Middleware & Navigation</p>
-        </div>
-
-        <div class="skill-card" 
-             data-title="GAZEBO" 
-             data-desc="Linux. 3D Robotics simulator. Physics engine integration and environment modeling." 
-             data-project="TurtleBot" 
-             data-link="all-projects.html">
-             
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/gazebo.png" alt="Gazebo">
-            </div>
-            <h3 class="skill-title">Gazebo</h3>
-            <p class="skill-desc-text">Physics engine & Simulation</p>
-        </div>
-
-        <div class="skill-card" 
-             data-title="MATLAB" 
-             data-desc="Integrated HMI. Numerical computing environment. Algorithm development." 
-             data-project="Dynamic Simulator for Road Vehicles" 
-             data-link="all-projects.html">
-             
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/matlab.png" alt="Matlab">
-            </div>
-            <h3 class="skill-title">Matlab</h3>
-            <p class="skill-desc-text">Numerical computing</p>
-        </div>
-
-        <div class="skill-card" 
-             data-title="SIMULINK" 
-             data-desc="Block diagram environment for multidomain simulation and Model-Based Design. Work on “PUMA” robotic arms" 
-             data-project="" 
-             data-link="all-projects.html">
-             
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/simulink.png" alt="Simulink">
-            </div>
-            <h3 class="skill-title">Simulink</h3>
-            <p class="skill-desc-text">Model-Based Design</p>
-        </div>
-
-        <div class="skill-card" 
-             data-title="JAVA" 
-             data-desc="Object-oriented programming. Work on temperature exchanges between nodes" 
-             data-project="" 
-             data-link="all-projects.html">
-             
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/java.png" alt="Java">
-            </div>
-            <h3 class="skill-title">Java</h3>
-            <p class="skill-desc-text">Object-Oriented Programming</p>
-        </div>
-
-        <div class="skill-card" 
-             data-title="SOLIDWORKS" 
-             data-desc="Computer-aided design (CAD)." 
-             data-project="CEPA/10S internships" 
-             data-link="">
-             
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/solidworks.png" alt="SolidWorks">
-            </div>
-            <h3 class="skill-title">SolidWorks</h3>
-            <p class="skill-desc-text">CAD</p>
-        </div>
-
-        <div class="skill-card" 
-             data-title="EXCEL" 
-             data-desc="Correlated data tables. Objective: To facilitate understanding for someone taking over a project." 
-             data-project="CEPA/10S internships" 
-             data-link="">
-             
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/excel.png" alt="Excel">
-            </div>
-            <h3 class="skill-title">Excel</h3>
-            <p class="skill-desc-text">Data Tables</p>
-        </div>
-
-        <div class="skill-card" 
-             data-title="LATEX" 
-             data-desc="Quality report writing." 
-             data-project="" 
-             data-link="all-projects.html">
-             
-            <div class="scan-beam"></div>
-            <div class="skill-icon-wrapper">
-                <img src="ref/latex.png" alt="LaTeX">
-            </div>
-            <h3 class="skill-title">LaTeX</h3>
-            <p class="skill-desc-text">Documentation</p>
-        </div>
-
-        </div>
-    </section>
-
-    <div id="skill-modal-overlay" class="skill-modal-overlay">
-        <div class="skill-modal-card">
-            
-            <div class="corner-bracket top-left"></div>
-            <div class="corner-bracket top-right"></div>
-            <div class="corner-bracket bottom-left"></div>
-            <div class="corner-bracket bottom-right"></div>
-            
-            <button class="skill-modal-close" id="close-skill-modal">X</button>
-
-            <div class="skill-modal-content">
-                <div class="modal-left">
-                    <div class="modal-img-frame">
-                        <img id="modal-img" src="" alt="Skill Icon">
-                        <div class="scan-line"></div>
-                    </div>
-                </div>
-
-                <div class="modal-right">
-                    <h3 id="modal-title" class="modal-title">TITLE</h3>
-                    <p id="modal-desc" class="modal-desc">Description text goes here...</p>
-                    
-                    <div class="modal-footer">
-                        <span class="linked-label">LINKED PROJECT //</span>
-                        <a id="modal-link" href="#" target="_blank" class="linked-link">PROJECT_NAME</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="grid-divider">
-    <div class="grid-cross left">+</div>
-    <div class="grid-line-horizontal"></div>
-    <h2 class="grid-title">
-        <span class="gold-square"></span>DOMAINS
-    </h2>
-    <div class="grid-line-horizontal"></div>
-    <div class="grid-cross right">+</div>
-    </div> 
-
-
-<section class="content" id="domains">
-    
-    <div class="domains-grid-container">
-        
-        <div class="domain-card">
-            <div class="scan-beam-gold"></div>
-            <div class="domain-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <circle cx="12" cy="10" r="3" />
-                </svg>
-            </div>
-            <h3 class="domain-title">DEFENSE & SECURITY</h3>
-            <p class="domain-desc">
-                Minor in Security and Defence. Conference on Geostrategy, Cybersecurity, Naval Architecture ...
-            </p>
-        </div>
-
-        <!-- <div class="domain-card">
-            <div class="scan-beam-gold"></div>
-            <div class="domain-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M2 12h20"/>
-                    <path d="M12 2l3 10-3 10-3-10 3-10z"/>
-                    <path d="M5 12l7-7 7 7"/>
-                </svg>
-            </div>
-            <h3 class="domain-title">AEROSPACE & UAV</h3>
-            <p class="domain-desc">
-                Flight dynamics, autonomous drone navigation, and embedded flight control units (FCU).
-            </p>
-        </div> -->
-
-        <div class="domain-card">
-            <div class="scan-beam-gold"></div>
-            <div class="domain-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <rect x="2" y="6" width="20" height="8" rx="2" />
-                    <circle cx="7" cy="17" r="3" />
-                    <circle cx="17" cy="17" r="3" />
-                    <path d="M7 14v3 M17 14v3" />
-                </svg>
-            </div>
-            <h3 class="domain-title">AUTONOMOUS ROBOTICS</h3>
-            <p class="domain-desc">
-                Path planning, obstacle avoidance, system control and control for robotics (PID).
-            </p>
-        </div>
-
-        <div class="domain-card">
-            <div class="scan-beam-gold"></div>
-            <div class="domain-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                    <circle cx="12" cy="12" r="3"/>
-                    <line x1="12" y1="2" x2="12" y2="4"/>
-                    <line x1="12" y1="20" x2="12" y2="22"/>
-                </svg>
-            </div>
-            <h3 class="domain-title">SMART SENSING</h3>
-            <p class="domain-desc">
-                Sensor fusion (LIDAR/IMU/Camera/Rangefinders), and image processing for maritime surveillance.
-            </p>
-        </div>
-
-        <!-- <div class="domain-card">
-            <div class="scan-beam-gold"></div>
-            <div class="domain-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <circle cx="12" cy="12" r="3" />
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                    <path d="M2 12h20 M12 2v20" transform="rotate(45 12 12)"/>
-                </svg>
-            </div>
-            <h3 class="domain-title">R&D & PROTOTYPING</h3>
-            <p class="domain-desc">
-                Feasibility studies, rapid prototyping, and experimental system design for innovation labs.
-            </p>
-        </div> -->
-
-        <div class="domain-card">
-            <div class="scan-beam-gold"></div>
-            <div class="domain-icon-wrapper">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                    <path d="M2 12h20" />
-                    <path d="M12 4v16 M8 16l4 4 4-4" />
-                    <path d="M2 16c2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2" />
-                </svg>
-            </div>
-            <h3 class="domain-title">MARINE SYSTEMS</h3>
-            <p class="domain-desc">
-                Coming Soon : Detection solutions for underwater vehicles (ROV/AUV).
-            </p>
-        </div>
-
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
 
     <div class="grid-divider">
     <div class="grid-cross left">+</div>
@@ -1079,7 +554,6 @@
             </div>
 
             <div class="ref-footer">
-                <div class="ref-avatar-placeholder">AS</div>
                 <div class="ref-info">
                     <span class="ref-name">Branimir Ćaran</span>
                     <span class="ref-role">Researcher at CRTA</span>
@@ -1096,7 +570,7 @@
             </div>
 
             <div class="ref-footer">
-                <div class="ref-avatar-placeholder">JD</div> <div class="ref-info">
+                <div class="ref-info">
                     <span class="ref-name">Julien Dubuc</span>
                     <span class="ref-role">Project partner</span>
                 </div>
@@ -1120,47 +594,12 @@
             </div>
         </div>
 
-    </div> -->
+    -->
+
+    </div><!-- /ref-grid-container -->
     </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </div><!-- /light-wrap -->
 
     <div class="grid-divider">
     <div class="grid-cross left">+</div>
@@ -1184,11 +623,9 @@
 
         <div class="terminal-body">
             <span class="status-dot"></span>
-            <h2 class="contact-title">READY TO COLLABORATE?</h2>
             <p class="contact-desc">
                 Currently looking for a <strong>6-month internship</strong> starting in 2027,
-                 <br>which could then lead to a <strong>CIFRE</strong>.
-                <br>Open to opportunities in Embedded Systems, Robotics, and AI.
+                <br>Open to opportunities in Power Electronics, Control-Command, Systems engineering, AI for Robotics and, if possible, a CIFRE thesis in a company.
             </p>
 
             <!-- <a href="mailto:ton.email@example.com" class="btn-transmit">
@@ -1254,7 +691,7 @@
         <div class="footer-bg-text">TIMM CLAVERIE</div>
 
         <div class="footer-bottom-content">
-            <p class="copyright">© 2025. All rights reserved.</p>
+            <p class="copyright">© 2025-2026. All rights reserved.</p>
             <!-- <p class="tagline">Engineering student</p> -->
         </div>
     </footer>
@@ -1297,7 +734,8 @@
 
     <script src="loader.js"></script>
     <script src="main.js" defer></script>
-    <script type="module" src="scene3D2_encrypte.js"></script>
+    <script src="grid-gaps.js" defer></script>
+    <script type="module" src="scene3D2_decrypte.js"></script>
     <script type="module">
         import { initTacticalMap } from './tacticalMap.js';
         

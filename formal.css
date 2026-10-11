@@ -1,0 +1,564 @@
+/* =====================================================================
+   formal.css  -  page skills.html (Certifications, Skills, Tools, Domains)
+   Charge APRES responsive.css, style.css et panels.css.
+   Ne modifie PAS les traits pointillés : seules les COULEURS des titres
+   et des croix sont surchargées localement dans .light-zone (contraste
+   sur fond clair). La géométrie et le tiret restent ceux de style.css.
+   Sommaire :
+     1. Variables + page
+     2. Barre de navigation
+     3. Hero (dégradé sombre -> clair) et pied de page (clair -> sombre)
+     4. Zone claire + surcharges des repères de grille
+     5. Sections "formelles" (texte à gauche / bandeaux à droite)
+     6. Onglets (Certifications)
+     7. Bandeaux défilants
+     8. Mobile
+   ===================================================================== */
+
+/* ---------- 1. VARIABLES + PAGE ---------- */
+.skills-page {
+    --lz-bg: #eceef1;
+    --lz-text: #14212b;
+    --lz-muted: #4b5b68;
+    --lz-accent: #c8323f;      /* rouge du thème, assombri pour fond clair */
+    --lz-gold: #8a5a2b;
+    --lz-teal: #007c89;
+    --lz-line: #d5dee6;
+    --lz-card: #ffffff;
+    --gold-color: #cda47d;      /* même or que all-projects.html */
+    background-color: #000f16;
+    color: #fff;
+}
+
+/* ---------- 2. NAVIGATION ---------- */
+.sk-nav {
+    opacity: 1;                      /* .main-nav est à 0 par défaut (révélé par le loader) */
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.sk-nav ul { margin: 0; padding: 0; }
+.sk-nav .sk-back {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.68rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+}
+.sk-nav .sk-back:hover { background: rgba(255, 255, 255, 0.16); color: #ffffff; }
+
+/* ---------- 3. HERO + PIED DE PAGE ---------- */
+.sk-hero,
+.sk-footer {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    padding-left: calc(var(--grid-margin) + 1.5rem);
+    padding-right: calc(var(--grid-margin) + 1.5rem);
+}
+.sk-hero {
+    justify-content: flex-start;
+    padding-top: 100px;
+    padding-bottom: 2.4rem;
+    background: #000f16;              /* le dégradé commence APRÈS le texte (voir .sk-fade-in) */
+}
+.sk-hero {
+    justify-content: flex-start;
+    padding-top: 160px;                      /* était 100px */
+    padding-bottom: 3rem;                    /* était 2.4rem */
+    background: #000f16;
+}
+.sk-hero h1 {
+    margin: 0 0 0.9rem;
+    font-size: clamp(2rem, 6vw, 3.6rem);
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+.sk-hero h1 span { color: #E13C4C; }
+.sk-hero p {
+    max-width: 640px;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #b9c7d1;
+}
+.sk-footer {
+    justify-content: flex-start;
+    padding-top: 8px;
+    padding-bottom: 36px;
+    background: #000f16;
+}
+/* "© 2025-2026 Timm CLAVERIE-Back to portfolio" : style de all-projects.html */
+.sk-footer-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    z-index: 10;
+}
+.sk-footer .copyright {
+    color: #aaa;
+    font-size: 0.85rem;
+    font-family: monospace;
+}
+.sk-footer .footer-link {
+    color: var(--gold-color);
+    font-size: 0.85rem;
+    font-family: monospace;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-bottom: 1px dashed var(--gold-color);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.sk-footer .footer-link:hover {
+    color: #fff;
+    text-shadow: 0 0 8px var(--gold-color);
+    border-bottom-style: solid;
+}
+
+/* Dégradé bleu marine -> blanc, sous le texte du hero */
+.sk-fade-in,
+.sk-fade-out {
+    position: relative;
+    z-index: 3;
+    height: 220px;                           /* était 170px */
+}
+.sk-fade-in  {
+    background: linear-gradient(to bottom,
+        #000f16 0%,
+        #17384f 45%,                         /* était 30% */
+        #6f97b2 72%,                         /* était 62% */
+        #cfe0ea 90%,                         /* était 85% */
+        var(--lz-bg, #eceef1) 100%);         /* ← fin sur le gris */
+}
+.sk-fade-out {
+    background: linear-gradient(to bottom,
+        var(--lz-bg, #eceef1) 0%,            /* ← départ gris */
+        #cfe0ea 12%,
+        #6f97b2 32%,
+        #17384f 62%,
+        #000f16 100%);
+}
+
+
+/* Titre doré : identique à "ALL MY PROJECTS" (projects.css) */
+.sk-hero h1.neon-gold-title {
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--gold-color);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 0 0 20px;
+    text-shadow: 0 0 10px rgba(205, 164, 125, 0.4),
+                 0 0 20px rgba(205, 164, 125, 0.2);
+}
+
+/* ---------- 4. ZONE CLAIRE ---------- */
+.light-zone {
+    display: flow-root;      /* empêche le margin -2rem du 1er séparateur de rogner le dégradé */
+    position: relative;
+    z-index: 3;
+    background: var(--lz-bg);
+    color: var(--lz-text);
+    --cross-color: #5a7487;          /* le + reste lisible sur fond blanc */
+    /* repères de grille : même géométrie, couleurs lisibles sur clair */
+    --grid-gold: var(--lz-gold);
+}
+.light-zone .grid-cross { text-shadow: none; }
+.light-zone .grid-title { color: var(--lz-gold); }
+.light-zone .gold-square { box-shadow: none; }
+
+/* ---------- 5. SECTIONS FORMELLES ---------- */
+.fs {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 3.6rem calc(var(--grid-margin) + 2rem) 3.2rem;
+    box-sizing: border-box;
+    scroll-margin-top: 70px;
+}
+.fs-grid {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.fs-text   { flex: 1 1 54%; min-width: 0; }
+.fs-visual { flex: 1 1 42%; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+
+.fs-lead {
+    margin: 0 0 1.6rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--lz-muted);
+}
+.fs-subtitle {
+    margin: 1.8rem 0 1rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid var(--lz-line);
+    font-family: monospace;
+    font-size: 0.78rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--lz-teal);
+}
+.fs-subtitle:first-child { margin-top: 0; }
+
+.fs-entry { margin: 0 0 1.5rem; }
+.fs-entry-title {
+    margin: 0 0 0.3rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.3;
+    color: var(--lz-accent);
+}
+.fs-entry-text {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--lz-muted);
+}
+.fs-entry-meta {
+    display: block;
+    margin-top: 0.3rem;
+    font-size: 0.74rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7b8b98;
+}
+.fs-entry a { color: inherit; }
+.fs-entry-title a { color: var(--lz-accent); text-decoration: none; }
+.fs-entry-title a:hover { text-decoration: underline; }
+
+/* liste numérotée des compétences clés */
+.fs-key { counter-reset: key; list-style: none; margin: 0 0 0.5rem; padding: 0; }
+.fs-key li {
+    counter-increment: key;
+    position: relative;
+    padding: 0.7rem 0 0.7rem 3rem;
+    border-bottom: 1px solid var(--lz-line);
+    font-size: 1.05rem;
+    color: var(--lz-text);
+}
+.fs-key li::before {
+    content: counter(key, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 0.82rem;
+    font-family: monospace;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: var(--lz-accent);
+}
+
+/* outils : 2 colonnes */
+.fs-tools-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; }
+.fs-tools-list .fs-entry-title { font-size: 1.1rem; }
+.fs-badge {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 2px 8px;
+    vertical-align: middle;
+    font-family: monospace;
+    font-size: 0.62rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--lz-accent);
+}
+.fs-tools-list .is-featured .fs-entry-title { font-weight: 600; }
+
+/* style.css impose aux ids #certs, #skills, #tools, #domains un padding
+   "4rem 0" et display:flex : on reprend la main avec une spécificité plus forte */
+#certs.fs, #skills.fs, #tools.fs, #domains.fs {
+    display: block;
+    padding: 2.2rem calc(var(--grid-margin) + 2rem) 1.8rem;
+}
+
+/* ---------- 5b. MISE EN PAGE COMPACTE ---------- */
+.fs-inner { max-width: 1280px; margin: 0 auto; }
+.fs-cols { display: grid; gap: 0 2.4rem; }
+.fs-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.fs-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.fs-split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr);
+    gap: 2.6rem;
+    align-items: start;
+}
+.fs-lead { margin-bottom: 1.1rem; max-width: 900px; }
+.fs-entry { margin: 0 0 1.05rem; }
+.fs-entry-title { font-size: 1.15rem; }
+.fs-subtitle { margin: 1.1rem 0 0.8rem; }
+.fs-key li { padding: 0.5rem 0 0.5rem 2.8rem; font-size: 1rem; }
+.fs-key li::before { top: 0.62rem; }
+.fs-tools-list .fs-entry-title { font-size: 1.05rem; }
+.fs-tools-list .fs-entry { margin-bottom: 0.8rem; }
+.fs-text { flex: 1 1 62%; }
+.fs-visual { flex: 1 1 34%; }
+.fs-tabs { margin-bottom: 1.1rem; }
+
+/* ---------- 6. ONGLETS ---------- */
+.fs-tabs { display: flex; flex-wrap: wrap; gap: 0; margin: 0 0 1.6rem; border-bottom: 1px solid var(--lz-line); }
+.fs-tab {
+    appearance: none;
+    background: none;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -1px;
+    padding: 0.7rem 1.2rem;
+    font: 600 0.82rem/1 Arial, sans-serif;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--lz-muted);
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+.fs-tab:hover { color: var(--lz-accent); }
+.fs-tab[aria-selected="true"] { color: var(--lz-accent); border-bottom-color: var(--lz-accent); }
+.fs-tab:focus-visible { outline: 2px solid var(--lz-teal); outline-offset: 2px; }
+.fs-panel[hidden] { display: none; }
+.fs-score {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 0 0 1rem;
+    padding: 0.8rem 1.2rem;
+    background: var(--lz-card);
+    border: 1px solid var(--lz-line);
+    border-left: 4px solid var(--lz-accent);
+}
+.fs-score strong { font-size: 2rem; font-weight: 300; color: var(--lz-text); }
+.fs-score span   { font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; color: var(--lz-teal); }
+
+/* ---------- 7. BANDEAUX DÉFILANTS ---------- */
+.marquee {
+    position: relative;
+    overflow: hidden;
+    padding: 6px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+.mq-track {
+    display: flex;
+    width: max-content;
+    --mq-gap: 14px;
+}
+.mq-group {
+    display: flex;
+    flex-shrink: 0;
+    gap: var(--mq-gap);
+    padding-right: var(--mq-gap);
+}
+.marquee.is-ready .mq-track {
+    animation: mqScroll var(--mq-duration, 30s) linear infinite;
+}
+.marquee.is-ready.reverse .mq-track { animation-direction: reverse; }
+.marquee:hover .mq-track { animation-play-state: paused; }
+@keyframes mqScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-1 * var(--mq-shift, 50%))); }
+}
+
+.mq-chip {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-shrink: 0;
+    width: 132px;
+    height: 112px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    background: var(--lz-card);
+    border: 1px solid var(--lz-line);
+    box-shadow: 0 2px 10px rgba(20, 33, 43, 0.06);
+}
+.mq-chip svg {
+    width: 38px;
+    height: 38px;
+    fill: none;
+    stroke: var(--lz-teal);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.mq-chip img { width: 52px; height: 52px; object-fit: contain; }
+.mq-chip span {
+    font-size: 0.72rem;
+    line-height: 1.25;
+    letter-spacing: 0.5px;
+    color: var(--lz-text);
+}
+.mq-chip.is-featured { border-color: var(--lz-accent); box-shadow: 0 4px 16px rgba(200, 50, 63, 0.18); }
+.mq-chip.is-wide { width: 168px; }
+.mq-chip.is-score { background: var(--lz-text); border-color: var(--lz-text); }
+.mq-chip.is-score span { color: #fff; }
+.mq-chip.is-score svg { stroke: #00f3ff; }
+
+/* ---------- 8. MOBILE ---------- */
+@media (max-width: 768px) {
+    /* 1. Cacher entièrement la nav sur mobile */
+    .sk-nav { display: none !important; }
+
+    /* 2. Cacher le "+" fixé */
+    .fixed-cross { display: none !important; }
+
+    /* 3. Ajuster le hero (car plus de nav) */
+    .sk-hero { padding-top: 90px; }
+    .sk-footer { padding-bottom: 40px; }   /* plus besoin de réserver la place pour la barre */
+
+    /* 4. Le reste : on garde tout ce qui existait (fs-grid, chips, etc.) */
+    #certs.fs, #skills.fs, #tools.fs, #domains.fs {
+        padding: 2.4rem calc(var(--grid-margin) + 0.7rem) 2.2rem;
+    }
+    .fs-grid { flex-direction: column; align-items: stretch; gap: 1.6rem; }
+    .fs-text, .fs-visual { flex: 1 1 auto; width: 100%; }
+    .fs-entry-title { font-size: 1.15rem; }
+    .fs-tools-list { grid-template-columns: 1fr; }
+    .fs-cols-2, .fs-cols-3, .fs-split { grid-template-columns: 1fr; }
+    .fs-split { gap: 0.4rem; }
+    .sk-footer-row { flex-wrap: wrap; padding: 0 1rem; }
+    .fs-tab { padding: 0.7rem 0.8rem; font-size: 0.74rem; }
+
+    .mq-chip { width: 112px; height: 98px; }
+    .mq-chip.is-wide { width: 140px; }
+    .mq-chip img { width: 44px; height: 44px; }
+
+    /* 5. TOOLS mobile : on garde les 2 colonnes côte à côte */
+    #tools .fs-visual {
+        flex-direction: row;
+        gap: 8px;
+        min-height: 420px;
+    }
+    #tools .marquee .mq-chip { height: 60px; padding: 4px; }
+    #tools .marquee .mq-chip img { width: 22px; height: 22px; }
+    #tools .marquee .mq-chip span { font-size: 0.6rem; }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marquee.is-ready .mq-track { animation: none; }
+    .marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+}
+
+
+
+/* "+" fixes persistants sous la nav */
+.fixed-cross {
+    position: fixed;
+    top: 52px;
+    z-index: 250;
+    pointer-events: none;
+    color: #8892a0;              /* gris neutre visible sur fond sombre et clair */
+    text-shadow: none;
+}
+
+
+
+
+
+/* ---------------------------------------------------------------------
+   TOOLS : deux colonnes de bandeaux verticaux, sens opposés
+   --------------------------------------------------------------------- */
+#tools .fs-grid { align-items: stretch; }
+
+#tools .fs-visual {
+    flex: 1 1 34%;
+    min-width: 0;
+    display: flex;
+    flex-direction: row;         /* ← les 2 marquees côte à côte */
+    gap: 10px;
+    min-height: 520px;
+    max-height: 90vh;
+}
+
+#tools .marquee {
+    flex: 1 1 0;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom,
+        transparent 0, #000 8%, #000 92%, transparent 100%);
+    mask-image: linear-gradient(to bottom,
+        transparent 0, #000 8%, #000 92%, transparent 100%);
+}
+
+#tools .marquee .mq-track {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    will-change: transform;
+}
+
+#tools .marquee .mq-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 0;
+    padding-bottom: 10px;
+}
+
+#tools .marquee.is-ready .mq-track {
+    animation: mqScrollV var(--mq-duration, 30s) linear infinite;
+}
+#tools .marquee.reverse.is-ready .mq-track {
+    animation-direction: reverse;
+}
+@keyframes mqScrollV {
+    from { transform: translateY(0); }
+    to   { transform: translateY(calc(-1 * var(--mq-shift, 50%))); }
+}
+
+/* Chips compacts pour tenir dans une colonne étroite */
+#tools .marquee .mq-chip {
+    width: 100%;
+    height: 74px;                /* était 90px */
+    padding: 6px;
+    gap: 4px;
+    flex-direction: row;         /* icône + label sur une seule ligne */
+    justify-content: flex-start;
+    text-align: left;
+    box-sizing: border-box;
+}
+#tools .marquee .mq-chip img {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+#tools .marquee .mq-chip svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+#tools .marquee .mq-chip span {
+    font-size: 0.68rem;
+    line-height: 1.15;
+    padding-left: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+/* Les chips "is-wide" et "is-score" n'ont plus besoin d'être élargis */
+#tools .marquee .mq-chip.is-wide { width: 100%; }

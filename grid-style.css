@@ -1,0 +1,54 @@
+/* =====================================================================
+   grid-style.css  -  nouveau style des délimiteurs (le "+" encadré)
+   - le "+" n'est plus néon (plus de bleu fluo ni de lueur)
+   - les pointillés ne pénètrent plus dans la zone encadrée :
+       . horizontaux : coupés autour du cadre (masque CSS ci-dessous)
+       . verticaux   : coupés autour de chaque cadre par grid-gaps.js
+   À charger APRÈS style.css (index.html et skills.html).
+   Réglages : --cross-color (couleur du +), --cross-gap (demi-ouverture
+   de la coupure, en px).
+   ===================================================================== */
+
+:root {
+    --cross-color: #b9c8d3;   /* gris-bleu clair, sobre */
+    --cross-gap: 16px;        /* demi-largeur de la coupure autour du cadre */
+}
+
+/* --- Le "+" : sobre, sans lueur --- */
+.grid-cross {
+    color: var(--cross-color);
+    text-shadow: none;
+    font-weight: 300;
+}
+
+/* --- Pointillés horizontaux : coupés autour du cadre --- */
+/* ligne de gauche : le cadre est centré sur la ligne verticale gauche */
+.grid-cross.left + .grid-line-horizontal {
+    -webkit-mask-image: linear-gradient(to right,
+        #000 0,
+        #000 calc(var(--grid-margin) - var(--cross-gap)),
+        transparent calc(var(--grid-margin) - var(--cross-gap)),
+        transparent calc(var(--grid-margin) + var(--cross-gap)),
+        #000 calc(var(--grid-margin) + var(--cross-gap)));
+    mask-image: linear-gradient(to right,
+        #000 0,
+        #000 calc(var(--grid-margin) - var(--cross-gap)),
+        transparent calc(var(--grid-margin) - var(--cross-gap)),
+        transparent calc(var(--grid-margin) + var(--cross-gap)),
+        #000 calc(var(--grid-margin) + var(--cross-gap)));
+}
+/* ligne de droite : cadre centré sur la ligne verticale droite (mesuré depuis le bord droit) */
+.grid-title + .grid-line-horizontal {
+    -webkit-mask-image: linear-gradient(to left,
+        #000 0,
+        #000 calc(var(--grid-margin) - var(--cross-gap) + 2px),
+        transparent calc(var(--grid-margin) - var(--cross-gap) + 2px),
+        transparent calc(var(--grid-margin) + var(--cross-gap) + 2px),
+        #000 calc(var(--grid-margin) + var(--cross-gap) + 2px));
+    mask-image: linear-gradient(to left,
+        #000 0,
+        #000 calc(var(--grid-margin) - var(--cross-gap) + 2px),
+        transparent calc(var(--grid-margin) - var(--cross-gap) + 2px),
+        transparent calc(var(--grid-margin) + var(--cross-gap) + 2px),
+        #000 calc(var(--grid-margin) + var(--cross-gap) + 2px));
+}

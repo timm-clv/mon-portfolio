@@ -6,10 +6,10 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    /* AJOUTS DU DOSSIER 2 */
     padding: 0;
     background-color: #000f16;
     color: white;
+    overflow-x: clip;            /* ← ajoute cette ligne */
 }
 
 /* AJOUT : Active le "Scroll Snap" en mode "proximité" */
@@ -953,6 +953,7 @@ Ne s'applique qu'à la zone 1 et à la zone 2.
 
 /* Cible toutes les sections sauf Zone 1 et 2 qui doivent rester grandes */
 #about, 
+#education,
 #certs,
 #skills, 
 #tools, 
