@@ -360,8 +360,7 @@ document.addEventListener('DOMContentLoaded',function() {
       _0x1569d6&&(_0x1569d6.style.display='block',_0x1569d6.style.opacity=1,_0x1569d6.style.transform='translate(-50%, -50%) scale(1)'),startDotsAnimation();
       
     },0x3e8);
-    const _0x265d63=['I am an engineering student.','I\'m a developer','A Creative Developer','I study mechatronics <br> and robotics','I work on AI','Neural\x20Networks\x20and\x20<br>\x20Machine\x20Learning','Image\x20processing\x20is\x20brilliant','Like programmation ... ','I\x20love\x20Java\x20Script','I\x20am\x20a\x20hard\x20worker','I\x20am\x20an\x20enthusiastic\x20<br>\x20programmer','Otherwise, <br> I have hobbies','A robotics club <br> and sports'];
-    let _0x32fd4e=0;
+    window.__loaderMessages=window.__loaderMessages||['I am an engineering student.','I\'m a developer','A Creative Developer','I study mechatronics <br> and robotics','I work on AI','Neural Networks and <br> Machine Learning','Image processing is brilliant','Like programmation ... ','I love Java Script','I am a hard worker','I am an enthusiastic <br> programmer','Otherwise, <br> I have hobbies','A robotics club <br> and sports'];const _0x265d63=window.__loaderMessages;    let _0x32fd4e=0;
     const _0x32090a=document.querySelector('.loader-subtext'),_0x226f69=100,_0x4801f3=50,_0x1f8c09=0x7d0,_0x4209cf=0x1f4;
     let _0x5bff4a=0,_0x43e137=![];
     function _0x5f1b8c() {

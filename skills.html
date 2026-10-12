@@ -22,22 +22,28 @@
     <div class="grid-line-vertical right"></div>
 
     <nav id="sk-nav" class="main-nav sk-nav">
-        <a class="sk-back" href="index.html">&#8592; Portfolio</a>
+        <a class="sk-back" href="index.html" data-i18n="sk.back">&#8592; Portfolio</a>
         <ul>
-            <li><a href="#certs">Certifications</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#tools">Tools</a></li>
-            <li><a href="#domains">Domains</a></li>
+            <li><a href="#certs"   data-i18n="sk.nav.certs">Certifications</a></li>
+            <li><a href="#skills"  data-i18n="sk.nav.skills">Skills</a></li>
+            <li><a href="#tools"   data-i18n="sk.nav.tools">Tools</a></li>
+            <li><a href="#domains" data-i18n="sk.nav.domains">Domains</a></li>
         </ul>
     </nav>
+
+    <!-- Sélecteur de langue -->
+    <div class="lang-switch">
+        <button type="button" class="btn-icon btn-lang" data-lang="fr" aria-label="Français">FR</button>
+        <button type="button" class="btn-icon btn-lang active" data-lang="en" aria-label="English">EN</button>
+    </div>
 
     <div class="grid-cross left fixed-cross" aria-hidden="true">+</div>
     <div class="grid-cross right fixed-cross" aria-hidden="true">+</div>
 
     <main>
         <header class="sk-hero">
-            <h1 class="neon-gold-title">Skills &amp; Tools</h1>
-            <p>Certifications, competencies, tools and fields of application behind my projects in robotics, embedded systems and AI.</p>
+            <h1 class="neon-gold-title" data-i18n="sk.title">Skills &amp; Tools</h1>
+            <p data-i18n="sk.subtitle">Certifications, competencies, tools and fields of application behind my projects in robotics, embedded systems and AI.</p>
         </header>
         <div class="sk-fade-in" aria-hidden="true"></div>
 
@@ -47,31 +53,43 @@
     <div class="grid-cross left">+</div>
     <div class="grid-line-horizontal"></div>
     <h2 class="grid-title">
-        <span class="gold-square"></span>CERTIFICATIONS
+        <span class="gold-square"></span><span data-i18n="sk.div.certs">CERTIFICATIONS</span>
     </h2>
     <div class="grid-line-horizontal"></div>
     <div class="grid-cross right">+</div>
-    </div>
+</div>
 
 <section class="fs" id="certs">
     <div class="fs-inner">
 <div class="fs-tabs" role="tablist" aria-label="Certifications">
-    <button class="fs-tab" role="tab" id="tab-ml" aria-controls="panel-ml" aria-selected="true" type="button">Machine Learning</button>
-    <button class="fs-tab" role="tab" id="tab-toeic" aria-controls="panel-toeic" aria-selected="false" type="button" tabindex="-1">English &middot; TOEIC</button>
+    <button class="fs-tab" role="tab" id="tab-ml"    aria-controls="panel-ml"    aria-selected="true"  type="button" data-i18n="sk.certs.tab.ml">Machine Learning</button>
+    <button class="fs-tab" role="tab" id="tab-toeic" aria-controls="panel-toeic" aria-selected="false" type="button" tabindex="-1" data-i18n="sk.certs.tab.toeic">English &middot; TOEIC</button>
 </div>
 
 <div class="fs-panel" role="tabpanel" id="panel-ml" aria-labelledby="tab-ml">
-    <p class="fs-lead">Machine Learning with Python &mdash; training courses taken on Kaggle: introduction to data evaluation, pipeline mastery and model explainability. Applied to a dataset for detecting fraudulent credit card transactions.</p>
+    <p class="fs-lead" data-i18n="sk.certs.ml.lead">Machine Learning with Python &mdash; training courses taken on Kaggle: introduction to data evaluation, pipeline mastery and model explainability. Applied to a dataset for detecting fraudulent credit card transactions.</p>
     <div class="fs-cols fs-cols-3">
-        <article class="fs-entry"><h3 class="fs-entry-title"><a href="https://www.kaggle.com/learn/certification/timmclaverie/intro-to-machine-learning" target="_blank" rel="noopener noreferrer">Intro to Machine Learning</a></h3><p class="fs-entry-text">Kaggle certificate.</p><span class="fs-entry-meta">21-09-2025</span></article>
-        <article class="fs-entry"><h3 class="fs-entry-title"><a href="https://www.kaggle.com/learn/certification/timmclaverie/intermediate-machine-learning" target="_blank" rel="noopener noreferrer">Intermediate Machine Learning</a></h3><p class="fs-entry-text">Kaggle certificate.</p><span class="fs-entry-meta">09-10-2025</span></article>
-        <article class="fs-entry"><h3 class="fs-entry-title"><a href="https://www.kaggle.com/learn/certification/timmclaverie/machine-learning-explainability" target="_blank" rel="noopener noreferrer">Machine Learning Explainability</a></h3><p class="fs-entry-text">Kaggle certificate.</p><span class="fs-entry-meta">27-10-2025</span></article>
+        <article class="fs-entry">
+            <h3 class="fs-entry-title"><a href="https://www.kaggle.com/learn/certification/timmclaverie/intro-to-machine-learning" target="_blank" rel="noopener noreferrer" data-i18n="sk.certs.ml.c1">Intro to Machine Learning</a></h3>
+            <p class="fs-entry-text" data-i18n="sk.certs.ml.c1.desc">Kaggle certificate.</p>
+            <span class="fs-entry-meta">21-09-2025</span>
+        </article>
+        <article class="fs-entry">
+            <h3 class="fs-entry-title"><a href="https://www.kaggle.com/learn/certification/timmclaverie/intermediate-machine-learning" target="_blank" rel="noopener noreferrer" data-i18n="sk.certs.ml.c2">Intermediate Machine Learning</a></h3>
+            <p class="fs-entry-text" data-i18n="sk.certs.ml.c2.desc">Kaggle certificate.</p>
+            <span class="fs-entry-meta">09-10-2025</span>
+        </article>
+        <article class="fs-entry">
+            <h3 class="fs-entry-title"><a href="https://www.kaggle.com/learn/certification/timmclaverie/machine-learning-explainability" target="_blank" rel="noopener noreferrer" data-i18n="sk.certs.ml.c3">Machine Learning Explainability</a></h3>
+            <p class="fs-entry-text" data-i18n="sk.certs.ml.c3.desc">Kaggle certificate.</p>
+            <span class="fs-entry-meta">27-10-2025</span>
+        </article>
     </div>
 </div>
 
 <div class="fs-panel" role="tabpanel" id="panel-toeic" aria-labelledby="tab-toeic" hidden>
-    <p class="fs-lead">English language proficiency certification.</p>
-    <div class="fs-score"><strong>860 / 990</strong><span>TOEIC &middot; LEVEL B2</span></div>
+    <p class="fs-lead" data-i18n="sk.certs.toeic.lead">English language proficiency certification.</p>
+    <div class="fs-score"><strong>860 / 990</strong><span data-i18n="sk.certs.toeic.level">TOEIC &middot; LEVEL B2</span></div>
 </div>
 </div>
 </section>
@@ -81,38 +99,62 @@
     <div class="grid-cross left">+</div>
     <div class="grid-line-horizontal"></div>
     <h2 class="grid-title">
-        <span class="gold-square"></span>SKILLS
+        <span class="gold-square"></span><span data-i18n="sk.div.skills">SKILLS</span>
     </h2>
     <div class="grid-line-horizontal"></div>
     <div class="grid-cross right">+</div>
-    </div>
+</div>
 
 <section class="fs" id="skills">
     <div class="fs-inner">
 <div class="fs-split">
     <div>
-        <h3 class="fs-subtitle">Core competencies</h3>
+        <h3 class="fs-subtitle" data-i18n="sk.skills.core">Core competencies</h3>
         <ol class="fs-key">
-            <li>Systemic analysis</li>
-            <li>Critical analysis</li>
-            <li>Questioning and physical consistency</li>
-            <li>AI agent piloting and management</li>
-            <li>Problem solving with neural networks and machine learning</li>
-            <li>Experiments in sensor fusion and odometry</li>
+            <li data-i18n="sk.skills.core.1">Systemic analysis</li>
+            <li data-i18n="sk.skills.core.2">Critical analysis</li>
+            <li data-i18n="sk.skills.core.3">Questioning and physical consistency</li>
+            <li data-i18n="sk.skills.core.4">AI agent piloting and management</li>
+            <li data-i18n="sk.skills.core.5">Problem solving with neural networks and machine learning</li>
+            <li data-i18n="sk.skills.core.6">Experiments in sensor fusion and odometry</li>
         </ol>
     </div>
     <div>
-        <h3 class="fs-subtitle">Technical competencies</h3>
+        <h3 class="fs-subtitle" data-i18n="sk.skills.tech">Technical competencies</h3>
         <div class="fs-cols fs-cols-2">
-            <article class="fs-entry"><h3 class="fs-entry-title">Embedded Systems</h3><p class="fs-entry-text">Real-Time Operating System // Microcontrollers // Electronic // Code Optimization</p><span class="fs-entry-meta">Robotics Club, School Education</span></article>
-            <article class="fs-entry"><h3 class="fs-entry-title">Robotics</h3><p class="fs-entry-text">ROS System (topics, nodes) // Trajectory Planning // LIDAR // DC Motor Control</p><span class="fs-entry-meta">Robotics Club, School Education</span></article>
-            <article class="fs-entry"><h3 class="fs-entry-title">AI</h3><p class="fs-entry-text">Object Detection // Neural Networks // PyTorch // Machine Learning</p><span class="fs-entry-meta">Personal Project, Robotics Club, School Education</span></article>
-            <article class="fs-entry"><h3 class="fs-entry-title">Simulation</h3><p class="fs-entry-text">Gazebo // MatLab // Python // IsaacSim // IsaacLab // MuJoCo</p><span class="fs-entry-meta">Personal Project, School Education</span></article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.skills.emb.title">Embedded Systems</h3>
+                <p class="fs-entry-text" data-i18n="sk.skills.emb.text">Real-Time Operating System // Microcontrollers // Electronic // Code Optimization</p>
+                <span class="fs-entry-meta" data-i18n="sk.skills.emb.meta">Robotics Club, School Education</span>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.skills.robo.title">Robotics</h3>
+                <p class="fs-entry-text" data-i18n="sk.skills.robo.text">ROS System (topics, nodes) // Trajectory Planning // LIDAR // DC Motor Control</p>
+                <span class="fs-entry-meta" data-i18n="sk.skills.robo.meta">Robotics Club, School Education</span>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.skills.ai.title">AI</h3>
+                <p class="fs-entry-text" data-i18n="sk.skills.ai.text">Object Detection // Neural Networks // PyTorch // Machine Learning</p>
+                <span class="fs-entry-meta" data-i18n="sk.skills.ai.meta">Personal Project, Robotics Club, School Education</span>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.skills.sim.title">Simulation</h3>
+                <p class="fs-entry-text" data-i18n="sk.skills.sim.text">Gazebo // MatLab // Python // IsaacSim // IsaacLab // MuJoCo</p>
+                <span class="fs-entry-meta" data-i18n="sk.skills.sim.meta">Personal Project, School Education</span>
+            </article>
         </div>
-        <h3 class="fs-subtitle">Soft skills</h3>
+        <h3 class="fs-subtitle" data-i18n="sk.skills.soft">Soft skills</h3>
         <div class="fs-cols fs-cols-2">
-            <article class="fs-entry"><h3 class="fs-entry-title">Team Synergy</h3><p class="fs-entry-text">Communication // Good humour // Dedication // Adaptability</p><span class="fs-entry-meta">School Group projects</span></article>
-            <article class="fs-entry"><h3 class="fs-entry-title">Project Management</h3><p class="fs-entry-text">Autonomy // Time Management // Resource Planning</p><span class="fs-entry-meta">Internship Experiences</span></article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.skills.team.title">Team Synergy</h3>
+                <p class="fs-entry-text" data-i18n="sk.skills.team.text">Communication // Good humour // Dedication // Adaptability</p>
+                <span class="fs-entry-meta" data-i18n="sk.skills.team.meta">School Group projects</span>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.skills.pm.title">Project Management</h3>
+                <p class="fs-entry-text" data-i18n="sk.skills.pm.text">Autonomy // Time Management // Resource Planning</p>
+                <span class="fs-entry-meta" data-i18n="sk.skills.pm.meta">Internship Experiences</span>
+            </article>
         </div>
     </div>
 </div>
@@ -124,15 +166,30 @@
     <div class="grid-cross left">+</div>
     <div class="grid-line-horizontal"></div>
     <h2 class="grid-title">
-        <span class="gold-square"></span>TOOLS
+        <span class="gold-square"></span><span data-i18n="sk.div.tools">TOOLS</span>
     </h2>
     <div class="grid-line-horizontal"></div>
     <div class="grid-cross right">+</div>
-    </div>
+</div>
 
 <section class="fs" id="tools">
     <div class="fs-grid">
-        <div class="fs-text"><div class="fs-tools-list"><article class="fs-entry"><h3 class="fs-entry-title">ROS 2</h3><p class="fs-entry-text">Robot Operating System 2: middleware for nodes, topics and sensor-fusion pipelines.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Isaac Sim</h3><p class="fs-entry-text">NVIDIA robotics simulator for physics-based simulation.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Isaac Lab</h3><p class="fs-entry-text">Robot-learning framework built on top of Isaac Sim.</p></article><article class="fs-entry"><h3 class="fs-entry-title">MuJoCo</h3><p class="fs-entry-text">Physics engine for fast and accurate robot simulation.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Excel</h3><p class="fs-entry-text">Correlated data tables, to help someone taking over a project understand it.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Python</h3><p class="fs-entry-text">Data analysis, trajectory construction, neural networks with PyTorch / TensorFlow.</p></article><article class="fs-entry"><h3 class="fs-entry-title">C++ / Embedded</h3><p class="fs-entry-text">Memory management and hardware control for robotics.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Gazebo</h3><p class="fs-entry-text">Linux. 3D robotics simulator, physics engine and environment modeling.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Matlab</h3><p class="fs-entry-text">Integrated HMI. Numerical computing and algorithm development.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Simulink</h3><p class="fs-entry-text">Block diagram environment for simulation and Model-Based Design. Work on &ldquo;PUMA&rdquo; robotic arms.</p></article><article class="fs-entry"><h3 class="fs-entry-title">SolidWorks</h3><p class="fs-entry-text">Computer-aided design (CAD).</p></article><article class="fs-entry"><h3 class="fs-entry-title">LaTeX</h3><p class="fs-entry-text">Quality report writing.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Pandas</h3><p class="fs-entry-text">Data manipulation and analysis in Python.</p></article><article class="fs-entry"><h3 class="fs-entry-title">TensorFlow</h3><p class="fs-entry-text">Machine-learning framework for building and training neural networks.</p></article></div></div>
+        <div class="fs-text"><div class="fs-tools-list">
+            <article class="fs-entry"><h3 class="fs-entry-title">ROS 2</h3><p class="fs-entry-text" data-i18n="sk.tools.ros2.text">Robot Operating System 2: middleware for nodes, topics and sensor-fusion pipelines.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">Isaac Sim</h3><p class="fs-entry-text" data-i18n="sk.tools.isaacsim.text">NVIDIA robotics simulator for physics-based simulation.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">Isaac Lab</h3><p class="fs-entry-text" data-i18n="sk.tools.isaaclab.text">Robot-learning framework built on top of Isaac Sim.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">MuJoCo</h3><p class="fs-entry-text" data-i18n="sk.tools.mujoco.text">Physics engine for fast and accurate robot simulation.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">Excel</h3><p class="fs-entry-text" data-i18n="sk.tools.excel.text">Correlated data tables, to help someone taking over a project understand it.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">Python</h3><p class="fs-entry-text" data-i18n="sk.tools.python.text">Data analysis, trajectory construction, neural networks with PyTorch / TensorFlow.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">C++ / Embedded</h3><p class="fs-entry-text" data-i18n="sk.tools.cpp.text">Memory management and hardware control for robotics.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">Gazebo</h3><p class="fs-entry-text" data-i18n="sk.tools.gazebo.text">Linux. 3D robotics simulator, physics engine and environment modeling.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">Matlab</h3><p class="fs-entry-text" data-i18n="sk.tools.matlab.text">Integrated HMI. Numerical computing and algorithm development.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">Simulink</h3><p class="fs-entry-text" data-i18n="sk.tools.simulink.text">Block diagram environment for simulation and Model-Based Design. Work on &ldquo;PUMA&rdquo; robotic arms.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">SolidWorks</h3><p class="fs-entry-text" data-i18n="sk.tools.solidworks.text">Computer-aided design (CAD).</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">LaTeX</h3><p class="fs-entry-text" data-i18n="sk.tools.latex.text">Quality report writing.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">Pandas</h3><p class="fs-entry-text" data-i18n="sk.tools.pandas.text">Data manipulation and analysis in Python.</p></article>
+            <article class="fs-entry"><h3 class="fs-entry-title">TensorFlow</h3><p class="fs-entry-text" data-i18n="sk.tools.tensorflow.text">Machine-learning framework for building and training neural networks.</p></article>
+        </div></div>
         <aside class="fs-visual" aria-hidden="true">
             <div class="marquee" data-speed="36"><div class="mq-track"><div class="mq-group"><div class="mq-chip is-featured"><img src="ref/ros2.png" alt="" onerror="this.style.visibility='hidden'"><span>ROS 2</span></div><div class="mq-chip is-featured"><img src="ref/isaacsim.jpg" alt="" onerror="this.style.visibility='hidden'"><span>Isaac Sim</span></div><div class="mq-chip is-featured"><img src="ref/isaacsim.jpg" alt="" onerror="this.style.visibility='hidden'"><span>Isaac Lab</span></div><div class="mq-chip is-featured"><img src="ref/mujoco.png" alt="" onerror="this.style.visibility='hidden'"><span>MuJoCo</span></div><div class="mq-chip is-featured"><img src="ref/excel.png" alt="" onerror="this.style.visibility='hidden'"><span>Excel</span></div></div></div></div>
             <div class="marquee reverse" data-speed="40"><div class="mq-track"><div class="mq-group"><div class="mq-chip"><img src="ref/Python.png" alt="" onerror="this.style.visibility='hidden'"><span>Python</span></div><div class="mq-chip"><img src="ref/Cpp.png" alt="" onerror="this.style.visibility='hidden'"><span>C++</span></div><div class="mq-chip"><img src="ref/gazebo.png" alt="" onerror="this.style.visibility='hidden'"><span>Gazebo</span></div><div class="mq-chip"><img src="ref/matlab.png" alt="" onerror="this.style.visibility='hidden'"><span>Matlab</span></div><div class="mq-chip"><img src="ref/simulink.png" alt="" onerror="this.style.visibility='hidden'"><span>Simulink</span></div><div class="mq-chip"><img src="ref/solidworks.png" alt="" onerror="this.style.visibility='hidden'"><span>SolidWorks</span></div><div class="mq-chip"><img src="ref/latex.png" alt="" onerror="this.style.visibility='hidden'"><span>LaTeX</span></div><div class="mq-chip"><img src="ref/pandas.png" alt="" onerror="this.style.visibility='hidden'"><span>Pandas</span></div><div class="mq-chip"><img src="ref/tensorflow.png" alt="" onerror="this.style.visibility='hidden'"><span>TensorFlow</span></div></div></div></div>
@@ -145,14 +202,58 @@
     <div class="grid-cross left">+</div>
     <div class="grid-line-horizontal"></div>
     <h2 class="grid-title">
-        <span class="gold-square"></span>DOMAINS
+        <span class="gold-square"></span><span data-i18n="sk.div.domains">DOMAINS</span>
     </h2>
     <div class="grid-line-horizontal"></div>
     <div class="grid-cross right">+</div>
-    </div>
+</div>
 
 <section class="fs" id="domains">
-    <div class="fs-inner"><p class="fs-lead">The fields where my projects, internships and studies meet.</p><div class="fs-cols fs-cols-2 fs-domains"><article class="fs-entry"><h3 class="fs-entry-title">Defense &amp; Security</h3><p class="fs-entry-text">Minor in Security and Defence. Conferences on geostrategy, cybersecurity, naval architecture&hellip;</p></article><article class="fs-entry"><h3 class="fs-entry-title">Autonomous Robotics</h3><p class="fs-entry-text">Path planning, obstacle avoidance, system control and PID control for robotics.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Smart Sensing</h3><p class="fs-entry-text">Sensor fusion (LIDAR / IMU / Camera / Rangefinders), and image processing for maritime surveillance.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Aerospace &amp; UAV</h3><p class="fs-entry-text">Visual-Inertial Odometry on a drone and benchmarking of sensor-fusion algorithms (CRTA internship).</p></article><article class="fs-entry"><h3 class="fs-entry-title">AI for Robotics</h3><p class="fs-entry-text">Neural-network trajectory planning (RoboCup), machine learning, object detection.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Embedded &amp; Real-Time Systems</h3><p class="fs-entry-text">C programming of an autonomous mobile robot: motor control and real-time constraints.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Modeling &amp; Simulation</h3><p class="fs-entry-text">Gazebo, Matlab / Simulink, road-vehicle dynamic simulator, Isaac Sim, Isaac Lab and MuJoCo.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Control-Command</h3><p class="fs-entry-text">Speed and heading control of robots (PID). Open to opportunities in Power Electronics.</p></article><article class="fs-entry"><h3 class="fs-entry-title">R&amp;D &amp; Prototyping</h3><p class="fs-entry-text">Innovative module for the French Navy designed in 3D during the CEPA/10S internship.</p></article><article class="fs-entry"><h3 class="fs-entry-title">Marine Systems</h3><p class="fs-entry-text">Coming soon: detection solutions for underwater vehicles (ROV / AUV).</p></article></div></div>
+    <div class="fs-inner">
+        <p class="fs-lead" data-i18n="sk.domains.lead">The fields where my projects, internships and studies meet.</p>
+        <div class="fs-cols fs-cols-2 fs-domains">
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.1.title">Defense &amp; Security</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.1.text">Minor in Security and Defence. Conferences on geostrategy, cybersecurity, naval architecture&hellip;</p>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.2.title">Autonomous Robotics</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.2.text">Path planning, obstacle avoidance, system control and PID control for robotics.</p>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.3.title">Smart Sensing</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.3.text">Sensor fusion (LIDAR / IMU / Camera / Rangefinders), and image processing for maritime surveillance.</p>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.4.title">Aerospace &amp; UAV</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.4.text">Visual-Inertial Odometry on a drone and benchmarking of sensor-fusion algorithms (CRTA internship).</p>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.5.title">AI for Robotics</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.5.text">Neural-network trajectory planning (RoboCup), machine learning, object detection.</p>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.6.title">Embedded &amp; Real-Time Systems</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.6.text">C programming of an autonomous mobile robot: motor control and real-time constraints.</p>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.7.title">Modeling &amp; Simulation</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.7.text">Gazebo, Matlab / Simulink, road-vehicle dynamic simulator, Isaac Sim, Isaac Lab and MuJoCo.</p>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.8.title">Control-Command</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.8.text">Speed and heading control of robots (PID). Open to opportunities in Power Electronics.</p>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.9.title">R&amp;D &amp; Prototyping</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.9.text">Innovative module for the French Navy designed in 3D during the CEPA/10S internship.</p>
+            </article>
+            <article class="fs-entry">
+                <h3 class="fs-entry-title" data-i18n="sk.domains.10.title">Marine Systems</h3>
+                <p class="fs-entry-text" data-i18n="sk.domains.10.text">Coming soon: detection solutions for underwater vehicles (ROV / AUV).</p>
+            </article>
+        </div>
+    </div>
 </section>
 
         </div>
@@ -160,13 +261,14 @@
 
         <footer class="sk-footer">
             <div class="sk-footer-row">
-                <span class="copyright">&copy; 2025-2026 Timm CLAVERIE-</span>
-                <a href="index.html" class="footer-link">Back to portfolio</a>
+                <span class="copyright" data-i18n="ap.copyright">&copy; 2025-2026 Timm CLAVERIE-</span>
+                <a href="index.html" class="footer-link" data-i18n="sk.footer.back">Back to portfolio</a>
             </div>
         </footer>
     </main>
 
     <script src="skills.js"></script>
+    <script src="i18n.js"></script>
     <script src="grid-gaps.js" defer></script>
 </body>
 </html>

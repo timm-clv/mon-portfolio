@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,20 +16,20 @@
     <div class="grid-line-vertical left"></div>
     <div class="grid-line-vertical right"></div>
 
-    <!-- <nav class="top-nav">
-        <a href="index.html?skip=true#projects" class="btn-tube btn-back">
-            ⬅ Back to Home
-        </a>
-    </nav> -->
+    <!-- Sélecteur de langue -->
+    <div class="lang-switch">
+        <button type="button" class="btn-icon btn-lang" data-lang="fr" aria-label="Français">FR</button>
+        <button type="button" class="btn-icon btn-lang active" data-lang="en" aria-label="English">EN</button>
+    </div>
 
     <header class="projects-header">
-        <h1 class="neon-gold-title">ALL MY PROJECTS</h1>
+        <h1 class="neon-gold-title" data-i18n="ap.title">ALL MY PROJECTS</h1>
         
         <div class="filter-container">
-            <button class="btn-filter active" data-filter="all">All</button>
-            <button class="btn-filter" data-filter="robotics">Robotics</button>
-            <button class="btn-filter" data-filter="ai">AI & Data</button>
-            <button class="btn-filter" data-filter="embedded">Embedded</button>
+            <button class="btn-filter active" data-filter="all"      data-i18n="ap.filter.all">All</button>
+            <button class="btn-filter"        data-filter="robotics" data-i18n="ap.filter.robotics">Robotics</button>
+            <button class="btn-filter"        data-filter="ai"       data-i18n="ap.filter.ai">AI &amp; Data</button>
+            <button class="btn-filter"        data-filter="embedded" data-i18n="ap.filter.embedded">Embedded</button>
         </div>
     </header>
 
@@ -40,9 +40,9 @@
                 <img src="ref/image1.jpg" alt="Projet 1">
             </div>
             <div class="card-body">
-                <h3 class="card-title">Maritime Surveillance CS GROUP</h3>
-                <p class="card-desc">Development of an AI-processed image bank aimed at optimising surveillance. My role: creating the database and the human-machine interface.</p>
-                <a href="ref/report/CS_Group.pdf" class="btn-tube btn-card-action" target="_blank">REPORT</a>
+                <h3 class="card-title" data-i18n="ap.p1.title">Maritime Surveillance CS GROUP</h3>
+                <p class="card-desc" data-i18n="ap.p1.desc">Development of an AI-processed image bank aimed at optimising surveillance. My role: creating the database and the human-machine interface.</p>
+                <a href="ref/report/CS_Group.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
 
@@ -51,108 +51,108 @@
                 <img src="ref/embeddedplatform.jpg" alt="Projet 2">
             </div>
             <div class="card-body">
-                <h3 class="card-title">Embedded Drone Platform</h3>
-                <p class="card-desc">Odometry obtained via Visual-Inertial Data Collection Platform. Sensor Fusion Benchmarking. Sensors synchronization. GPS-denied System. ROS2 Architecture</p>
-                <a href="ref/report/Visual Inertial Data Collection Platform and Sensor Fusion Benchmarking.pdf" class="btn-tube btn-card-action" target="_blank">REPORT</a>
+                <h3 class="card-title" data-i18n="ap.p2.title">Embedded Drone Platform</h3>
+                <p class="card-desc" data-i18n="ap.p2.desc">Odometry obtained via Visual-Inertial Data Collection Platform. Sensor Fusion Benchmarking. Sensors synchronization. GPS-denied System. ROS2 Architecture</p>
+                <a href="ref/report/Visual Inertial Data Collection Platform and Sensor Fusion Benchmarking.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
 
         <div class="project-card" data-category="embedded robotics">
             <div class="card-image">
-                <img src="ref/elec.jpg" alt="Projet 2">
+                <img src="ref/elec.jpg" alt="Projet 3">
             </div>
             <div class="card-body">
-                <h3 class="card-title">Autonomous Mobile Robot</h3>
-                <p class="card-desc">Programming a robot in C to avoid obstacles. Work on state machines, analogue conversions and electronics.</p>
-                <a href="ref/report/Electronique.pdf" class="btn-tube btn-card-action" target="_blank">REPORT</a>
+                <h3 class="card-title" data-i18n="ap.p3.title">Autonomous Mobile Robot</h3>
+                <p class="card-desc" data-i18n="ap.p3.desc">Programming a robot in C to avoid obstacles. Work on state machines, analogue conversions and electronics.</p>
+                <a href="ref/report/Electronique.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
 
         <div class="project-card" data-category="robotics">
             <div class="card-image">
-                <img src="ref/turtlebot.jpg" alt="Projet 3">
+                <img src="ref/turtlebot.jpg" alt="Projet 4">
             </div>
             <div class="card-body">
-                <h3 class="card-title">Programming a TurtleBot</h3>
-                <p class="card-desc">Python programming on ROS/GAZEBO for a robot. Node communication via topics.</p>
-                <a href="ref/report/turtle.pdf" class="btn-tube btn-card-action" target="_blank">REPORT</a>
+                <h3 class="card-title" data-i18n="ap.p4.title">Programming a TurtleBot</h3>
+                <p class="card-desc" data-i18n="ap.p4.desc">Python programming on ROS/GAZEBO for a robot. Node communication via topics.</p>
+                <a href="ref/report/turtle.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
 
         <div class="project-card" data-category="">
             <div class="card-image">
-                <img src="ref/acoustique.png" alt="Projet 4">
+                <img src="ref/acoustique.png" alt="Projet 5">
             </div>
             <div class="card-body">
-                <h3 class="card-title">Underwater Acoustics</h3>
-                <p class="card-desc">Characterisation of underwater acoustic signals. Signal processing using "sliding products".</p>
-                <a href="ref/report/acoustique sous-marine.pdf" class="btn-tube btn-card-action" target="_blank">REPORT</a>
+                <h3 class="card-title" data-i18n="ap.p5.title">Underwater Acoustics</h3>
+                <p class="card-desc" data-i18n="ap.p5.desc">Characterisation of underwater acoustic signals. Signal processing using "sliding products".</p>
+                <a href="ref/report/acoustique sous-marine.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
 
         <div class="project-card" data-category="">
             <div class="card-image">
-                <img src="ref/simulateur.png" alt="Projet 5">
+                <img src="ref/simulateur.png" alt="Projet 6">
             </div>
             <div class="card-body">
-                <h3 class="card-title">Road Vehicle Dynamic Simulator</h3>
-                <p class="card-desc">Interactive interface for studying the kinematics, dynamics of a vehicle, and its stability criteria. Objective of studying land vehicles. </p>
-                <a href="ref/report/Performance et Comportement Dynamique des Véhicules.pdf" class="btn-tube btn-card-action" target="_blank">REPORT</a>
+                <h3 class="card-title" data-i18n="ap.p6.title">Road Vehicle Dynamic Simulator</h3>
+                <p class="card-desc" data-i18n="ap.p6.desc">Interactive interface for studying the kinematics, dynamics of a vehicle, and its stability criteria. Objective of studying land vehicles.</p>
+                <a href="ref/report/Performance et Comportement Dynamique des Véhicules.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
 
         <div class="project-card" data-category="">
             <div class="card-image">
-                <img src="ref/vision_bonbons.png" alt="Projet 6">
+                <img src="ref/vision_bonbons.png" alt="Projet 7">
             </div>
             <div class="card-body">
-                <h3 class="card-title">Image processing</h3>
-                <p class="card-desc">Machine vision, remote sensing, and marine mapping using Python OpenCV</p>
-                <a href="ref/report/Vision.pdf" class="btn-tube btn-card-action" target="_blank">REPORT</a>
+                <h3 class="card-title" data-i18n="ap.p7.title">Image processing</h3>
+                <p class="card-desc" data-i18n="ap.p7.desc">Machine vision, remote sensing, and marine mapping using Python OpenCV</p>
+                <a href="ref/report/Vision.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
 
         <div class="project-card" data-category="embedded ai">
             <div class="card-image">
-                <img src="ref/roboclub.jpg" alt="Projet 7">
+                <img src="ref/roboclub.jpg" alt="Projet 8">
             </div>
             <div class="card-body">
-                <h3 class="card-title">Spline Trajectory for Competition Robots</h3>
-                <p class="card-desc">Improvement of RCT robot movement via embedded B-Spline calculation. Embedded Python model recalculated 50 times per second. <br> Report Coming Soon</p>
-                <!-- <a href="" class="btn-tube btn-card-action" target="_blank">COMING SOON</a> -->
+                <h3 class="card-title" data-i18n="ap.p8.title">Spline Trajectory for Competition Robots</h3>
+                <p class="card-desc" data-i18n="ap.p8.desc">Improvement of RCT robot movement via embedded B-Spline calculation. Embedded Python model recalculated 50 times per second.</p>
             </div>
         </div>
 
         <div class="project-card" data-category="ai">
             <div class="card-image">
-                <img src="ref/creditcards.jpg" alt="Projet 8">
+                <img src="ref/creditcards.jpg" alt="Projet 9">
             </div>
             <div class="card-body">
-                <h3 class="card-title">Fraud Detection</h3>
-                <p class="card-desc">Analysis of the dataset containing credit card transactions. Machine learning, evaluation methods and model explainability.</p>
-                <a href="ref/report/Atelier IA.pdf" class="btn-tube btn-card-action" target="_blank">Report</a> <br>
-                <a href="ref/report/AtelierIA.ipynb" class="btn-tube btn-card-action" target="_blank">Notebook</a>
+                <h3 class="card-title" data-i18n="ap.p9.title">Fraud Detection</h3>
+                <p class="card-desc" data-i18n="ap.p9.desc">Analysis of the dataset containing credit card transactions. Machine learning, evaluation methods and model explainability.</p>
+                <a href="ref/report/Atelier IA.pdf"  class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
+                <a href="ref/report/AtelierIA.ipynb" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.notebook">Notebook</a>
             </div>
         </div>
 
         <div class="project-card" data-category="ai">
             <div class="card-image">
-                <img src="ref/qualisys.jpg" alt="Projet 9">
+                <img src="ref/qualisys.jpg" alt="Projet 10">
             </div>
             <div class="card-body">
-                <h3 class="card-title">3D Tracking</h3>
-                <p class="card-desc">Work on YOLO object recognition, a stereo vision system, calibration using ArUcos, and real-time 3D trajectory tracking and positioning.</p>
-                <a href="ref/report/Systeme_de_suivi_3D_pour_ROV_en_bassin.pdf" class="btn-tube btn-card-action" target="_blank">Report</a>
+                <h3 class="card-title" data-i18n="ap.p10.title">3D Tracking</h3>
+                <p class="card-desc" data-i18n="ap.p10.desc">Work on YOLO object recognition, a stereo vision system, calibration using ArUcos, and real-time 3D trajectory tracking and positioning.</p>
+                <a href="ref/report/Systeme_de_suivi_3D_pour_ROV_en_bassin.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
 
     </main>
 
     <footer class="projects-footer">
-        <span class="copyright">© 2025-2026 Timm CLAVERIE-</span>
-        <a href="./" class="footer-link">Back to portfolio</a>
+        <span class="copyright" data-i18n="ap.copyright">© 2025-2026 Timm CLAVERIE-</span>
+        <a href="./" class="footer-link" data-i18n="ap.back">Back to portfolio</a>
     </footer>
 
     <script src="projects.js"></script>
+    <script src="i18n.js"></script>
 </body>
 </html>

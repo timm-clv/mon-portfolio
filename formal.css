@@ -574,3 +574,14 @@
 
 /* Les chips "is-wide" et "is-score" n'ont plus besoin d'être élargis */
 #tools .marquee .mq-chip.is-wide { width: 100%; }
+
+
+/* Textes demandés en blanc gras (au lieu du cyan) */
+.fs-subtitle {
+    color: #ffffff;
+    font-weight: 700;
+}
+.fs-score span {
+    color: #ffffff;
+    font-weight: 700;
+}
