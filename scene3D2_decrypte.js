@@ -157,7 +157,9 @@ loader.load('ref/drone.glb', (gltf) => {
       animationContainer.style.transform = 'none';
 
       hudObject = new CSS3DObject(animationContainer);
-      hudObject.position.set(0, 0, 1.14);
+      javelinModel.userData.normalizedSize = 3;
+      // Puis
+      hudObject.position.set(0, 0, 1.14 * javelinModel.userData.normalizedSize / 3);
       hudObject.rotation.x = 0;
       hudObject.scale.set(0.001, 0.001, 0.001);
 
