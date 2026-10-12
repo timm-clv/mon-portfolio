@@ -17,15 +17,8 @@
 
 /* ---------- 1. VARIABLES + PAGE ---------- */
 .skills-page {
-    --lz-bg: #eceef1;
-    --lz-text: #14212b;
-    --lz-muted: #4b5b68;
-    --lz-accent: #c8323f;      /* rouge du thème, assombri pour fond clair */
-    --lz-gold: #8a5a2b;
-    --lz-teal: #007c89;
-    --lz-line: #d5dee6;
-    --lz-card: #ffffff;
-    --gold-color: #cda47d;      /* même or que all-projects.html */
+    --zone-peak: #3a4149;          /* ← même "peak" que .light-wrap (upgrades.css) */
+    --gold-color: #cda47d;         /* même or que all-projects.html */
     background-color: #000f16;
     color: #fff;
 }
@@ -133,24 +126,12 @@
 .sk-fade-out {
     position: relative;
     z-index: 3;
-    height: 220px;                           /* était 170px */
+    height: 60px;
+    background: #000f16;          /* identique aux extrémités du dégradé */
 }
-.sk-fade-in  {
-    background: linear-gradient(to bottom,
-        #000f16 0%,
-        #17384f 45%,                         /* était 30% */
-        #6f97b2 72%,                         /* était 62% */
-        #cfe0ea 90%,                         /* était 85% */
-        var(--lz-bg, #eceef1) 100%);         /* ← fin sur le gris */
-}
-.sk-fade-out {
-    background: linear-gradient(to bottom,
-        var(--lz-bg, #eceef1) 0%,            /* ← départ gris */
-        #cfe0ea 12%,
-        #6f97b2 32%,
-        #17384f 62%,
-        #000f16 100%);
-}
+
+
+
 
 
 /* Titre doré : identique à "ALL MY PROJECTS" (projects.css) */
@@ -167,19 +148,50 @@
 }
 
 /* ---------- 4. ZONE CLAIRE ---------- */
+/* ---------- 4. ZONE SOMBRE AVEC DÉGRADÉ (identique à .light-wrap) ---------- */
 .light-zone {
-    display: flow-root;      /* empêche le margin -2rem du 1er séparateur de rogner le dégradé */
+    display: flow-root;
     position: relative;
     z-index: 3;
-    background: var(--lz-bg);
-    color: var(--lz-text);
-    --cross-color: #5a7487;          /* le + reste lisible sur fond blanc */
-    /* repères de grille : même géométrie, couleurs lisibles sur clair */
-    --grid-gold: var(--lz-gold);
+
+    /* Exactement la même courbe que .light-wrap::before (upgrades.css) */
+    background: linear-gradient(to bottom,
+        #000f16 0,
+        #14181e 14vh,
+        #232830 30vh,
+        var(--zone-peak, #3a4149) 55vh,
+        var(--zone-peak, #3a4149) calc(100% - 75vh),
+        #232830 calc(100% - 45vh),
+        #14181e calc(100% - 22vh),
+        #000f16 100%);
+
+    /* Texte et éléments adaptés à un fond sombre */
+    color: #ffffff;
+
+    --lz-text:   #ffffff;
+    --lz-muted:  #b9c7d1;
+    --lz-accent: #E13C4C;                       /* rouge du thème (lisible sur sombre) */
+    --lz-gold:   #cda47d;                       /* or identique à index.html */
+    --lz-teal:   #00f3ff;                       /* cyan HUD utilisé partout ailleurs */
+    --lz-line:   rgba(88, 118, 135, 0.45);      /* même bleu-gris que les pointillés */
+    --lz-card:   rgba(20, 30, 40, 0.65);        /* "verre fumé" sombre */
+
+    /* Repères de grille : on remet les couleurs d'origine (fond sombre) */
+    --cross-color: #b9c8d3;
+    --grid-gold: #cda47d;
+    --grid-blue: rgba(88, 118, 135, 0.6);
 }
-.light-zone .grid-cross { text-shadow: none; }
-.light-zone .grid-title { color: var(--lz-gold); }
-.light-zone .gold-square { box-shadow: none; }
+
+/* On restaure la lueur des "+" et du carré doré (comme dans index.html) */
+.light-zone .grid-cross {
+    text-shadow: 0 0 8px #00f3ff;
+}
+.light-zone .grid-title {
+    color: #cda47d;
+}
+.light-zone .gold-square {
+    box-shadow: 0 0 8px rgba(205, 164, 125, 0.4);
+}
 
 /* ---------- 5. SECTIONS FORMELLES ---------- */
 .fs {
