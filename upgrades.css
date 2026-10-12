@@ -404,7 +404,7 @@
 /* Image 1 : hyeres.jpg — du titre INTERNSHIP jusqu'au milieu du gap 1 */
 .mission-files-container::before {
     top: -8rem;                                        /* remonte vers le titre */
-    height: calc(35% + 8rem);                          /* ≈ moitié du gap 1 */
+    height: calc(50% + 8rem);                          /* ≈ moitié du gap 1 */
     background-image: url('ref/hyeres.jpg');
     -webkit-mask-image: linear-gradient(to bottom,
         transparent 0,
@@ -420,8 +420,8 @@
 
 /* Image 2 : center1.jpg — du haut du panel 2 jusqu'au milieu du gap 2 */
 .mission-files-container::after {
-    top: 35%;                                          /* commence au panel 2 */
-    height: 40%;                                       /* s'arrête à ≈ mi-gap 2 */
+    top: 50%;                                          /* commence au panel 2 */
+    height: 60%;                                       /* s'arrête à ≈ mi-gap 2 */
     background-image: url('ref/center1.jpg');
     -webkit-mask-image: linear-gradient(to bottom,
         transparent 0,
