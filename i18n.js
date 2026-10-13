@@ -56,7 +56,7 @@
 
             /* ---------- About ---------- */
             'about.p1': 'I\'m <span class="text-red">Timm Claverie</span>, a fifth-year engineering student at SeaTech, part of the French INP (Institut National Polytechnique) network. I am studying for a dual degree in embedded systems. I specialise in <span class="text-red">Mechatronic, Robotics</span> and autonomous <span class="text-red">embedded systems</span>.',
-            'about.p2': 'I work on projects that combine <span class="text-red">software development, artificial intelligence, embedded programming, debugging, and simulation</span>, aiming to build intelligent and reliable systems.',
+            'about.p2': 'I work on projects that combine <span class="text-red">robot locomotion, sensor integration, subsea, artificial intelligence, embedded systems, debugging and simulation</span>.',
             'about.p3': '<span class="text-red">Hard-working, dedicated and adaptable</span>, I seek to deepen my knowledge, contribute to innovative projects and make a <span class="text-red">long-term commitment</span>.',
 
             /* ---------- Projects : labels + titres + descriptions ---------- */
@@ -276,7 +276,7 @@
             'title.contact':    'CONTACT',
 
             'about.p1': 'Je suis <span class="text-red">Timm Claverie</span>, étudiant en cinquième année d\'ingénierie à SeaTech, membre du réseau INP (Institut National Polytechnique). Je poursuis un double diplôme en systèmes embarqués. Je me spécialise en <span class="text-red">mécatronique, robotique</span> et <span class="text-red">systèmes embarqués</span> autonomes.',
-            'about.p2': 'Je travaille sur des projets qui combinent <span class="text-red">développement logiciel, intelligence artificielle, programmation embarquée, débogage et simulation</span>, dans le but de construire des systèmes intelligents et fiables.',
+            'about.p2': 'Je travaille sur des projets qui combinent <span class="text-red">déplacement de robots, intégration de capteurs, subsea, intelligence artificielle, système embarquée, débogage et simulation</span>.',
             'about.p3': '<span class="text-red">Travailleur, investi et adaptable</span>, je cherche à approfondir mes connaissances, à contribuer à des projets innovants et à m\'engager sur le <span class="text-red">long terme</span>.',
 
             'projects.hint':   'Glissez ou utilisez les flèches pour parcourir les projets, puis cliquez sur un panneau pour l\'ouvrir.',
