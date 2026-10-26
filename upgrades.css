@@ -24,8 +24,9 @@
    --------------------------------------------------------------------- */
 .light-wrap {
     position: relative;
-    --zone-peak: #3a4149;
+    --zone-peak: #e8ecf0;   /* était #3a4149 */
 }
+
 .light-wrap::before {
     content: '';
     position: absolute;
@@ -33,16 +34,21 @@
     z-index: 1;
     pointer-events: none;
     background: linear-gradient(to bottom,
-        #000f16 0,
-        #14181e 14vh,
-        #232830 30vh,
-        var(--zone-peak) 55vh,
-        var(--zone-peak) calc(100% - 75vh),
-        #232830 calc(100% - 45vh),
-        #14181e calc(100% - 22vh),
-        #000f16 100%);
+        #000f16 0,          /* About : sombre (comme le body) */
+        #0a1418 5%,
+        #141c24 10%,
+        #2a323c 12%,       
+        #4a525c 15%,       
+        #7a828c 20%,        
+        #a8b0b8 25%,        /* References : clair */
+        #d0d6dc 90%,
+        #eef1f4 95%,
+        #ffffff 100%);      /* Contact : blanc pur */
 }
-
+/* Transition rapide blanc → sombre APRÈS Contact, avant le footer */
+.light-wrap::after {
+    content: none;                       /* zone de transition bleue supprimée */
+}
 /* ---------------------------------------------------------------------
    2. PROJECTS : TEXTE D'AIDE (sobre)
    --------------------------------------------------------------------- */
@@ -50,7 +56,7 @@
     position: relative;
     z-index: 10;
     width: 100%;
-    margin: clamp(4rem, 12vh, 8rem) 0 3rem;   /* était clamp(5rem, 14vh, 10rem) 0 2.2rem */
+    margin: clamp(4rem, 12vh, 8rem) 0 1rem;   /* était clamp(5rem, 14vh, 10rem) 0 2.2rem */
     padding: 0 1rem;
     box-sizing: border-box;
     text-align: center;
@@ -220,6 +226,183 @@
 }
 .see-all-cta + .tactical-screen-wrapper { margin-top: 0; } 
 
+
+
+
+/* ---------------------------------------------------------------------
+   PROJECTS : TRIPTYQUE Main / More / Side
+   --------------------------------------------------------------------- */
+.projects-triptych {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto 0.5rem;
+    padding: 0 calc(var(--grid-margin) + 14px);
+    box-sizing: border-box;
+}
+
+.projects-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;        
+}
+
+.projects-panel-title {
+    margin: 0;
+    padding-bottom: 0.4rem;
+    font-family: monospace;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8b98a5;
+    border-bottom: 1px solid rgba(88, 118, 135, 0.35);
+}
+
+.projects-main-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+}
+
+.projects-side-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+}
+
+/* --- Mini HUD card (thumbnail + title) --- */
+.hud-card-mini {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--hud-dark);
+    border: 1px solid rgba(0, 243, 255, 0.22);
+    cursor: pointer;
+    transition: border-color 0.25s ease, transform 0.2s ease, background 0.25s ease;
+    overflow: hidden;
+    clip-path: polygon(
+        8px 0, 100% 0,
+        100% calc(100% - 8px), calc(100% - 8px) 100%,
+        0 100%, 0 8px
+    );
+}
+.hud-card-mini:hover {
+    border-color: var(--hud-cyan);
+    background: rgba(0, 243, 255, 0.06);
+    transform: translateY(-2px);
+}
+.hud-card-mini.active {
+    border-color: var(--hud-cyan);
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+}
+
+.hud-card-mini .mini-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #050a10;
+}
+.hud-card-mini .mini-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.25s ease;
+}
+.hud-card-mini:hover .mini-thumb img { opacity: 1; }
+
+.hud-card-mini .mini-body {
+    padding: 0.45rem 0.55rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+}
+.hud-card-mini .mini-id {
+    font-family: monospace;
+    font-size: 0.62rem;
+    color: #7a8896;
+    letter-spacing: 1px;
+}
+.hud-card-mini .mini-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+/* --- More : scroll manuel (scrollbar fine) --- */
+.projects-more-marquee {
+    position: relative;
+    flex: 1 1 0;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Scrollbar fine (Firefox) */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(205, 164, 125, 0.5) transparent;
+    scrollbar-gutter: stable;
+
+    /* Un peu d'air à droite pour ne pas coller les cartes à la scrollbar */
+    padding-right: 6px;
+}
+
+/* Scrollbar fine (Chrome / Edge / Safari) */
+.projects-more-marquee::-webkit-scrollbar {
+    width: 4px;
+}
+.projects-more-marquee::-webkit-scrollbar-track {
+    background: transparent;
+}
+.projects-more-marquee::-webkit-scrollbar-thumb {
+    background: rgba(205, 164, 125, 0.5);
+    border-radius: 2px;
+    transition: background 0.2s ease;
+}
+.projects-more-marquee::-webkit-scrollbar-thumb:hover {
+    background: rgba(205, 164, 125, 0.85);
+}
+.projects-more-marquee .mq-track {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+
+/* --- Mobile : empilement vertical --- */
+@media (max-width: 900px) {
+    .projects-triptych {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0 14px;
+    }
+    .projects-more-marquee {
+        min-height: 180px;
+        max-height: 180px !important;
+        overflow-y: auto;                 /* scroll manuel conservé */
+        padding-right: 4px;
+    }
+    .hud-card-mini .mini-label { font-size: 0.65rem; }
+}
+
+
+
 /* ---------------------------------------------------------------------
    6. EDUCATION — version sobre et compacte
    --------------------------------------------------------------------- */
@@ -243,22 +426,23 @@
 
 .edu-item {
     position: relative;
-    margin-bottom: 0.9rem;                   /* était 1.2rem */
-    padding: 0.85rem 1.2rem;                 /* était 1.1rem 1.4rem */
-    background: rgba(0, 15, 22, 0.55);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(88, 118, 135, 0.35);
+    margin-bottom: 0.9rem;
+    padding: 0.85rem 1.2rem;
+    background: rgba(255, 255, 255, 0.25);            /* ← légèrement transparent */
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(0, 0, 0, 0.15);
     border-left: 2px solid var(--grid-gold, #cda47d);
     box-sizing: border-box;
+    color: #111;
 }
 .edu-item::before { display: none; }
 
 .edu-title {
     margin: 0 0 0.15rem;
-    font-size: 1rem;                         /* était 1.1rem */
+    font-size: 1rem;
     font-weight: 600;
-    color: #fff;
+    color: #111;                                     /* ← était #fff */
     line-height: 1.35;
 }
 .edu-title .edu-date {
@@ -267,7 +451,7 @@
     font-size: 0.8rem;
     font-style: italic;
     font-weight: 400;
-    color: var(--grid-gold, #cda47d);
+    color: var(--grid-gold, #cda47d);                /* ← gold gardé (accent) */
     white-space: nowrap;
 }
 .edu-place {
@@ -275,7 +459,7 @@
     font-size: 0.72rem;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: #b9c9d4;
+    color: #333;                                     /* ← était #b9c9d4 */
 }
 .edu-list {
     list-style: none;
@@ -285,10 +469,10 @@
 .edu-list li {
     position: relative;
     padding-left: 0;
-    margin-bottom: 0.35rem;                  /* était 0.45rem */
-    font-size: 0.84rem;                      /* était 0.88rem */
+    margin-bottom: 0.35rem;
+    font-size: 0.84rem;
     line-height: 1.45;
-    color: #e3eaef;
+    color: #1a1a1a;                                  /* ← était #e3eaef */
 }
 .edu-list li::before { display: none; }
 
@@ -297,6 +481,98 @@
     display: flex;
     justify-content: center;
     width: 100%;
+}
+
+/* --- Panel "Club" compact (inspiré des mission-file d'Internships) --- */
+
+.edu-item.edu-club {
+    display: flex;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+    gap: 0;
+    clip-path: polygon(
+        12px 0, 100% 0,
+        100% calc(100% - 12px), calc(100% - 12px) 100%,
+        0 100%, 0 12px
+    );
+    background: rgba(255, 255, 255, 0.25);            /* ← même voile */
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-left: none;
+}
+
+.edu-club-visual {
+    flex: 0 0 120px;
+    min-height: 110px;
+    overflow: hidden;
+    background: transparent;
+    position: relative;
+}
+
+/* Quadrillage façon "Stages" (.img-overlay), mais sobre en gold */
+.edu-club-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(rgba(205, 164, 125, 0.28) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(205, 164, 125, 0.28) 1px, transparent 1px);
+    background-size: 12px 12px;       /* ajuste : 8px = plus dense, 20px = plus aéré */
+    z-index: 1;
+}
+
+.edu-club-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.9;
+    transition: opacity 0.3s ease, transform 0.5s ease;
+}
+
+.edu-club:hover .edu-club-visual img {
+    opacity: 1;
+    transform: scale(1.04);
+}
+
+.edu-club-data {
+    flex: 1;
+    min-width: 0;
+    padding: 0.7rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.edu-club-data .edu-title {
+    font-size: 0.92rem;
+    margin: 0 0 0.15rem;
+    color: #111;
+}
+
+.edu-club-data .edu-place {
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+    color: #333;
+}
+
+.edu-club-text {
+    margin: 0;
+    font-size: 0.75rem;                  /* ← beaucoup plus petit que mission-file */
+    line-height: 1.45;
+    color: #1a1a1a;
+}
+
+/* Mobile : image un peu plus petite */
+@media (max-width: 768px) {
+    .edu-club-visual { flex: 0 0 95px; min-height: 95px; }
+    .edu-club-data { padding: 0.6rem 0.8rem; }
+    .edu-club-data .edu-title { font-size: 0.85rem; }
+    .edu-club-text { font-size: 0.7rem; }
 }
 
 /* ---------------------------------------------------------------------
@@ -454,4 +730,59 @@
 body.loader-done .fixed-cross { opacity: 1; }
 
 
+/* =====================================================================
+   9. FIABILITÉ TACTILE (index.html)
+   ===================================================================== */
 
+/* 1. Le loader plein écran ne capte plus jamais les touches : seuls ses
+      boutons restent cliquables. Avant, si son état se désynchronisait
+      (modèle 3D lent, scroll rapide...), une couche invisible couvrait
+      toute la page et "mangeait" tous les clics. */
+.loader { pointer-events: none; }
+.loader a,
+.loader button,
+.btn-next-loader { pointer-events: auto; }
+.btn-next-loader.is-hidden { pointer-events: none; }
+
+/* 2. Hauteur réellement visible sur mobile (100vh dépasse sous la barre
+      d'adresse : boutons du bas masqués ou hors d'atteinte du pouce). */
+@supports (height: 100dvh) {
+    .loader { height: 100dvh; }
+}
+.btn-next-loader {
+    bottom: max(40px, calc(env(safe-area-inset-bottom, 0px) + 24px));
+    right: max(40px, calc(env(safe-area-inset-right, 0px) + 24px));
+}
+
+/* 3. Gestes tactiles : pas de délai de 300 ms ni de zoom au double-tap,
+      retour visuel au toucher. */
+a, button, .btn-icon, .btn-tube, .btn-sober, .btn-filter,
+.hud-card, .hud-card-mini, .footer-link, #main-nav a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: rgba(225, 60, 76, 0.25);
+}
+
+/* 4. Cibles tactiles d'au moins 44 px (recommandation Apple / WCAG). */
+@media (pointer: coarse) {
+    .btn-icon, .btn-tube, .btn-sober, .btn-filter {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    #main-nav a, .main-nav li a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+    }
+}
+
+/* 5. Pas d'effet de survol "collant" après un toucher. */
+@media (hover: none) {
+    .hud-card-mini:hover { transform: none; }
+    .btn-icon.btn-linkedin:hover { transform: none; }
+}
+
+/* Pied de page compact : même hauteur sur mobile (responsive.css impose sinon 300px) */
+.cinematic-footer {
+    height: 32px !important;
+    padding-bottom: 14px !important;
+}

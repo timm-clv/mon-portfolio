@@ -8,6 +8,21 @@ import { CSS3DRenderer, CSS3DObject } from 'three/addons/renderers/CSS3DRenderer
 let isIntroAnimationPlaying = false;
 let hudNeedsReset = false;
 
+/* --- Fiabilité : 'loaderFinished' peut être émis AVANT la fin du chargement du
+   modèle 3D (réseau mobile lent). On le mémorise pour le rejouer ensuite, sinon
+   l'intro ne démarre jamais et le scroll reste verrouillé (overflow: hidden). --- */
+let loaderFinishedFired = false;
+let onLoaderFinishedHandler = null;
+document.addEventListener('loaderFinished', () => {
+  loaderFinishedFired = true;
+  if (onLoaderFinishedHandler) onLoaderFinishedHandler();
+});
+
+function unlockPageScroll() {
+  document.body.style.overflow = 'auto';
+  document.documentElement.style.overflow = 'auto';
+}
+
 function calculerSeuils(nbZones) {
   const nbEtapes = nbZones - 1;
   if (nbEtapes <= 0) {
@@ -186,7 +201,7 @@ loader.load('ref/drone.glb', (gltf) => {
 
   const video = document.getElementById('bg-video-z1');
 
-  document.addEventListener('loaderFinished', () => {
+  onLoaderFinishedHandler = () => {
     console.log("Signal 'loaderFinished' reçu. Attachement du HUD au modèle.");
 
     attacherHUD();
@@ -266,7 +281,10 @@ loader.load('ref/drone.glb', (gltf) => {
         }
       });
     }
-  });
+  };
+
+  // Le signal est déjà passé pendant le chargement : on le rejoue maintenant
+  if (loaderFinishedFired) onLoaderFinishedHandler();
 
   mixer = new THREE.AnimationMixer(javelinModel);
 
@@ -288,6 +306,13 @@ loader.load('ref/drone.glb', (gltf) => {
   } else {
     console.error("Animation 'exploded_view' non trouvée !");
   }
+
+  window.__sceneReady = true;
+}, undefined, (err) => {
+  // Échec de chargement du modèle (réseau mobile) : ne jamais laisser la page verrouillée
+  console.error('Chargement du modèle 3D impossible :', err);
+  window.__sceneFailed = true;
+  unlockPageScroll();
 });
 
 const NB_ZONES = 13;
@@ -329,8 +354,27 @@ const htmlEl = document.documentElement;
 const loaderText = document.querySelector('.text-container');
 const loaderEl = document.querySelector('.loader');
 
+// Hors du haut de page, l'overlay du loader ne doit JAMAIS rester affiché
+// (avant : il restait actif si le modèle n'était pas prêt ou si un scroll rapide sautait l'étape 1)
+function isAwayFromTop() {
+  return window.scrollY > window.innerHeight * 0.15;
+}
+
+function syncLoaderWithScroll(scrollPercent) {
+  if (scrollPercent >= unlockThreshold || isAwayFromTop()) {
+    htmlEl.style.scrollSnapType = 'none';
+    if (loaderText) loaderText.style.display = 'none';
+    if (loaderEl) {
+      loaderEl.style.pointerEvents = 'none';
+      loaderEl.style.display = 'none';
+    }
+  }
+}
+
 function updateModelOnScroll(scrollPercent) {
   if (isIntroAnimationPlaying) return;
+
+  syncLoaderWithScroll(scrollPercent);
 
   if (!javelinModel || !mixer || !hoverAction || !exposedAction) return;
 
@@ -342,7 +386,7 @@ function updateModelOnScroll(scrollPercent) {
     const progress = scrollPercent / seuil_Etape1_fin;
     loaderText.style.opacity = 1 - progress;
 
-    if (scrollPercent >= unlockThreshold) {
+    if (scrollPercent >= unlockThreshold || isAwayFromTop()) {
       htmlEl.style.scrollSnapType = 'none';
 
       if (loaderText) loaderText.style.display = 'none';
@@ -357,7 +401,7 @@ function updateModelOnScroll(scrollPercent) {
       if (loaderText) loaderText.style.display = 'block';
 
       if (loaderEl) {
-        loaderEl.style.pointerEvents = 'auto';
+        loaderEl.style.pointerEvents = '';  // le CSS décide : le loader ne capte pas les touches, seuls ses boutons le font
         loaderEl.style.display = 'block';
       }
     }
@@ -717,6 +761,8 @@ function animate() {
 animate();
 
 let resizeTimeout;
+let lastResizeWidth = document.documentElement.clientWidth;
+let lastResizeHeight = window.innerHeight;
 
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
@@ -725,8 +771,14 @@ window.addEventListener('resize', () => {
     const width = document.documentElement.clientWidth;
     const height = window.innerHeight;
 
-    const isSmall = width < 1200;
-    const ratio = isSmall ? 2 : 5;
+    // Sur mobile, la barre d'adresse qui se masque ne change que la hauteur :
+    // inutile (et coûteux) de recréer le canvas pour quelques pixels.
+    if (width === lastResizeWidth && Math.abs(height - lastResizeHeight) < 140) return;
+    lastResizeWidth = width;
+    lastResizeHeight = height;
+
+    // Même règle que l'initialisation (avant : ratio 2 ou 5 => canvas géant, page figée)
+    const ratio = window.innerWidth < 0x300 ? 0.8 : Math.min(window.devicePixelRatio, 1.2);
 
     renderer.setSize(width, height);
     renderer.setPixelRatio(ratio);

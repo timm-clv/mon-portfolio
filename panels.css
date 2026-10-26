@@ -151,6 +151,10 @@
     margin-bottom: 1.5rem;
 }
 
+.panel-2d.about-me-panel .panel-2d-body strong {
+    color: #ffffff;
+}
+
 /* Amélioration lisibilité pour le panneau "About Me" */
 .panel-2d.about-me-panel .panel-2d-body {
     flex: 1;
@@ -276,7 +280,7 @@
 .hud-id {
     font-family: monospace;
     font-size: 1.5rem;
-    color: rgba(0, 243, 255, 0.5);
+    color: #7a8896;          /* gris neutre, plus de cyan */
     font-weight: bold;
 }
 
@@ -294,8 +298,7 @@
 }
 
 .hud-card.active .hud-id {
-    color: #fff;
-    text-shadow: 0 0 8px var(--hud-cyan);
+    color: #fff;             /* plus de text-shadow néon */
 }
 
 /* --- 3. L'ÉCRAN TACTIQUE (CALAGE PRÉCIS) --- */
@@ -400,13 +403,14 @@
     z-index: 20;
     background: rgba(0, 0, 0, 0.7);
     padding: 15px;
-    border-left: 3px solid var(--hud-cyan);
+    border-left: 3px solid #8a8f94;   /* trait gris, sans effet néon */
     backdrop-filter: blur(4px);
 }
 
 .screen-overlay-ui h3 {
     margin: 0;
-    color: var(--hud-cyan);
+    color: #ffffff;                   /* titre blanc */
+    text-shadow: none;                /* pas d'effet néon */
     font-family: monospace;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -499,7 +503,7 @@
     border-right: 1px solid rgba(0, 243, 255, 0.1);
 }
 .mission-file:hover .file-visual {
-    border-right-color: var(--hud-cyan);
+    border-right-color: rgba(180, 190, 200, 0.5);
 }
 
 .img-frame {
@@ -579,8 +583,8 @@
 
 /* --- STYLES SPÉCIFIQUES : ACTIVE FILE --- */
 .active-file:hover {
-    border-color: var(--hud-cyan);
-    box-shadow: 0 0 20px rgba(0, 243, 255, 0.1);
+    border-color: rgba(180, 190, 200, 0.6);
+    box-shadow: none;                          /* plus de glow cyan */
 }
 
 /* --- STYLES SPÉCIFIQUES : HAZARD LOCKED (STAGES 2 & 3) --- */
@@ -1560,9 +1564,9 @@
 }
 
 .ref-card {
-    background: rgba(10, 12, 16, 0.95); /* Très sombre */
+    background: rgba(10, 12, 16, 0.95);
     border: 1px solid #222;
-    border-left: 2px solid var(--hud-cyan); /* Accent Cyan discret */
+    border-left: 2px solid #4a515b;   /* gris-bleu neutre au lieu de cyan */
     padding: 25px;
     position: relative;
     display: flex;
@@ -1580,7 +1584,7 @@
 
 .ref-card:hover {
     transform: translateY(-5px);
-    border-color: var(--hud-cyan);
+    border-color: #4a515b;            /* gris-bleu neutre */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     background: #0f1318;
 }
@@ -1682,9 +1686,7 @@
     font-family: monospace;
 }
 
-.ref-card:hover .ref-role {
-    color: var(--hud-cyan); /* Le rôle s'allume au survol */
-}
+
 
 
 
@@ -1847,29 +1849,20 @@
 .footer-link, .footer-info {
     font-family: monospace;
     font-size: 0.9rem;
-    
-    /* CHANGEMENT ICI : On remplace le gris (#777) par le Cyan */
-    color: var(--hud-cyan); 
-    
+    color: #b9c8d3;          /* gris-bleu neutre, plus de cyan */
     text-decoration: none;
     display: flex;
     align-items: center;
-    transition: all 0.3s;
-    
-    /* AJOUT : Petite lueur pour l'effet néon */
-    text-shadow: 0 0 5px rgba(0, 243, 255, 0.3);
+    transition: color 0.3s;
 }
 
-/* Au survol, on passe en blanc brillant */
 .footer-link:hover {
-    color: #fff;
-    text-shadow: 0 0 10px var(--hud-cyan);
+    color: #fff;             /* simple passage au blanc */
 }
 
-/* La flèche suit le mouvement */
 .link-arrow {
     margin-left: 5px;
-    color: #fff; /* La flèche passe en blanc pour contraster */
+    color: #fff;
     opacity: 0;
     transform: translateX(-5px);
     transition: all 0.3s;
@@ -1878,12 +1871,11 @@
 .footer-link:hover .link-arrow {
     opacity: 1;
     transform: translateX(0);
-    color: var(--hud-cyan); /* Elle devient cyan au survol */
+    color: #fff;             /* plus de cyan */
 }
 
-/* Le label "LOCATION //" reste cyan aussi */
 .info-label {
-    color: var(--hud-cyan);
+    color: #b9c8d3;
     margin-right: 5px;
     font-weight: bold;
 }
@@ -1944,40 +1936,25 @@
     user-select: none; /* Empêche de sélectionner le ">" par erreur */
 }
 
-/* Le texte Email (Non cliquable, mais sélectionnable) */
 .neon-email-text {
-    color: var(--hud-cyan);
+    color: #e8e8e8;          /* blanc cassé, plus de cyan */
     font-weight: bold;
     letter-spacing: 1px;
     position: relative;
-    
-    /* UX : Changement de curseur et sélection facile */
-    cursor: text; 
-    -webkit-user-select: all;  /* Chrome/Safari */
-    user-select: all;          /* Standard : sélectionne tout au clic */
-    
-    transition: all 0.3s ease;
-    
-    /* Lueur néon statique */
-    text-shadow: 
-        0 0 5px rgba(0, 243, 255, 0.5),
-        0 0 10px rgba(0, 243, 255, 0.3);
+    cursor: text;
+    -webkit-user-select: all;
+    user-select: all;
+    transition: color 0.3s ease;
 }
 
-/* Effet au survol (Juste esthétique) */
 .neon-email-text:hover {
     color: #fff;
-    /* On garde une lueur, mais on évite de trop bouger le texte pour faciliter la sélection */
-    text-shadow: 
-        0 0 5px #fff,
-        0 0 10px var(--hud-cyan),
-        0 0 20px var(--hud-cyan);
 }
 
 .cursor-blink {
-    color: var(--hud-cyan);
+    color: #b9c8d3;          /* gris neutre */
     animation: blink 1s step-end infinite;
-    user-select: none; /* Empêche de sélectionner le curseur */
+    user-select: none;
 }
 
 @keyframes blink {

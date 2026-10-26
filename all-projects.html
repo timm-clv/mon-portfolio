@@ -23,13 +23,14 @@
     </div>
 
     <header class="projects-header">
-        <h1 class="neon-gold-title" data-i18n="ap.title">ALL MY PROJECTS</h1>
+        <h1 class="neon-gold-title" data-i18n="ap.title">ALL PROJECTS</h1>
         
         <div class="filter-container">
             <button class="btn-filter active" data-filter="all"      data-i18n="ap.filter.all">All</button>
             <button class="btn-filter"        data-filter="robotics" data-i18n="ap.filter.robotics">Robotics</button>
             <button class="btn-filter"        data-filter="ai"       data-i18n="ap.filter.ai">AI &amp; Data</button>
             <button class="btn-filter"        data-filter="embedded" data-i18n="ap.filter.embedded">Embedded</button>
+            <button class="btn-filter"        data-filter="control" data-i18n="ap.filter.control">Control</button>
         </div>
     </header>
 
@@ -41,7 +42,7 @@
             </div>
             <div class="card-body">
                 <h3 class="card-title" data-i18n="ap.p1.title">Maritime Surveillance CS GROUP</h3>
-                <p class="card-desc" data-i18n="ap.p1.desc">Development of an AI-processed image bank aimed at optimising surveillance. My role: creating the database and the human-machine interface.</p>
+                <p class="card-desc" data-i18n="ap.p1.desc">Development of an AI-processed image bank aimed at optimising surveillance. Role: creation of the database and the human-machine interface.</p>
                 <a href="ref/report/CS_Group.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
@@ -114,11 +115,12 @@
 
         <div class="project-card" data-category="embedded ai">
             <div class="card-image">
-                <img src="ref/roboclub.jpg" alt="Projet 8">
+                <img src="ref/roboclub.jpg" alt="RCT - Spline Trajectory">
             </div>
             <div class="card-body">
                 <h3 class="card-title" data-i18n="ap.p8.title">Spline Trajectory for Competition Robots</h3>
-                <p class="card-desc" data-i18n="ap.p8.desc">Improvement of RCT robot movement via embedded B-Spline calculation. Embedded Python model recalculated 50 times per second.</p>
+                <p class="card-desc" data-i18n="ap.p8.desc">Attempt to improve the movement of RCT robots through an embedded B-Spline calculation. 2D and 3D trajectory-tracking system running at 50Hz. The project led to a speed and pose control system for a flying drone.</p>
+                <a href="https://github.com/timm-clv/spline" class="btn-tube btn-card-action" target="_blank" rel="noopener noreferrer" data-i18n="ap.github">GITHUB</a>
             </div>
         </div>
 
@@ -144,11 +146,45 @@
                 <a href="ref/report/Systeme_de_suivi_3D_pour_ROV_en_bassin.pdf" class="btn-tube btn-card-action" target="_blank" data-i18n="ap.report">REPORT</a>
             </div>
         </div>
+        <div class="project-card" data-category="control">
+            <div class="card-image">
+                <img src="ref/command.jpg" alt="Rigid Pendulum Control">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="ap.p11.title">Rigid Pendulum Control</h3>
+                <p class="card-desc" data-i18n="ap.p11.desc">Modelling and control of a rigid pendulum system: MIL, SIL and HIL.</p>
+                <a href="https://github.com/timm-clv/Rigid_Pendulum/tree/main" class="btn-tube btn-card-action" target="_blank" rel="noopener noreferrer" data-i18n="ap.github">GITHUB</a>
+            </div>
+        </div>
+
+
+
+        <div class="project-card" data-category="control">
+            <div class="card-image">
+                <img src="ref/abs_ebd.png" alt="ABS / EBD braking systems">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="ap.p12.title">ABS / EBD Braking Systems</h3>
+                <p class="card-desc" data-i18n="ap.p12.desc">Anti-lock braking system (ABS) and electronic brake-force distribution (EBD): wheel-slip regulation and distribution of the braking force.</p>
+                <a href="https://github.com/timm-clv/Systeme-EBD-ABS-et-Pilotage-Moteur-Triphase" class="btn-tube btn-card-action" target="_blank" rel="noopener noreferrer" data-i18n="ap.github">GITHUB</a>
+            </div>
+        </div>
+
+        <div class="project-card" data-category="control">
+            <div class="card-image">
+                <img src="ref/asservissement_moteurs.png" alt="Motor servo-control">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title" data-i18n="ap.p13.title">Motor Servo-Control</h3>
+                <p class="card-desc" data-i18n="ap.p13.desc">Servo-control of motors, including three-phase motor drive.</p>
+                <a href="https://github.com/timm-clv/Systeme-EBD-ABS-et-Pilotage-Moteur-Triphase" class="btn-tube btn-card-action" target="_blank" rel="noopener noreferrer" data-i18n="ap.github">GITHUB</a>
+            </div>
+        </div>
 
     </main>
 
     <footer class="projects-footer">
-        <span class="copyright" data-i18n="ap.copyright">© 2025-2026 Timm CLAVERIE-</span>
+        <span class="copyright" data-i18n="ap.copyright">© 2026 Timm CLAVERIE-</span>
         <a href="./" class="footer-link" data-i18n="ap.back">Back to portfolio</a>
     </footer>
 

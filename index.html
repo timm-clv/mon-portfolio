@@ -128,14 +128,12 @@
             </div>
         </div>
 
-        </div>
-            <a href="#zone-1" class="btn-tube btn-contact btn-next-loader">
-                <span class="btn-icon-emoji">➡️</span>
-                <span data-i18n="loader.next">Next</span>
-            </a>
-        </div>
-
     </div>
+
+    <a href="#zone-1" class="btn-tube btn-contact btn-next-loader">
+        <span class="btn-icon-emoji">➡️</span>
+        <span data-i18n="loader.next">Next</span>
+    </a>
 
     <nav id="main-nav" class="main-nav">
         <ul>
@@ -196,7 +194,7 @@
 
 
 
-
+    <div class="light-wrap">
 
 
 
@@ -238,7 +236,7 @@
         </div>
     </section>
 
-    <div class="light-wrap">
+    
 
 
 
@@ -276,88 +274,163 @@
 
     <section class="content" id="projects" style="padding: 0; width: 100%;">
 
-        <p class="projects-hint" data-i18n="projects.hint">Swipe or use the arrows to browse the projects, then click a panel to open one.</p>
+        <p class="projects-hint" data-i18n="projects.hint">Click a project to open it.</p>
 
-    <div class="projects-layout-wrapper">
-        <div class="scroller-main">
-            <div class="cyber-scroller-mask">
-            <div class="cyber-scroller" id="project-scroller">
-                <div class="hud-card active" data-type="video" data-src="ref/projet2Abis.mp4"
-                     data-i18n-title="prj.1.title" data-i18n-desc="prj.1.desc"
-                     data-title="3D Tracking System"
-                     data-desc="Replace a system consisting of 5 Qualisys cameras for the COSMER laboratory. Work on YOLO object recognition, a stereo vision system, calibration using ArUcos, and real-time 3D trajectory tracking and positioning."
-                     data-link="ref/report/Systeme_de_suivi_3D_pour_ROV_en_bassin.pdf">
-                     <div class="hud-card-glitch"></div>
-                     <div class="hud-card-content"><span class="hud-id">01</span><span class="hud-label">DESIGN</span></div>
+    <div class="projects-triptych">
+
+        <!-- ============ MAIN ============ -->
+        <div class="projects-panel projects-main">
+            <h3 class="projects-panel-title" data-i18n="projects.mainTitle">Main</h3>
+            <div class="projects-main-grid">
+
+                <div class="hud-card hud-card-mini" data-type="video" data-src="ref/projet2Abis.mp4"
+                    data-i18n-title="prj.1.title" data-i18n-desc="prj.1.desc"
+                    data-title="3D Tracking System"
+                    data-desc="Replace a system consisting of 5 Qualisys cameras for the COSMER laboratory. Work on YOLO object recognition, a stereo vision system, calibration using ArUcos, and real-time 3D trajectory tracking and positioning."
+                    data-link="ref/report/Systeme_de_suivi_3D_pour_ROV_en_bassin.pdf">
+                    <div class="mini-thumb"><img src="ref/qualisys.jpg" alt=""></div>
+                    <div class="mini-body">
+                        <span class="mini-id">01</span>
+                        <span class="mini-label" data-i18n="prj.1.title">3D Tracking System</span>
+                    </div>
                 </div>
-                <div class="hud-card active" data-type="video" data-src="ref/Sensors Fusion.mp4"
-                     data-i18n-title="prj.2.title" data-i18n-desc="prj.2.desc"
-                     data-title="Sensor Fusion"
-                     data-desc="Implement a Visual-Inertial Odometry system on a drone and to perform algorithm benchmarking for fusion."
-                     data-link="ref/report/Visual Inertial Data Collection Platform and Sensor Fusion Benchmarking.pdf">
-                     <div class="hud-card-glitch"></div>
-                     <div class="hud-card-content"><span class="hud-id">02</span><span class="hud-label">SENSOR FUSION</span></div>
+
+                <div class="hud-card hud-card-mini" data-type="video" data-src="ref/Sensors Fusion.mp4"
+                    data-i18n-title="prj.2.title" data-i18n-desc="prj.2.desc"
+                    data-title="Sensor Fusion"
+                    data-desc="Implement a Visual-Inertial Odometry system on a drone and to perform algorithm benchmarking for fusion."
+                    data-link="ref/report/Visual Inertial Data Collection Platform and Sensor Fusion Benchmarking.pdf">
+                    <div class="mini-thumb"><img src="ref/embeddedplatform.jpg" alt=""></div>
+                    <div class="mini-body">
+                        <span class="mini-id">02</span>
+                        <span class="mini-label" data-i18n="prj.2.title">Sensor Fusion</span>
+                    </div>
                 </div>
-                <div class="hud-card active" data-type="video" data-src="ref/electronique.mp4"
-                     data-i18n-title="prj.3.title" data-i18n-desc="prj.3.desc"
-                     data-title="Embedded Systems : Mobile Robot Control"
-                     data-desc="C programming for an autonomous mobile robot : <br>motor control, analogue-to-digital conversions, infrared telemetry, time stamping and state machine"
-                     data-link="ref/report/Electronique.pdf">
-                     <div class="hud-card-glitch"></div>
-                     <div class="hud-card-content"><span class="hud-id">03</span><span class="hud-label">EMBEDDED</span></div>
+
+                <div class="hud-card hud-card-mini" data-type="video" data-src="ref/csgroup.mp4"
+                    data-i18n-title="prj.5.title" data-i18n-desc="prj.5.desc"
+                    data-title="Optimisation of Maritime Surveillance"
+                    data-desc="Group project combining AI image processing and data management. <br> Role: design of a PostgreSQL data table and a Human-Machine Interface (HMI)."
+                    data-link="ref/report/CS_Group.pdf">
+                    <div class="mini-thumb"><img src="ref/image1.jpg" alt=""></div>
+                    <div class="mini-body">
+                        <span class="mini-id">05</span>
+                        <span class="mini-label" data-i18n="prj.5.title">Maritime Surveillance</span>
+                    </div>
                 </div>
-                <div class="hud-card" data-type="image" data-src="ref/roboclub.jpg"
-                     data-i18n-title="prj.4.title" data-i18n-desc="prj.4.desc"
-                     data-title="RoboCup : NN B-Spline Trajectory Planner"
-                     data-desc="Optimisation of robot trajectories using a neural network for calculating Bézier curves in Python.">
-                     <div class="hud-card-glitch"></div>
-                     <div class="hud-card-content"><span class="hud-id">04</span><span class="hud-label">ROBOCUP</span></div>
-                </div>
-                <div class="hud-card" data-type="video" data-src="ref/csgroup.mp4"
-                     data-i18n-title="prj.5.title" data-i18n-desc="prj.5.desc"
-                     data-title="Optimisation of Maritime Surveillance"
-                     data-desc="Group project combining AI image processing and data management. <br> My role: designing a data table in PostgreSQL and a Human-Machine Interface (HMI)."
-                     data-link="ref/report/CS_Group.pdf">
-                     <div class="hud-card-glitch"></div>
-                     <div class="hud-card-content"><span class="hud-id">05</span><span class="hud-label">CS GROUP</span></div>
-                </div>
-                <div class="hud-card" data-type="video" data-src="ref/turtle.mp4"
-                     data-i18n-title="prj.6.title" data-i18n-desc="prj.6.desc"
-                     data-title="ROS Programming : Autonomous Turtlebot"
-                     data-desc="Autonomous navigation and obstacle avoidance under ROS 1 : <br> event handling, Python code, LiDAR sensor integration."
-                     data-link="ref/report/turtle.pdf">
-                     <div class="hud-card-glitch"></div>
-                     <div class="hud-card-content"><span class="hud-id">06</span><span class="hud-label">ROS</span></div>
-                </div>
-                <div class="hud-card" data-type="video" data-src="ref/simulateur.mp4"
-                     data-i18n-title="prj.7.title" data-i18n-desc="prj.7.desc"
-                     data-title="Road Vehicle Dynamic Simulator"
-                     data-desc="Interactive interface for studying the kinematics, dynamics of a vehicle, and its stability criteria."
-                     data-link="ref/report/Performance et Comportement Dynamique des Véhicules.pdf">
-                     <div class="hud-card-glitch"></div>
-                     <div class="hud-card-content"><span class="hud-id">07</span><span class="hud-label">IHM</span></div>
-                </div>
-                <div class="hud-card" data-type="image" data-src="ref/creditcards.jpg"
-                     data-i18n-title="prj.8.title" data-i18n-desc="prj.8.desc"
-                     data-title="Machine Learning : Fraud detection"
-                     data-desc="Analysis of the dataset containing credit card transactions. <br> Evaluation methods and model explainability.">
-                     <div class="hud-card-glitch"></div>
-                     <div class="hud-card-content"><span class="hud-id">08</span><span class="hud-label">MACHINE LEARNING</span></div>
-                </div>
+
             </div>
-            </div>
-            <div class="scroller-progress" aria-hidden="true"><div class="scroller-progress-bar" id="scroller-progress-bar"></div></div>
         </div>
 
-        <div class="scroller-nav">
-            <button type="button" class="scroller-arrow scroller-prev" id="scroller-prev" aria-label="Previous projects" disabled>&#10094;</button>
-            <button type="button" class="scroller-arrow scroller-next" id="scroller-next" aria-label="Next projects">&#10095;</button>
+        <!-- ============ MORE (auto-scroll vertical) ============ -->
+        <div class="projects-panel projects-more">
+            <h3 class="projects-panel-title" data-i18n="projects.moreTitle">More</h3>
+            <div class="projects-more-marquee">
+                <div class="mq-track" id="more-track">
+
+                    <div class="hud-card hud-card-mini" data-type="video" data-src="ref/command.mp4"
+                        data-i18n-title="prj.9.title" data-i18n-desc="prj.9.desc"
+                        data-title="Rigid Pendulum Control"
+                        data-desc="Modelling and control of a rigid pendulum system: MIL, SIL and HIL."
+                        data-link="https://github.com/timm-clv/Rigid_Pendulum/tree/main">
+                        <div class="mini-thumb"><img src="ref/command.jpg" alt=""></div>
+                        <div class="mini-body">
+                            <span class="mini-id">09</span>
+                            <span class="mini-label" data-i18n="prj.9.title">Pendulum Control</span>
+                        </div>
+                    </div>
+
+                    <div class="hud-card hud-card-mini" data-type="video" data-src="ref/electronique.mp4"
+                        data-i18n-title="prj.3.title" data-i18n-desc="prj.3.desc"
+                        data-title="Embedded Systems : Mobile Robot Control"
+                        data-desc="C programming for an autonomous mobile robot : <br>motor control, analogue-to-digital conversions, infrared telemetry, time stamping and state machine"
+                        data-link="ref/report/Electronique.pdf">
+                        <div class="mini-thumb"><img src="ref/elec.jpg" alt=""></div>
+                        <div class="mini-body">
+                            <span class="mini-id">03</span>
+                            <span class="mini-label" data-i18n="prj.3.title">Mobile Robot</span>
+                        </div>
+                    </div>
+
+                    <div class="hud-card hud-card-mini" data-type="video" data-src="ref/simulateur.mp4"
+                        data-i18n-title="prj.7.title" data-i18n-desc="prj.7.desc"
+                        data-title="Road Vehicle Dynamic Simulator"
+                        data-desc="Interactive interface for studying the kinematics, dynamics of a vehicle, and its stability criteria."
+                        data-link="ref/report/Performance et Comportement Dynamique des Véhicules.pdf">
+                        <div class="mini-thumb"><img src="ref/simulateur.png" alt=""></div>
+                        <div class="mini-body">
+                            <span class="mini-id">07</span>
+                            <span class="mini-label" data-i18n="prj.7.title">Vehicle Simulator</span>
+                        </div>
+                    </div>
+
+                    <div class="hud-card hud-card-mini" data-type="video" data-src="ref/turtle.mp4"
+                        data-i18n-title="prj.6.title" data-i18n-desc="prj.6.desc"
+                        data-title="ROS Programming : Autonomous Turtlebot"
+                        data-desc="Autonomous navigation and obstacle avoidance under ROS 1 : <br> event handling, Python code, LiDAR sensor integration."
+                        data-link="ref/report/turtle.pdf">
+                        <div class="mini-thumb"><img src="ref/turtlebot.jpg" alt=""></div>
+                        <div class="mini-body">
+                            <span class="mini-id">06</span>
+                            <span class="mini-label" data-i18n="prj.6.title">TurtleBot</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
+
+        <!-- ============ SIDE ============ -->
+        <div class="projects-panel projects-side">
+            <h3 class="projects-panel-title" data-i18n="projects.sideTitle">Side</h3>
+            <div class="projects-side-grid">
+
+                <div class="hud-card hud-card-mini" data-type="video" data-src="ref/spline.mp4"
+                    data-i18n-title="prj.10.panel.title" data-i18n-desc="prj.10.panel.desc"
+                    data-title="Embedded NN B-Spline Trajectory Planner"
+                    data-desc="2D and 3D trajectory-tracking system at 50Hz. Robot trajectory optimisation via a neural network."
+                    data-link="https://github.com/timm-clv/spline">
+                    <div class="mini-thumb"><img src="ref/spline.png" alt=""></div>
+                    <div class="mini-body">
+                        <span class="mini-id">10</span>
+                        <span class="mini-label" data-i18n="prj.10.title">Spline System</span>
+                    </div>
+                </div>
+
+                <div class="hud-card hud-card-mini" data-type="image" data-src="ref/creditcards.jpg"
+                    data-i18n-title="prj.8.title" data-i18n-desc="prj.8.desc"
+                    data-title="Machine Learning : Fraud detection"
+                    data-desc="Analysis of the dataset containing credit card transactions. <br> Evaluation methods and model explainability."
+                    data-link="ref/report/Atelier IA.pdf">
+                    <div class="mini-thumb"><img src="ref/creditcards.jpg" alt=""></div>
+                    <div class="mini-body">
+                        <span class="mini-id">08</span>
+                        <span class="mini-label" data-i18n="prj.8.title">Fraud Detection</span>
+                    </div>
+                </div>
+
+                <!-- <div class="hud-card hud-card-mini" data-type="image" data-src="ref/roboclub.jpg"
+                    data-i18n-title="prj.4.title" data-i18n-desc="prj.4.desc"
+                    data-title="RoboCup : NN B-Spline Trajectory Planner"
+                    data-desc="Optimisation of robot trajectories using a neural network for calculating Bézier curves in Python.">
+                    <div class="mini-thumb"><img src="ref/roboclub.jpg" alt=""></div>
+                    <div class="mini-body">
+                        <span class="mini-id">04</span>
+                        <span class="mini-label" data-i18n="prj.4.title">RoboCup B-Spline</span>
+                    </div>
+                </div> -->
+
+            </div>
+        </div>
+
     </div>
+
+
+                     
 
     <div class="see-all-cta">
         <a href="all-projects.html" class="btn-sober">
-            <span data-i18n="projects.seeAll">See all my projects</span>
+            <span data-i18n="projects.seeAll">See all projects</span>
             <span class="btn-sober-arrow">&rarr;</span>
         </a>
     </div>
@@ -510,7 +583,7 @@
     <section class="content edu-section" id="education">
         <div class="edu-timeline">
             <article class="edu-item">
-                <h3 class="edu-title" data-i18n-html="edu.1.title">SeaTech Engineering School &amp; RISE Master <em class="edu-date">2024-2027</em></h3>
+                <h3 class="edu-title" data-i18n-html="edu.1.title">SeaTech Engineering School · RISE Master · IHEDN <em class="edu-date">2024-2027</em></h3>
                 <span class="edu-place">La Garde</span>
                 <ul class="edu-list">
                     <li data-i18n="edu.1.li1">Systemics, electronics, land and marine robotics, embedded systems and AI, sensor fusion, control-command, project management.</li>
@@ -523,7 +596,19 @@
                 <h3 class="edu-title" data-i18n-html="edu.2.title">Intensive Mathematics Bachelor's Degree (2 years) <em class="edu-date">2022-2024</em></h3>
                 <span class="edu-place">La Garde</span>
             </article>
+            <article class="edu-item edu-club">
+                <div class="edu-club-visual">
+                    <img src="ref/roboclub.jpg" alt="Robotics Club">
+                </div>
+                <div class="edu-club-data">
+                    <h3 class="edu-title" data-i18n="edu.club.title">Robotics Club</h3>
+                    <span class="edu-place" data-i18n="edu.club.place">SeaTech · La Garde</span>
+                    <p class="edu-club-text" data-i18n="edu.club.text">Design and programming of competition robots. Embedded systems, C++ / Python, RoboCup participation.</p>
+                </div>
+            </article>
         </div>
+
+
 
         <div class="edu-cta">
             <a href="skills.html" class="btn-sober">
@@ -607,7 +692,7 @@
     </div>
     </section>
 
-    </div><!-- /light-wrap -->
+
 
 
 
@@ -686,12 +771,14 @@
     </div>
 </section>
 
-    <footer class="cinematic-footer">
-        <div class="footer-bg-text">TIMM CLAVERIE</div>
-        <div class="footer-bottom-content">
-            <p class="copyright">© 2025-2026. All rights reserved.</p>
-        </div>
-    </footer>
+
+</div><!-- /light-wrap -->
+
+<footer class="cinematic-footer">
+    <div class="footer-bottom-content">
+        <p class="copyright">© 2026. All rights reserved.</p>
+    </div>
+</footer>
 
 
 

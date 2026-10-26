@@ -1,62 +1,52 @@
+/* =====================================================================
+   FILETS DE SÉCURITÉ MOBILE (ex-mobile-safety.js)
+   Garantit que la page ne reste jamais verrouillée ni recouverte, même si
+   le modèle 3D est lent ou ne se charge pas (réseau mobile, CDN indisponible).
+   ===================================================================== */
+(function () {
+    'use strict';
+
+    function unlockScrollIfStuck() {
+        if (document.body.style.overflow === 'hidden') {
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+        }
+    }
+
+    // L'intro dure ~6 s après 'loaderFinished' : au-delà, la page doit défiler.
+    document.addEventListener('loaderFinished', function () {
+        setTimeout(unlockScrollIfStuck, 9000);
+    });
+
+    // Dernier recours : si l'intro n'a jamais pu se terminer.
+    window.addEventListener('load', function () {
+        setTimeout(unlockScrollIfStuck, 30000);
+    });
+
+    // Si la scène 3D n'a pas pris la main (échec de chargement), c'est ici
+    // que l'overlay du loader est retiré dès que l'on quitte le haut de page.
+    window.addEventListener('scroll', function () {
+        if (window.__sceneReady) return;
+        var loader = document.querySelector('.loader');
+        if (!loader) return;
+        loader.style.display = window.scrollY > 40 ? 'none' : '';
+    }, { passive: true });
+})();
+
+
 // main.js - désobfusqué
 
 document.addEventListener('DOMContentLoaded', function() {
     
     // =========================================================
-    // 1. NOUVEAU SYSTÈME OPTIMISÉ DE CHARGEMENT DES VIDÉOS
+    // 1. VIDÉOS DES PROJETS
+    //    Avant : chaque clic téléchargeait la vidéo entière via fetch()
+    //    (blob), et un préchargement de TOUTES les vidéos démarrait après
+    //    10 s. Sur téléphone, cela saturait réseau et mémoire (page qui ne
+    //    répond plus, clics sans effet) et entrait en conflit avec le
+    //    gestionnaire de clic plus bas. La vidéo est maintenant chargée
+    //    une seule fois, au clic, par le gestionnaire du bloc "hudCards".
     // =========================================================
-    const videoCards = document.querySelectorAll('.hud-card[data-type="video"]');
-    const screenVideo = document.querySelector('#screen-video source');
-    const videoElement = document.getElementById('screen-video');
-    
-    const videoCache = {}; 
-
-    async function loadVideoBlob(src) {
-        if (videoCache[src]) return videoCache[src]; 
-        try {
-            const response = await fetch(src);
-            const blob = await response.blob();
-            const blobUrl = URL.createObjectURL(blob);
-            videoCache[src] = blobUrl;
-            return blobUrl;
-        } catch (error) {
-            console.error("Erreur de chargement vidéo:", error);
-            return src; 
-        }
-    }
-
-    // Préchargement de la vidéo active uniquement
-    const activeCard = document.querySelector('.hud-card.active[data-type="video"]');
-    if (activeCard) {
-        loadVideoBlob(activeCard.dataset.src).then(blobUrl => {
-            if (screenVideo && videoElement) {
-                screenVideo.src = blobUrl;
-                videoElement.load();
-            }
-        });
-    }
-
-    // Chargement au clic (Lazy-loading)
-    videoCards.forEach(card => {
-        card.addEventListener('click', async () => {
-            const blobUrl = await loadVideoBlob(card.dataset.src);
-            if (screenVideo && videoElement) {
-                screenVideo.src = blobUrl;
-                videoElement.load();
-                videoElement.play();
-            }
-        });
-    });
-
-    // Préchargement fantôme après 10s
-    setTimeout(() => {
-        console.log(">> 10s écoulées : Lancement du préchargement des vidéos en arrière-plan.");
-        videoCards.forEach(card => {
-            if (!videoCache[card.dataset.src]) {
-                loadVideoBlob(card.dataset.src);
-            }
-        });
-    }, 10000);
 
     // =========================================================
     // 2. CONSERVATION DE TES LIENS CLIQUABLES (Panels & Images)
@@ -404,7 +394,7 @@ const _0x2b13e7=['>> ACCESS_DENIED','>> ERROR','>> PLEASE STOP','>> STOP !','>> 
  
  });
 
-const footer = document.querySelector('.cinematic-footer');
+const footer = document.querySelector('.cinematic-footer .copyright');  // le blocage de scroll se fait au niveau du copyright
 let footerLocked = false;
 
 if (footer) {
@@ -417,7 +407,7 @@ if (footer) {
                     document.documentElement.style.overflow = '';
                 }, 500);
             } else if (!entry.isIntersecting) {
-                footerLocked = false; // on quitte le footer -> rearme le piege
+                footerLocked = false; // on quitte le copyright -> rearme le piege
             }
         });
     }, { threshold: 0.5 });
@@ -429,3 +419,76 @@ if (footer) {
 document.addEventListener('loaderFinished', () => {
     document.body.classList.add('loader-done');
 });
+
+/* =====================================================
+   More Projects : contrôles manuels (scroll)
+   - Cappe la hauteur du marquee à celle de la grille Main
+     (afin d'afficher 2 cartes comme la grille en montre 2)
+   - Plus de duplication : l'utilisateur scrolle lui-même
+   ===================================================== */
+(function () {
+    function fitMoreMarquee() {
+        const mainGrid    = document.querySelector('.projects-main-grid');
+        const moreMarquee = document.querySelector('.projects-more-marquee');
+        if (!mainGrid || !moreMarquee) return;
+
+        const mainH = mainGrid.getBoundingClientRect().height;
+        if (mainH < 10) return;                        // pas encore rendu
+
+        const isMobile = window.matchMedia('(max-width: 900px)').matches;
+        const h = isMobile ? Math.min(mainH, 180) : mainH;
+        moreMarquee.style.maxHeight = h + 'px';
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fitMoreMarquee);
+    } else {
+        fitMoreMarquee();
+    }
+    window.addEventListener('load', fitMoreMarquee);
+    window.addEventListener('resize', fitMoreMarquee);
+
+    if (window.ResizeObserver) {
+        const mainGrid = document.querySelector('.projects-main-grid');
+        if (mainGrid) new ResizeObserver(fitMoreMarquee).observe(mainGrid);
+    }
+})();
+
+
+/* =====================================================
+   More Projects : capper la hauteur du marquee à celle
+   de la grille Main, pour que la rangée ne soit pas
+   étirée par le contenu empilé du marquee.
+   ===================================================== */
+(function () {
+    function fitMoreMarquee() {
+        const mainGrid    = document.querySelector('.projects-main-grid');
+        const moreMarquee = document.querySelector('.projects-more-marquee');
+        const morePanel   = document.querySelector('.projects-more');
+        if (!mainGrid || !moreMarquee || !morePanel) return;
+
+        // Hauteur réelle de la grille Main (2 rangées de cartes)
+        const mainH = mainGrid.getBoundingClientRect().height;
+        if (mainH < 10) return; // pas encore rendu
+
+        // On cappe le marquee à la hauteur de la grille Main
+        // (≈ 2 hauteurs de carte Main → affiche ~2 cartes "More")
+        const isMobile = window.matchMedia('(max-width: 900px)').matches;
+        moreMarquee.style.maxHeight = (isMobile ? Math.min(mainH, 180) : mainH) + 'px';
+
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fitMoreMarquee);
+    } else {
+        fitMoreMarquee();
+    }
+    window.addEventListener('load', fitMoreMarquee);
+    window.addEventListener('resize', fitMoreMarquee);
+
+    // Recalcul dès que la grille Main change de taille
+    if (window.ResizeObserver) {
+        const mainGrid = document.querySelector('.projects-main-grid');
+        if (mainGrid) new ResizeObserver(fitMoreMarquee).observe(mainGrid);
+    }
+})();
