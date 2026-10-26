@@ -355,7 +355,7 @@
             'intern.2.desc':  'Mon rôle a été d\'implémenter un système d\'<strong>odométrie visuo-inertielle</strong> sur un drone et d\'effectuer un <strong>benchmarking d\'algorithmes de fusion</strong>. Une plateforme, comprenant un mini-ordinateur Jetson et des capteurs, récupère les topics via une architecture ROS2 pour des algorithmes d\'estimation de pose <strong>EKF, UKF et VIO</strong>.<br><br>Ce projet m\'a permis d\'acquérir une <strong>expérience pratique</strong> du réglage d\'algorithmes de fusion de capteurs. Cet apprentissage se fait uniquement de manière empirique. J\'ai aussi pu concevoir un <strong>système embarqué pour drones</strong>. Le projet est disponible sur GitHub :<br><a href="https://github.com/timm-clv/SensorFusion/tree/main" target="_blank" rel="noopener noreferrer" style="color: #E13C4C; text-decoration: underline; font-weight: bold;">https://github.com/timm-clv/SensorFusion/tree/main</a>',
 
             'edu.1.title': 'École d\'Ingénieurs SeaTech &middot; Master RISE &middot; IHEDN <em class="edu-date">2024-2027</em>',
-            'edu.1.li1':   'Systémique, électronique, robotique terrestre et marine, systèmes embarqués et IA, fusion de capteurs, commande-contrôle, gestion de projet.',
+            'edu.1.li1':   'Systémique, électronique, robotique terrestre et marine, systèmes embarqués et IA, fusion de capteurs, contrôle-commande, gestion de projet.',
             'edu.1.li2':   'Mineure Sécurité Défense : préparation au diplôme de l\'IHEDN,conférences militaires sur l\'innovation technologique et la géostratégie.',
             'edu.1.li3':   'Cours complémentaire en atelier IA : machine learning.',
             'edu.2.title': 'Licence Renforcée en Mathématiques (2 ans) <em class="edu-date">2022-2024</em>',
@@ -369,7 +369,7 @@
             'ref.2.text': 'J\'ai travaillé sur de nombreux projets et travaux pratiques avec Timm à SeaTech. C\'est un partenaire très travailleur et fiable sur lequel on peut toujours compter. Son professionnalisme et ses compétences en mécatronique sont de vrais atouts pour n\'importe quelle équipe. Je le recommanderais sans hésiter.',
             'ref.2.role': 'Partenaire de projet',
 
-            'contact.desc': 'Actuellement à la recherche d\'un <strong>stage de 6 mois</strong> à partir de 2027,<br>Ouvert aux opportunités en commande-contrôle, ingénierie système, IA pour la robotique et, si possible, une thèse CIFRE en entreprise.',
+            'contact.desc': 'Actuellement à la recherche d\'un <strong>stage de 6 mois</strong> à partir de 2027,<br>Ouvert aux opportunités en contrôle-commande, ingénierie système, IA pour la robotique et, si possible, une thèse CIFRE en entreprise.',
             'contact.location': 'FRANCE, Toulon',
 
             'sk.title':        'Compétences & Outils',
@@ -465,7 +465,7 @@
             'sk.domains.7.title': 'Modélisation & Simulation',
             'sk.domains.7.text':  'Gazebo, Simulink, dynamique véhicule et Isaac Sim / Lab / MuJoCo.',
             'sk.domains.7.tools':  'Gazebo · Simulink · MATLAB',
-            'sk.domains.8.title': 'Commande-Contrôle',
+            'sk.domains.8.title': 'Contrôle-Commande',
             'sk.domains.8.text':  'Contrôle de vitesse et de cap (PID).',
             'sk.domains.8.tools':  'MATLAB · Simulink · Python',
             'sk.domains.9.title': 'R&D & Prototypage',
