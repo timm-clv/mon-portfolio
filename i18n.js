@@ -304,9 +304,9 @@
             'title.references': 'RÉFÉRENCES',
             'title.contact':    'CONTACT',
 
-            'about.p1': '<strong>Timm Claverie</strong>, étudiant en cinquième année d\'ingénierie à <strong>SeaTech</strong>, membre du réseau INP (Institut National Polytechnique) et en double diplôme (Master <strong>RISE</strong> à l\'université de Toulon), avec une spécialisation en <strong>mécatronique, robotique et systèmes embarqués autonomes.</strong>',
+            'about.p1': '<strong>Timm Claverie</strong>, étudiant en cinquième année d\'ingénierie à <strong>SeaTech</strong>, membre du réseau INP (Institut National Polytechnique) et en double diplôme (Master <strong>RISE</strong> à l\'université de Toulon), avec une spécialisation en <strong>mécatronique, robotique et systèmes embarqués.</strong>',
             'about.p2': 'Participation à des projets combinant <strong>déplacement de robots, intégration de capteurs, subsea, intelligence artificielle, systèmes embarqués, débogage et simulation.</strong>',
-            'about.p3': '<strong>Profil travailleur, investi et adaptable</strong>, avec pour objectifs d\'approfondir mes connaissances, de contribuer à des projets innovants et de m\'engager sur le <strong>long terme.</strong>',
+            'about.p3': 'Profil <strong>travailleur, investi et adaptable</strong>, avec pour objectifs d\'approfondir mes connaissances, de contribuer à des projets innovants et de m\'engager sur le <strong>long terme.</strong>',
 
             'projects.hint':   'Glissez ou utilisez les flèches pour parcourir les projets, puis cliquez sur un panneau pour l\'ouvrir.',
             'projects.seeAll': 'Voir tous les projets',
