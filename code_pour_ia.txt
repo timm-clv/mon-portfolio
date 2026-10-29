@@ -1209,7 +1209,7 @@ google-site-verification: google52f8545b5796aa46.html
             'prj.4.title': 'RoboCup : NN B-Spline Trajectory Planner',
             'prj.4.desc':  'Optimisation of robot trajectories using a neural network for calculating BÃ©zier curves in Python.',
             'prj.5.label': 'CS GROUP',
-            'prj.5.title': 'Optimisation of Maritime Surveillance',
+            'prj.5.title': 'Optimisation of Maritime Surveillance for CS Group',
             'prj.5.desc':  'Group project combining AI image processing and data management. <br> Role: design of a PostgreSQL data table and a Human-Machine Interface (HMI).',
             'prj.6.label': 'ROS',
             'prj.6.title': 'ROS Programming : Autonomous Turtlebot',
@@ -1436,9 +1436,9 @@ google-site-verification: google52f8545b5796aa46.html
             'title.references': 'RÃ‰FÃ‰RENCES',
             'title.contact':    'CONTACT',
 
-            'about.p1': '<strong>Timm Claverie</strong>, Ã©tudiant en cinquiÃ¨me annÃ©e d\'ingÃ©nierie Ã  <strong>SeaTech</strong>, membre du rÃ©seau INP (Institut National Polytechnique) et en double diplÃ´me (Master <strong>RISE</strong> Ã  l\'universitÃ© de Toulon), avec une spÃ©cialisation en <strong>mÃ©catronique, robotique et systÃ¨mes embarquÃ©s autonomes.</strong>',
+            'about.p1': '<strong>Timm Claverie</strong>, Ã©tudiant en cinquiÃ¨me annÃ©e d\'ingÃ©nierie Ã  <strong>SeaTech</strong>, membre du rÃ©seau INP (Institut National Polytechnique) et en double diplÃ´me (Master <strong>RISE</strong> Ã  l\'universitÃ© de Toulon), avec une spÃ©cialisation en <strong>mÃ©catronique, robotique et systÃ¨mes embarquÃ©s.</strong>',
             'about.p2': 'Participation Ã  des projets combinant <strong>dÃ©placement de robots, intÃ©gration de capteurs, subsea, intelligence artificielle, systÃ¨mes embarquÃ©s, dÃ©bogage et simulation.</strong>',
-            'about.p3': '<strong>Profil travailleur, investi et adaptable</strong>, avec pour objectifs d\'approfondir mes connaissances, de contribuer Ã  des projets innovants et de m\'engager sur le <strong>long terme.</strong>',
+            'about.p3': 'Profil <strong>travailleur, investi et adaptable</strong>, avec pour objectifs d\'approfondir mes connaissances, de contribuer Ã  des projets innovants et de m\'engager sur le <strong>long terme.</strong>',
 
             'projects.hint':   'Glissez ou utilisez les flÃ¨ches pour parcourir les projets, puis cliquez sur un panneau pour l\'ouvrir.',
             'projects.seeAll': 'Voir tous les projets',
@@ -1460,7 +1460,7 @@ google-site-verification: google52f8545b5796aa46.html
             'prj.4.title': 'RoboCup : Planificateur de Trajectoire B-Spline par NN',
             'prj.4.desc':  'Optimisation des trajectoires du robot via un rÃ©seau de neurones pour le calcul de courbes de BÃ©zier en Python.',
             'prj.5.label': 'CS GROUP',
-            'prj.5.title': 'Optimisation de la Surveillance Maritime',
+            'prj.5.title': 'Optimisation de la Surveillance Maritime pour CS Group',
             'prj.5.desc':  'Projet de groupe combinant traitement d\'images par IA et gestion de donnÃ©es. <br> RÃ´le : conception d\'une table de donnÃ©es en PostgreSQL et d\'une Interface Homme-Machine (IHM).',
             'prj.6.label': 'ROS',
             'prj.6.title': 'Programmation ROS : Turtlebot Autonome',
@@ -1487,7 +1487,7 @@ google-site-verification: google52f8545b5796aa46.html
             'intern.2.desc':  'Mon rÃ´le a Ã©tÃ© d\'implÃ©menter un systÃ¨me d\'<strong>odomÃ©trie visuo-inertielle</strong> sur un drone et d\'effectuer un <strong>benchmarking d\'algorithmes de fusion</strong>. Une plateforme, comprenant un mini-ordinateur Jetson et des capteurs, rÃ©cupÃ¨re les topics via une architecture ROS2 pour des algorithmes d\'estimation de pose <strong>EKF, UKF et VIO</strong>.<br><br>Ce projet m\'a permis d\'acquÃ©rir une <strong>expÃ©rience pratique</strong> du rÃ©glage d\'algorithmes de fusion de capteurs. Cet apprentissage se fait uniquement de maniÃ¨re empirique. J\'ai aussi pu concevoir un <strong>systÃ¨me embarquÃ© pour drones</strong>. Le projet est disponible sur GitHub :<br><a href="https://github.com/timm-clv/SensorFusion/tree/main" target="_blank" rel="noopener noreferrer" style="color: #E13C4C; text-decoration: underline; font-weight: bold;">https://github.com/timm-clv/SensorFusion/tree/main</a>',
 
             'edu.1.title': 'Ã‰cole d\'IngÃ©nieurs SeaTech &middot; Master RISE &middot; IHEDN <em class="edu-date">2024-2027</em>',
-            'edu.1.li1':   'SystÃ©mique, Ã©lectronique, robotique terrestre et marine, systÃ¨mes embarquÃ©s et IA, fusion de capteurs, commande-contrÃ´le, gestion de projet.',
+            'edu.1.li1':   'SystÃ©mique, Ã©lectronique, robotique terrestre et marine, systÃ¨mes embarquÃ©s et IA, fusion de capteurs, contrÃ´le-commande, gestion de projet.',
             'edu.1.li2':   'Mineure SÃ©curitÃ© DÃ©fense : prÃ©paration au diplÃ´me de l\'IHEDN,confÃ©rences militaires sur l\'innovation technologique et la gÃ©ostratÃ©gie.',
             'edu.1.li3':   'Cours complÃ©mentaire en atelier IA : machine learning.',
             'edu.2.title': 'Licence RenforcÃ©e en MathÃ©matiques (2 ans) <em class="edu-date">2022-2024</em>',
@@ -1501,7 +1501,7 @@ google-site-verification: google52f8545b5796aa46.html
             'ref.2.text': 'J\'ai travaillÃ© sur de nombreux projets et travaux pratiques avec Timm Ã  SeaTech. C\'est un partenaire trÃ¨s travailleur et fiable sur lequel on peut toujours compter. Son professionnalisme et ses compÃ©tences en mÃ©catronique sont de vrais atouts pour n\'importe quelle Ã©quipe. Je le recommanderais sans hÃ©siter.',
             'ref.2.role': 'Partenaire de projet',
 
-            'contact.desc': 'Actuellement Ã  la recherche d\'un <strong>stage de 6 mois</strong> Ã  partir de 2027,<br>Ouvert aux opportunitÃ©s en commande-contrÃ´le, ingÃ©nierie systÃ¨me, IA pour la robotique et, si possible, une thÃ¨se CIFRE en entreprise.',
+            'contact.desc': 'Actuellement Ã  la recherche d\'un <strong>stage de 6 mois</strong> Ã  partir de 2027,<br>Ouvert aux opportunitÃ©s en contrÃ´le-commande, ingÃ©nierie systÃ¨me, IA pour la robotique et, si possible, une thÃ¨se CIFRE en entreprise.',
             'contact.location': 'FRANCE, Toulon',
 
             'sk.title':        'CompÃ©tences & Outils',
@@ -1597,7 +1597,7 @@ google-site-verification: google52f8545b5796aa46.html
             'sk.domains.7.title': 'ModÃ©lisation & Simulation',
             'sk.domains.7.text':  'Gazebo, Simulink, dynamique vÃ©hicule et Isaac Sim / Lab / MuJoCo.',
             'sk.domains.7.tools':  'Gazebo Â· Simulink Â· MATLAB',
-            'sk.domains.8.title': 'Commande-ContrÃ´le',
+            'sk.domains.8.title': 'ContrÃ´le-Commande',
             'sk.domains.8.text':  'ContrÃ´le de vitesse et de cap (PID).',
             'sk.domains.8.tools':  'MATLAB Â· Simulink Â· Python',
             'sk.domains.9.title': 'R&D & Prototypage',
@@ -1877,12 +1877,12 @@ google-site-verification: google52f8545b5796aa46.html
             </div>
         </div>
 
-        <a href="#zone-1" class="btn-tube btn-contact btn-next-loader">
-            <span class="btn-icon-emoji">âž¡ï¸</span>
-            <span data-i18n="loader.next">Next</span>
-        </a>
-
     </div>
+
+    <a href="#zone-1" class="btn-tube btn-contact btn-next-loader">
+        <span class="btn-icon-emoji">âž¡ï¸</span>
+        <span data-i18n="loader.next">Next</span>
+    </a>
 
     <nav id="main-nav" class="main-nav">
         <ul>
@@ -2149,7 +2149,8 @@ google-site-verification: google52f8545b5796aa46.html
                 <div class="hud-card hud-card-mini" data-type="image" data-src="ref/creditcards.jpg"
                     data-i18n-title="prj.8.title" data-i18n-desc="prj.8.desc"
                     data-title="Machine Learning : Fraud detection"
-                    data-desc="Analysis of the dataset containing credit card transactions. <br> Evaluation methods and model explainability.">
+                    data-desc="Analysis of the dataset containing credit card transactions. <br> Evaluation methods and model explainability."
+                    data-link="ref/report/Atelier IA.pdf">
                     <div class="mini-thumb"><img src="ref/creditcards.jpg" alt=""></div>
                     <div class="mini-body">
                         <span class="mini-id">08</span>
@@ -3936,13 +3937,14 @@ document.addEventListener('loaderFinished', () => {
     z-index: 20;
     background: rgba(0, 0, 0, 0.7);
     padding: 15px;
-    border-left: 3px solid var(--hud-cyan);
+    border-left: 3px solid #8a8f94;   /* trait gris, sans effet nÃ©on */
     backdrop-filter: blur(4px);
 }
 
 .screen-overlay-ui h3 {
     margin: 0;
-    color: var(--hud-cyan);
+    color: #ffffff;                   /* titre blanc */
+    text-shadow: none;                /* pas d'effet nÃ©on */
     font-family: monospace;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -10380,6 +10382,15 @@ export function initTacticalMap() {
     .edu-item::before { left: -27px; }
     .edu-title .edu-date { display: block; margin: 0.25rem 0 0; }
     .edu-cta { margin: 2.6rem 0 0; display: flex; justify-content: center; }
+    .edu-item:not(.edu-club) {
+        padding: 1.1rem 1.1rem;
+        background: rgba(255, 255, 255, 0.25);
+        -webkit-backdrop-filter: blur(3px);
+        backdrop-filter: blur(3px);
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        border-left: none;
+        clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -556,41 +556,43 @@
 /* =================================== */
 
 @media (max-width: 768px) {
-    /* On cible l'ID du titre (h3) */
-    #screen-title {
-        font-size: 0.8rem !important; /* !important force la priorité */
-        line-height: 1.1;
-        margin-bottom: 1px;
-    }
-
-    /* On cible l'ID de la description (p) */
-    #screen-desc {
-        font-size: 0.6rem !important;
-        line-height: 1.3;
-        /* Limite le nombre de caractères visibles si besoin */
-        max-height: 80px; 
-        overflow: hidden;
-    }
-    
-    /* Ajustement du conteneur global pour éviter qu'il ne soit trop grand */
     .screen-overlay-ui {
-        padding: 5px;
-        width: 85%; /* Limite la largeur */
+        left: 6px !important;
+        bottom: 6px !important;
+        width: auto !important;
+        max-width: 58% !important;
+        max-height: 42% !important;
+        padding: 6px 8px !important;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.6) !important;
+    }
+    #screen-title {
+        font-size: 0.62rem !important;
+        line-height: 1.15 !important;
+        margin: 0 0 2px 0 !important;
+    }
+    #screen-desc {
+        font-size: 0.52rem !important;
+        line-height: 1.25 !important;
+        max-height: none !important;
+        min-height: 0;
+        margin: 0 !important;
+        overflow-y: auto;
     }
     #screen-link {
-        /* 1. Taille du texte */
-        font-size: 0.65rem !important; 
-        
-        /* 2. Taille du bouton (Haut/Bas  Gauche/Droite) */
-        padding: 2px 10px !important; 
-        
-        /* 3. Ajustement de l'espace au-dessus */
-        margin-top: 5px !important; 
-        
-        /* Optionnel : Rendre la bordure un peu plus fine sur mobile */
+        align-self: flex-start;
+        margin-top: 4px !important;
+        padding: 3px 9px !important;
+        min-height: 0 !important;
+        min-width: 0 !important;
+        font-size: 0.5rem !important;
+        line-height: 1.2 !important;
+        text-align: center !important;
         border-width: 1px !important;
+        white-space: nowrap;
     }
-
 }
 
 
@@ -919,5 +921,36 @@
     .footer-bottom-content {
         /* Ajoute une marge de sécurité en bas si le texte est trop collé au bord */
         padding-bottom: 20px !important; 
+    }
+}
+
+
+@media (max-width: 768px) {
+    .btn-tube, .btn-sober {
+        padding: 7px 14px !important;
+        font-size: 0.75rem !important;
+        min-height: 0 !important;
+        min-width: 0 !important;
+        line-height: 1.2 !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    .btn-icon.btn-lang,
+    .btn-icon.btn-linkedin {
+        width: 34px !important;
+        height: 34px !important;
+        min-height: 0 !important;
+        min-width: 0 !important;
+        padding: 0 !important;
+    }
+    .btn-icon.btn-lang { font-size: 0.65rem !important; }
+    .btn-icon-emoji {
+        margin-right: 5px !important;
+        transform: none !important;
+        line-height: 1;
+    }
+    .btn-next-loader {
+        right: 16px !important;
+        bottom: calc(env(safe-area-inset-bottom, 0px) + 18px) !important;
     }
 }

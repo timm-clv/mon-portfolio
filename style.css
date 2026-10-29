@@ -591,12 +591,11 @@ Ne s'applique qu'à la zone 1 et à la zone 2.
     font-weight: 500;
     text-decoration: none;
     cursor: pointer;
-    
-    /* Bordure commune (même si l'une est transparente au début) */
     border: 1.5px solid var(--neon-red);
-    
-    /* Transition pour le grossissement et la couleur */
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
 }
 
 .btn-icon-emoji {

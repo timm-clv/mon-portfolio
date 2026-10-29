@@ -773,10 +773,6 @@ a, button, .btn-icon, .btn-tube, .btn-sober, .btn-filter,
 
 /* 4. Cibles tactiles d'au moins 44 px (recommandation Apple / WCAG). */
 @media (pointer: coarse) {
-    .btn-icon, .btn-tube, .btn-sober, .btn-filter {
-        min-height: 44px;
-        min-width: 44px;
-    }
     #main-nav a, .main-nav li a {
         display: inline-flex;
         align-items: center;
